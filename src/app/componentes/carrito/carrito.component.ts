@@ -1,0 +1,61 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-carrito',
+  templateUrl: './carrito.component.html',
+  styleUrls: ['./carrito.component.css']
+})
+export class CarritoComponent implements OnInit {
+
+  constructor() { }
+  cantidad = 1;
+  productosCarrito= JSON.parse(localStorage.getItem("carrito")!);
+  mensaje="";
+  total= this.calcularTotal();
+  ngOnInit(): void {
+  this.formatoMensaje();
+
+  }
+  mas() {
+    this.cantidad += 1;
+
+  }
+
+  menos() {
+    this.cantidad -= 1;
+  }
+
+  eliminarItem(item:any){
+    for (let i in this.productosCarrito){
+      if (this.productosCarrito[i]==item){
+        this.productosCarrito.splice(i,1);
+        localStorage.setItem("carrito", JSON.stringify(this.productosCarrito));
+      }
+    }
+    this.total=this.calcularTotal();
+  }
+
+  formatoMensaje(){
+    this.mensaje=`
+    Hola Julieta!
+    
+    Te queria encargar`;
+    for (let i in this.productosCarrito){
+      this.mensaje+=this.productosCarrito[i].nombre;
+    }
+    this.mensaje+=" Gracias!";
+  }
+
+  enviarWpp(){
+    this.formatoMensaje();
+  }
+
+  calcularTotal(){
+    let total=0;
+    for (let producto of this.productosCarrito){
+      total+= parseFloat(producto.precio);
+    }
+    return total;
+  }
+
+}

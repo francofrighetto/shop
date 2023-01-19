@@ -1,0 +1,16 @@
+.redes {
+    gap: 10px;
+    margin-right: 20px;
+}
+
+.bi-instagram {
+    color: black;
+}
+
+.bi-facebook {
+    color: blue;
+}
+
+.bi-whatsapp {
+    color: green;
+}

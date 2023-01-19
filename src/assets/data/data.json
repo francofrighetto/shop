@@ -1,0 +1,36 @@
+{
+    "productos": [{
+            "nombre": "Labial",
+            "descripcion": "descripcion1",
+            "stock": 3,
+            "precio": 100,
+            "fotos": [
+                "/assets/img/labiales-varios.jpg",
+                "/assets/img/rimel.jpg",
+                "/assets/img/paquete-completo.jpg",
+                "/assets/img/producto2.jpg"
+            ],
+            "detalle": {
+                "colores": [
+                    "Rojo", "Negro"
+                ],
+                "capacidad": "10ml",
+                "categoria": "Labial"
+            }
+        },
+        {
+            "nombre": "Rimel",
+            "descripcion": "descripcion2",
+            "stock": 1,
+            "precio": 521.2,
+            "fotos": ["/assets/img/rimel.jpg"]
+        },
+        {
+            "nombre": "Paquete completo",
+            "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
+            "stock": 2,
+            "precio": 1234,
+            "fotos": ["/assets/img/paquete-completo.jpg"]
+        }
+    ]
+}

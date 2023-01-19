@@ -1,0 +1,57 @@
+<table class="table table-striped container">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of productosCarrito">
+            <td>{{producto.nombre}}</td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]" (click)="menos()">
+                          <span class="">-</span>
+                    </button>
+                    </span>
+                    <input type="text" name="quant[2]" class="form-control input-number" min="1" max="3" id="input-prod1" [(ngModel)]="cantidad">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]" (click)="mas()">
+                            <span class="">+</span>
+                    </button>
+                    </span>
+                </div>
+                <!-- <div class='ctrl'>
+                    <div class='ctrl-button ctrl-button-decrement'>-</div>
+                    <div class='ctrl-counter'>
+                        <input class='ctrl-counter-input' maxlength='10' type='text' value='0'>
+                        <div class='ctrl-counter-num'>0</div>
+                    </div>
+                    <div class='ctrl-button ctrl-button-increment'>+</div>
+                </div> -->
+            </td>
+            <td>${{producto.precio}}</td>
+            <td>
+                <button class="btn btn-primary" (click)="eliminarItem(producto)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                  </svg>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-8">
+                <a href="https://api.whatsapp.com/send?phone=3534273353&text={{mensaje}}">
+                    <button class="btn btn-success" (click)="enviarWpp()">Confirmar pedido por WhatsApp</button>
+                </a>
+            </td>
+            <td class="col-4">Total: {{total}}</td>
+
+        </tr>
+
+    </tbody>
+</table>
+<!-- <a href="https://api.whatsapp.com/send?phone=3534273353&text=Hola,%20¿Qué%20tal%20%estás?" style="font-size:20px;padding:5px 12px;border-radius:5px;background-color:#189D0E;color:white;text-shadow:none;"> ›› Mensaje de WhatsApp </a> -->
