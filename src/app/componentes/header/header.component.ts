@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarritoService } from 'src/app/servicios/carrito.service';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-  carrito:any;
-  cantCarrito:number=0;
+  constructor(public carritoService:CarritoService ) {}
 
   ngOnInit(): void {
-    this.calcTamañoCarrito();
-  }
-
-  calcTamañoCarrito():void {
-    this.carrito = JSON.parse(localStorage.getItem("carrito")!);
-    this.cantCarrito = this.carrito.length;
   }
 
 }

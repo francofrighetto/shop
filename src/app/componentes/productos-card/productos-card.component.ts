@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CarritoService } from 'src/app/servicios/carrito.service';
 import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
 })
 export class ProductosCardComponent implements OnInit {
 
-  constructor(private manejoJson: ManejoJsonService) { }
+  constructor(private manejoJson: ManejoJsonService, private carritoService:CarritoService) { }
   productos: any;
   carrito: any;
   // @Output() public producto = new EventEmitter<any>();
@@ -23,18 +24,7 @@ export class ProductosCardComponent implements OnInit {
     }
   }
   agregar(producto: any) {
-    this.carrito = JSON.parse(localStorage.getItem("carrito")!);
-    for (let i in this.carrito) {
-      console.log(this.carrito[i]);
-      console.log(producto);
-      console.log("-----------");
-
-      if (this.carrito[i].nombre == producto.nombre) {
-        return
-      }
-    }
-    this.carrito.push(producto);
-    localStorage.setItem("carrito", JSON.stringify(this.carrito));
+    
   }
 
 }

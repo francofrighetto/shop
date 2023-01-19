@@ -1,5 +1,7 @@
-import { Component, OnInit,  Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { CarritoService } from 'src/app/servicios/carrito.service';
 import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
+import { Producto } from 'src/app/clases/Producto';
 
 @Component({
   selector: 'app-ver-mas',
@@ -8,23 +10,25 @@ import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
 })
 export class VerMasComponent implements OnInit {
 
-  constructor(private manejoJson: ManejoJsonService ) { }
+  constructor(private manejoJson: ManejoJsonService, private carritoService:CarritoService) { }
   // producto:any;
-  imagen="";
+  imagen = "";
   // @Input() producto:any;
-  producto:any;
+  producto!: Producto;
   ngOnInit(): void {
     this.manejoJson.getProductos().subscribe(
       data => {
-        this.producto=data.productos[0];
-    this.imagen = "../../.."+ this.producto.fotos[0];
-console.log(this.producto);
+        this.producto = data.productos[0];
+        this.imagen = "../../.." + this.producto.fotos[0];
       }
     )
   }
   // imagen="../../../assets/img/producto2.jpg";
 
-  cambiarImagen(ruta:any){
-    this.imagen=ruta;
+  cambiarImagen(ruta: any) {
+    this.imagen = ruta;
+  }
+  agregarProducto(producto: Producto) {
+    this.carritoService.agregarProducto(producto);
   }
 }
