@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CarritoService } from 'src/app/servicios/carrito.service';
 import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
 import { Producto } from 'src/app/clases/Producto';
+import { ProductoService } from 'src/app/servicios/producto.service';
 
 @Component({
   selector: 'app-ver-mas',
@@ -10,12 +11,15 @@ import { Producto } from 'src/app/clases/Producto';
 })
 export class VerMasComponent implements OnInit {
 
-  constructor(private manejoJson: ManejoJsonService, private carritoService:CarritoService) { }
+  constructor(private manejoJson: ManejoJsonService, private carritoService:CarritoService,
+    private productoService:ProductoService) { }
   // producto:any;
   imagen = "";
   // @Input() producto:any;
   producto!: Producto;
   ngOnInit(): void {
+    this.producto = this.productoService.getProductoId(1);
+
     this.manejoJson.getProductos().subscribe(
       data => {
         this.producto = data.productos[0];
@@ -31,4 +35,5 @@ export class VerMasComponent implements OnInit {
   agregarProducto(producto: Producto) {
     this.carritoService.agregarProducto(producto);
   }
+
 }

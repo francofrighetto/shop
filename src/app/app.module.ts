@@ -20,7 +20,7 @@ import { CategoriasComponent } from './componentes/categorias/categorias.compone
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
   { path: 'productos', component: ProductosCardComponent },
-  {path: 'ver-mas', component: VerMasComponent },
+  {path: 'ver-mas/:id', component: VerMasComponent },
   {path: 'carrito', component: CarritoComponent },
   { path: '**', component: ProductosCardComponent }
 

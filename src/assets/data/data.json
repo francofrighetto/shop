@@ -1,5 +1,6 @@
 {
     "productos": [{
+            "id":1,
             "nombre": "Labial",
             "descripcion": "descripcion1",
             "stock": 3,
@@ -19,6 +20,7 @@
             }
         },
         {
+            "id":2,
             "nombre": "Rimel",
             "descripcion": "descripcion2",
             "stock": 1,
@@ -26,6 +28,7 @@
             "fotos": ["/assets/img/rimel.jpg"]
         },
         {
+            "id":3,
             "nombre": "Paquete completo",
             "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
             "stock": 2,
