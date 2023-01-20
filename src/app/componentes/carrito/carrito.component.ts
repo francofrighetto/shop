@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Producto } from 'src/app/clases/Producto';
+import { CarritoService } from 'src/app/servicios/carrito.service';
 
 @Component({
   selector: 'app-carrito',
@@ -7,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarritoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private carritoService:CarritoService ) {}
   cantidad = 1;
-  productosCarrito= JSON.parse(localStorage.getItem("carrito")!);
+  productosCarrito= this.carritoService.getProductos();
   mensaje="";
   total= this.calcularTotal();
   ngOnInit(): void {
@@ -25,14 +27,17 @@ export class CarritoComponent implements OnInit {
     this.cantidad -= 1;
   }
 
-  eliminarItem(item:any){
-    for (let i in this.productosCarrito){
-      if (this.productosCarrito[i]==item){
-        this.productosCarrito.splice(i,1);
-        localStorage.setItem("carrito", JSON.stringify(this.productosCarrito));
-      }
-    }
-    this.total=this.calcularTotal();
+  eliminarItem(item:Producto){
+    // for (let i in this.productosCarrito){
+    //   if (this.productosCarrito[i]==item){
+    //     this.productosCarrito.splice(i,1);
+    //     localStorage.setItem("carrito", JSON.stringify(this.productosCarrito));
+    //   }
+    // }
+    // this.total=this.calcularTotal();
+    this.carritoService.eliminarProducto(item);
+    this.productosCarrito= this.carritoService.getProductos();
+    this.total= this.calcularTotal();
   }
 
   formatoMensaje(){

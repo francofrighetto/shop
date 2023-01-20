@@ -7,7 +7,7 @@ import { Carrito } from '../clases/Carrito';
 })
 export class CarritoService {
   public cantidadProductos : number = 0;
-  carrito! : Carrito;
+  // carrito!: Carrito;
   constructor() {
     if (localStorage.getItem("carrito")==null || localStorage.getItem("carrito") == undefined){
       localStorage.setItem("carrito","[]");
@@ -15,21 +15,40 @@ export class CarritoService {
     this.actualizarCarrito();
 
    }
-
+   
   actualizarCarrito() {
     this.cantidadProductos=JSON.parse(localStorage.getItem("carrito")!).length;
   }
 
+  getProductos(){
+    return JSON.parse(localStorage.getItem("carrito")!);
+  }
+
   agregarProducto(producto:Producto){
-    this.carrito = JSON.parse(localStorage.getItem("carrito")!);
-    for (let i in this.carrito) {
-      if (this.carrito.productos[ parseInt(i)].nombre == producto.nombre) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")!);
+    for (let i in  carrito) {
+      if ( carrito[i].nombre == producto.nombre) {
         // falta alerta de q ya existe
         return
       }
     }
-    this.carrito.productos.push(producto);
-    localStorage.setItem("carrito", JSON.stringify(this.carrito));
+    carrito.push(producto);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
     this.actualizarCarrito();
+  }
+
+  eliminarProducto(producto:Producto){
+    console.log("a");
+    let carrito = JSON.parse(localStorage.getItem("carrito")!);
+    for (let i in  carrito) {
+      if ( carrito[i].nombre == producto.nombre) {
+        carrito.splice(i,1);
+        break;
+      }
+    }
+    console.log(carrito);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    this.actualizarCarrito();
+
   }
 }

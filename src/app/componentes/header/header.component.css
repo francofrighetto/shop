@@ -17,4 +17,10 @@
 
 .cantCarrito{
     position: absolute;
+    background-color: rgb(255, 121, 255);
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    padding-left: 6px;
+    color: black;
 }
