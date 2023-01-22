@@ -16,6 +16,7 @@ export class CarritoComponent implements OnInit {
   total= this.calcularTotal();
   ngOnInit(): void {
   this.formatoMensaje();
+  console.log(this.productosCarrito);
 
   }
   mas() {
@@ -41,12 +42,11 @@ export class CarritoComponent implements OnInit {
   }
 
   formatoMensaje(){
-    this.mensaje=`
-    Hola Julieta!
-    
-    Te queria encargar`;
+    this.mensaje=`Hola Julieta! Te queria encargar: %0A`;
     for (let i in this.productosCarrito){
-      this.mensaje+=this.productosCarrito[i].nombre;
+      console.log(this.productosCarrito[i].id);
+      console.log(document.getElementById("input-prod"+this.productosCarrito[i].id))
+      this.mensaje+=this.productosCarrito[i].nombre + ": " + "%0A";
     }
     this.mensaje+=" Gracias!";
   }
