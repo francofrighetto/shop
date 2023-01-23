@@ -6,14 +6,14 @@
     box-sizing: border-box;
 }
 
-body {
+/* body {
     min-height: 100vh;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #171717;
-}
+} */
 
 :root {
     --secondary: linear-gradient(221deg, #8743ff, #4136f1 60%);
@@ -29,7 +29,7 @@ body.dark {
     --card: #0d0d0d;
 }
 
-.theme-toggle {
+/* .theme-toggle {
     position: absolute;
     top: 13px;
     right: 10px;
@@ -42,16 +42,13 @@ body.dark {
     border-radius: 10%;
     cursor: pointer;
     color: #fff;
-}
+} */
 
 .card {
     height: auto;
-    background: var(--card);
     border-radius: 10px;
     font-family: sans-serif;
-    display: flex;
     color: var(--text);
-    align-items: flex-start;
 }
 
 .cuerpo {
@@ -94,6 +91,7 @@ body.dark {
 
 .card__shop__price {
     color: var(--price);
+    font-size: large;
 }
 
 .card__shop__action {
@@ -113,6 +111,11 @@ body.dark {
 }
 
 .container {
-    width: 70%;
+    width: 80%;
     margin: auto;
+    gap: 20px;
+}
+
+.botones {
+    gap: 10px;
 }

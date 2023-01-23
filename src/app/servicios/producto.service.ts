@@ -20,15 +20,21 @@ export class ProductoService {
   }
 
 
-  getProductoId(id:number):Producto{
+  getProductoId(id:number){
+    // let a:Producto=new Producto;
+    let a="";
+
     this.manejoJSON.getProductos().subscribe(data=>{
+
       for (let i =0; i<data.productos.length;i++){
         if (data.productos[i].id==id){
-          return data.productos[i];
+          a= "a";
         }
       }
+    return a;
+
     })
-    return new Producto;
+
   }
 
 }

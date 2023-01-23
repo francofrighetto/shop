@@ -15,17 +15,21 @@ export class CarritoComponent implements OnInit {
   mensaje="";
   total= this.calcularTotal();
   ngOnInit(): void {
-  this.formatoMensaje();
-  console.log(this.productosCarrito);
 
   }
-  mas() {
-    this.cantidad += 1;
+  mas(producto:Producto) {
 
+    if (producto.cantidadCarro != producto.stock && producto.stock!=1){
+      producto.cantidadCarro++;
+      this.total=this.calcularTotal();
+    }
   }
 
-  menos() {
-    this.cantidad -= 1;
+  menos(producto:Producto) {
+    if (producto.cantidadCarro!=1){
+    producto.cantidadCarro--;
+    this.total=this.calcularTotal();
+  }
   }
 
   eliminarItem(item:Producto){
@@ -44,11 +48,10 @@ export class CarritoComponent implements OnInit {
   formatoMensaje(){
     this.mensaje=`Hola Julieta! Te queria encargar: %0A`;
     for (let i in this.productosCarrito){
-      console.log(this.productosCarrito[i].id);
-      console.log(document.getElementById("input-prod"+this.productosCarrito[i].id))
-      this.mensaje+=this.productosCarrito[i].nombre + ": " + "%0A";
+      this.mensaje+=this.productosCarrito[i].nombre + ": "+this.productosCarrito[i].cantidadCarro  + " unidad/es ($"+this.productosCarrito[i].cantidadCarro*this.productosCarrito[i].precio +")%0A";
     }
-    this.mensaje+=" Gracias!";
+    this.mensaje += "Total: "+this.total+"%0A";
+    this.mensaje+="Gracias!";
   }
 
   enviarWpp(){
@@ -58,9 +61,16 @@ export class CarritoComponent implements OnInit {
   calcularTotal(){
     let total=0;
     for (let producto of this.productosCarrito){
-      total+= parseFloat(producto.precio);
+      total+= parseFloat(producto.precio)*parseFloat(producto.cantidadCarro);
     }
     return total;
+  }
+
+  vaciarTodo(){
+    localStorage.setItem("carrito","[]");
+    this.productosCarrito = JSON.parse(localStorage.getItem("carrito")!);
+    this.carritoService.actualizarCarrito();
+    this.total=this.calcularTotal();
   }
 
 }

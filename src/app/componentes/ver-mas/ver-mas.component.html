@@ -8,8 +8,8 @@
                 </div>
             </div>
             <div class="img-select">
-                <div class="img-item" (click)="cambiarImagen('../../..{{foto}}')" *ngFor="let foto of producto.fotos">
-                    <a href="">
+                <div class="img-item" (click)="cambiarImagen(foto)" *ngFor="let foto of producto.fotos">
+                    <a class="sub-fotos">
                         <img src="../../..{{foto}}" alt="Producto">
                     </a>
                 </div>
@@ -53,10 +53,24 @@
             </div>
 
             <div class="purchase-info">
-                <input type="number" min="1" value="1" max="{{producto.stock}}">
-                <button type="button" class="btn mt-3" (click)="agregarProducto(producto)">
-            Agregar al carrito <i class = "fas fa-shopping-cart"></i>
-          </button>
+                <!-- <input type="number" min="1" value="{{cantidadCarrito}}" max="{{producto.stock}}"> -->
+                
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]" (click)="menos(producto)">
+                          <span class="">-</span>
+                    </button>
+                    </span>
+                    <input type="text" name="quant[2]" class="form-control input-number" min="1" max="3" value="{{cantidadCarrito}}">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]" (click)="mas(producto)">
+                            <span class="">+</span>
+                    </button>
+                    </span>
+                </div>
+                <button type="button" class="btn ms-4" (click)="agregarProducto(producto)">
+                    Agregar al carrito <i class="fas fa-shopping-cart"></i>
+                </button>
                 <!-- <button type="button" class="btn">Compare</button> -->
             </div>
 

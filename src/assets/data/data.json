@@ -24,14 +24,62 @@
             "nombre": "Rimel",
             "descripcion": "descripcion2",
             "stock": 1,
-            "precio": 521.2,
+            "precio": 521.20,
             "fotos": ["/assets/img/rimel.jpg"]
         },
         {
             "id":3,
             "nombre": "Paquete completo",
             "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
-            "stock": 2,
+            "stock": 5,
+            "precio": 1234,
+            "fotos": ["/assets/img/paquete-completo.jpg"]
+        },
+        {
+            "id":2,
+            "nombre": "Rimel",
+            "descripcion": "descripcion2",
+            "stock": 1,
+            "precio": 521.20,
+            "fotos": ["/assets/img/rimel.jpg"]
+        },
+        {
+            "id":3,
+            "nombre": "Paquete completo",
+            "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
+            "stock": 5,
+            "precio": 1234,
+            "fotos": ["/assets/img/paquete-completo.jpg"]
+        },
+        {
+            "id":2,
+            "nombre": "Rimel",
+            "descripcion": "descripcion2",
+            "stock": 1,
+            "precio": 521.20,
+            "fotos": ["/assets/img/rimel.jpg"]
+        },
+        {
+            "id":3,
+            "nombre": "Paquete completo",
+            "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
+            "stock": 5,
+            "precio": 1234,
+            "fotos": ["/assets/img/paquete-completo.jpg"]
+        },
+        {
+            "id":2,
+            "nombre": "Rimel",
+            "descripcion": "descripcion2",
+            "stock": 1,
+            "precio": 521.20,
+            "fotos": ["/assets/img/rimel.jpg"]
+        },
+        {
+            "id":3,
+            "nombre": "Paquete completo",
+            "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
+            "stock": 5,
             "precio": 1234,
             "fotos": ["/assets/img/paquete-completo.jpg"]
         }

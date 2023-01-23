@@ -30,7 +30,9 @@ export class ProductosCardComponent implements OnInit {
     }
     this.productoService.getProductoId(1);
   }
-  agregar(producto: any) {
+  agregar(producto: Producto) {
+    producto.cantidadCarro=1;
+
     this.carritoService.agregarProducto(producto);
   }
 

@@ -7,4 +7,5 @@ export class Producto {
     descripcion! : string;
     fotos! : string[];
     detalle! : Detalle;
+    cantidadCarro!:number;
 }
