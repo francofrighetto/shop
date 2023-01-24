@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { VerMasComponent } from './componentes/ver-mas/ver-mas.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoriasComponent } from './componentes/categorias/categorias.component';
+import { OfertasComponent } from './componentes/ofertas/ofertas.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'productos', component: ProductosCardComponent },
   {path: 'ver-mas/:id', component: VerMasComponent },
   {path: 'carrito', component: CarritoComponent },
+  {path: 'ofertas', component: OfertasComponent },
   { path: '**', component: ProductosCardComponent }
 
 ];
@@ -35,7 +37,8 @@ const routes: Routes = [
     CarritoComponent,
     ProductosCardComponent,
     VerMasComponent,
-    CategoriasComponent    
+    CategoriasComponent,
+    OfertasComponent    
   ],
   imports: [
     BrowserModule,

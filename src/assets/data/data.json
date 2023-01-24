@@ -17,71 +17,39 @@
                 ],
                 "capacidad": "10ml",
                 "categoria": "Labial"
+            },
+            "descuento":10
+        },
+        {
+            "id":2,
+            "nombre": "Rimel",
+            "descripcion": "descripcion2",
+            "stock": 1,
+            "precio": 521.20,
+            "fotos": ["/assets/img/rimel.jpg"],
+            "detalle": {
+                "colores": [
+                    "Rojo", "Negro"
+                ],
+                "capacidad": "10ml",
+                "categoria": "Labial"
+            },
+            "descuento":0
+        },
+        {
+            "id":3,
+            "nombre": "Paquete completo",
+            "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
+            "stock": 5,
+            "precio": 1234,
+            "fotos": ["/assets/img/paquete-completo.jpg"],
+            "detalle": {
+                "colores": [
+                    "Rojo", "Negro"
+                ],
+                "capacidad": "10ml",
+                "categoria": "Labial"
             }
-        },
-        {
-            "id":2,
-            "nombre": "Rimel",
-            "descripcion": "descripcion2",
-            "stock": 1,
-            "precio": 521.20,
-            "fotos": ["/assets/img/rimel.jpg"]
-        },
-        {
-            "id":3,
-            "nombre": "Paquete completo",
-            "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
-            "stock": 5,
-            "precio": 1234,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
-        },
-        {
-            "id":2,
-            "nombre": "Rimel",
-            "descripcion": "descripcion2",
-            "stock": 1,
-            "precio": 521.20,
-            "fotos": ["/assets/img/rimel.jpg"]
-        },
-        {
-            "id":3,
-            "nombre": "Paquete completo",
-            "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
-            "stock": 5,
-            "precio": 1234,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
-        },
-        {
-            "id":2,
-            "nombre": "Rimel",
-            "descripcion": "descripcion2",
-            "stock": 1,
-            "precio": 521.20,
-            "fotos": ["/assets/img/rimel.jpg"]
-        },
-        {
-            "id":3,
-            "nombre": "Paquete completo",
-            "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
-            "stock": 5,
-            "precio": 1234,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
-        },
-        {
-            "id":2,
-            "nombre": "Rimel",
-            "descripcion": "descripcion2",
-            "stock": 1,
-            "precio": 521.20,
-            "fotos": ["/assets/img/rimel.jpg"]
-        },
-        {
-            "id":3,
-            "nombre": "Paquete completo",
-            "descripcion": "Aprovecha este paquete completo que trae crema limpiadora, humectante y una mas",
-            "stock": 5,
-            "precio": 1234,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
         }
     ]
 }

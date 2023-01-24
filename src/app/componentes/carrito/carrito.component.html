@@ -10,7 +10,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let producto of productosCarrito">
-            <td>{{producto.nombre}}</td>
+            <td><a routerLink="../ver-mas/{{producto.id}}">{{producto.nombre}}</a></td>
             <td>
                 <div class="input-group">
                     <span class="input-group-btn">

@@ -9,30 +9,33 @@ import { CarritoService } from 'src/app/servicios/carrito.service';
 })
 export class CarritoComponent implements OnInit {
 
-  constructor(private carritoService:CarritoService ) {}
+  constructor(private carritoService: CarritoService) { }
   cantidad = 1;
-  productosCarrito= this.carritoService.getProductos();
-  mensaje="";
-  total= this.calcularTotal();
+  productosCarrito = this.carritoService.getProductos();
+  mensaje = "";
+  total = this.calcularTotal();
   ngOnInit(): void {
 
   }
-  mas(producto:Producto) {
+  mas(producto: Producto) {
 
-    if (producto.cantidadCarro != producto.stock && producto.stock!=1){
+    if (producto.cantidadCarro != producto.stock) {
       producto.cantidadCarro++;
-      this.total=this.calcularTotal();
+      this.total = this.calcularTotal();
     }
+    this.carritoService.actualizarCarrito(producto);
   }
 
-  menos(producto:Producto) {
-    if (producto.cantidadCarro!=1){
-    producto.cantidadCarro--;
-    this.total=this.calcularTotal();
-  }
+  menos(producto: Producto) {
+    if (producto.cantidadCarro != 1) {
+      producto.cantidadCarro--;
+      this.total = this.calcularTotal();
+    }
+    this.carritoService.actualizarCarrito(producto);
+
   }
 
-  eliminarItem(item:Producto){
+  eliminarItem(item: Producto) {
     // for (let i in this.productosCarrito){
     //   if (this.productosCarrito[i]==item){
     //     this.productosCarrito.splice(i,1);
@@ -41,36 +44,35 @@ export class CarritoComponent implements OnInit {
     // }
     // this.total=this.calcularTotal();
     this.carritoService.eliminarProducto(item);
-    this.productosCarrito= this.carritoService.getProductos();
-    this.total= this.calcularTotal();
+    this.productosCarrito = this.carritoService.getProductos();
+    this.total = this.calcularTotal();
   }
 
-  formatoMensaje(){
-    this.mensaje=`Hola Julieta! Te queria encargar: %0A`;
-    for (let i in this.productosCarrito){
-      this.mensaje+=this.productosCarrito[i].nombre + ": "+this.productosCarrito[i].cantidadCarro  + " unidad/es ($"+this.productosCarrito[i].cantidadCarro*this.productosCarrito[i].precio +")%0A";
+  formatoMensaje() {
+    this.mensaje = `Hola Julieta! Te queria encargar: %0A`;
+    for (let i in this.productosCarrito) {
+      this.mensaje += this.productosCarrito[i].nombre + ": " + this.productosCarrito[i].cantidadCarro + " unidad/es ($" + this.productosCarrito[i].cantidadCarro * this.productosCarrito[i].precio + ")%0A";
     }
-    this.mensaje += "Total: "+this.total+"%0A";
-    this.mensaje+="Gracias!";
+    this.mensaje += "Total: " + this.total + "%0A";
+    this.mensaje += "Gracias!";
   }
 
-  enviarWpp(){
+  enviarWpp() {
     this.formatoMensaje();
   }
 
-  calcularTotal(){
-    let total=0;
-    for (let producto of this.productosCarrito){
-      total+= parseFloat(producto.precio)*parseFloat(producto.cantidadCarro);
+  calcularTotal() {
+    let total = 0;
+    for (let producto of this.productosCarrito) {
+      total += parseFloat(producto.precio) * parseFloat(producto.cantidadCarro);
     }
     return total;
   }
 
-  vaciarTodo(){
-    localStorage.setItem("carrito","[]");
+  vaciarTodo() {
+    this.carritoService.eliminarTodo();
     this.productosCarrito = JSON.parse(localStorage.getItem("carrito")!);
-    this.carritoService.actualizarCarrito();
-    this.total=this.calcularTotal();
+    this.total = this.calcularTotal();
   }
 
 }

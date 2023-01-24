@@ -12,13 +12,15 @@ export class ProductoService {
   constructor(private http:HttpClient, private manejoJSON:ManejoJsonService) { 
   }
 
-  getProductos():Producto{
-    this.manejoJSON.getProductos().subscribe(data=>{
-      return data.productos;
-    })
-    return new Producto;
-  }
+  // getProductos(){
+  //   this.manejoJSON.getProductos().forEach(element => {
+  //     return element.productos;
+  //   })
+  // }
 
+  getProductos(){
+    return this.manejoJSON.getProductos();
+  }
 
   getProductoId(id:number){
     // let a:Producto=new Producto;

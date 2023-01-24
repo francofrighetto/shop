@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Producto } from '../clases/Producto';
 import { Carrito } from '../clases/Carrito';
 
+import Swal from 'sweetalert2';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +14,12 @@ export class CarritoService {
     if (localStorage.getItem("carrito")==null || localStorage.getItem("carrito") == undefined){
       localStorage.setItem("carrito","[]");
     }
-    this.actualizarCarrito();
+    this.actualizarCantidadCarrito();
 
    }
    
-  actualizarCarrito() {
+  actualizarCantidadCarrito() {
+
     this.cantidadProductos=JSON.parse(localStorage.getItem("carrito")!).length;
   }
 
@@ -28,17 +31,16 @@ export class CarritoService {
     let carrito = JSON.parse(localStorage.getItem("carrito")!);
     for (let i in  carrito) {
       if ( carrito[i].nombre == producto.nombre) {
-        // falta alerta de q ya existe
-        return
+        this.alertExiste();
       }
     }
     carrito.push(producto);
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    this.actualizarCarrito();
+    this.actualizarCantidadCarrito();
+    this.alertAgregadoExito();
   }
 
   eliminarProducto(producto:Producto){
-    console.log("a");
     let carrito = JSON.parse(localStorage.getItem("carrito")!);
     for (let i in  carrito) {
       if ( carrito[i].nombre == producto.nombre) {
@@ -46,10 +48,50 @@ export class CarritoService {
         break;
       }
     }
-    console.log(carrito);
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    this.actualizarCarrito();
+    this.actualizarCantidadCarrito();
 
+  }
+
+  actualizarCarrito(producto:Producto){
+    let carrito = JSON.parse(localStorage.getItem("carrito")!);
+    for (let i in  carrito) {
+      if ( carrito[i].nombre == producto.nombre) {
+        carrito[i].cantidadCarro=producto.cantidadCarro;
+        break
+      }
+    }
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    this.actualizarCantidadCarrito();
+  }
+
+  eliminarTodo(){
+    localStorage.setItem("carrito", "[]");
+    this.actualizarCantidadCarrito();
+  }
+
+  private alertAgregadoExito(){
+    Swal.fire(
+      'Carrito de compras',
+      'El artículo seleccionado se agrego exitosamente en su carrito de compras.',
+      'success'
+    );
+  }
+
+  private alertExiste(){
+    Swal.fire(
+      'Carrito de compras',
+      'El artículo seleccionado ya se encuentra en su carrito de compras.',
+      'error'
+    );
+  }
+
+  private alertEliminadoExito(){
+    Swal.fire(
+      'Carrito de compras',
+      'El artículo seleccionado se elimino exitosamente de su carrito de compras.',
+      'success'
+    );
   }
 
 }

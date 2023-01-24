@@ -5,6 +5,8 @@ import { CarritoService } from 'src/app/servicios/carrito.service';
 import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-productos-card',
   templateUrl: './productos-card.component.html',
@@ -16,7 +18,7 @@ export class ProductosCardComponent implements OnInit {
      private carritoService:CarritoService,
      private productoService:ProductoService) { }
   productos!: Producto[];
-  carrito: any;
+  carrito!: Carrito;
   // @Output() public producto = new EventEmitter<any>();
   ngOnInit(): void {
     this.manejoJson.getProductos().subscribe(
@@ -24,6 +26,7 @@ export class ProductosCardComponent implements OnInit {
         this.productos = data.productos;
       }
     )
+
     // this.productos[] = this.productoService.getProductos();
     if (localStorage.getItem("carrito") == undefined) {
       localStorage.setItem("carrito", "[]");
@@ -32,8 +35,22 @@ export class ProductosCardComponent implements OnInit {
   }
   agregar(producto: Producto) {
     producto.cantidadCarro=1;
-
-    this.carritoService.agregarProducto(producto);
+    this.carritoService.agregarProducto(producto)
   }
 
+  private alertExito(){
+    Swal.fire(
+      'Carrito de compras',
+      'El artículo seleccionado se agrego exitosamente en su carrito de compras.',
+      'success'
+    );
+  }
+
+  private alertExiste(){
+    Swal.fire(
+      'Carrito de compras',
+      'El artículo seleccionado ya se encuentra en su carrito de compras.',
+      'error'
+    );
+  }
 }
