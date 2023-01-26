@@ -4,6 +4,7 @@ import { Producto } from 'src/app/clases/Producto';
 import { CarritoService } from 'src/app/servicios/carrito.service';
 import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
+import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
@@ -16,7 +17,8 @@ export class ProductosCardComponent implements OnInit {
 
   constructor(private manejoJson: ManejoJsonService,
      private carritoService:CarritoService,
-     private productoService:ProductoService) { }
+     private productoService:ProductoService,
+     private route:Router) { }
   productos!: Producto[];
   carrito!: Carrito;
   // @Output() public producto = new EventEmitter<any>();
@@ -52,5 +54,8 @@ export class ProductosCardComponent implements OnInit {
       'El artículo seleccionado ya se encuentra en su carrito de compras.',
       'error'
     );
+  }
+  a(producto:Producto){
+    this.route.navigate(['/ver-mas/'+producto.id])
   }
 }

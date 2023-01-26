@@ -18,7 +18,8 @@
                 "capacidad": "10ml",
                 "categoria": "Labial"
             },
-            "descuento":10
+            "descuento":10,
+            "cantidadCarro":1
         },
         {
             "id":2,

@@ -16,7 +16,7 @@ import { VerMasComponent } from './componentes/ver-mas/ver-mas.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoriasComponent } from './componentes/categorias/categorias.component';
 import { OfertasComponent } from './componentes/ofertas/ofertas.component';
-
+import {MatIconModule} from '@angular/material/icon'
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
@@ -47,6 +47,7 @@ const routes: Routes = [
     MatCardModule,
     HttpClientModule,
     FormsModule,
+    MatIconModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

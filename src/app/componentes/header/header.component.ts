@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CarritoService } from 'src/app/servicios/carrito.service';
+// import { MatIcon } from '@angular/material';
+
 
 @Component({
   selector: 'app-header',
@@ -9,6 +11,7 @@ import { CarritoService } from 'src/app/servicios/carrito.service';
 export class HeaderComponent implements OnInit {
 
   constructor(public carritoService:CarritoService ) {}
+  // @ViewChild('arrow_back', { static: false }) favorito: MatIcon;
 
   ngOnInit(): void {
   }
