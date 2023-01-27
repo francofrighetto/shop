@@ -21,7 +21,7 @@ export class VerMasComponent implements OnInit {
     private route: ActivatedRoute) { }
   // producto:any;
   imagen = "";
-  cantidadCarro:number=1;
+  // cantidadCarro:number=1;
   // @Input() producto:any;
   producto!: Producto;
   id: number = 0;
@@ -67,8 +67,10 @@ export class VerMasComponent implements OnInit {
     for (let i  in this.carrito){
       if (this.carrito[i].id==this.producto.id){
         this.producto.cantidadCarro=this.carrito[i].cantidadCarro;
+        return
       }
     }
+    this.producto.cantidadCarro=1;
   }
 
 }

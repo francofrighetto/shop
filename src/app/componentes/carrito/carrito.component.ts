@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/clases/Producto';
 import { CarritoService } from 'src/app/servicios/carrito.service';
+import { GeneralService } from 'src/app/servicios/general.service';
 
 @Component({
   selector: 'app-carrito',
@@ -9,7 +10,7 @@ import { CarritoService } from 'src/app/servicios/carrito.service';
 })
 export class CarritoComponent implements OnInit {
 
-  constructor(private carritoService: CarritoService) { }
+  constructor(private carritoService: CarritoService, private funcionesGen:GeneralService) { }
   cantidad = 1;
   productosCarrito = this.carritoService.getProductos();
   mensaje = "";
@@ -66,7 +67,9 @@ export class CarritoComponent implements OnInit {
     for (let producto of this.productosCarrito) {
       total += parseFloat(producto.precio) * parseFloat(producto.cantidadCarro);
     }
-    return total;
+    return this.funcionesGen.formatearTotal(total);
+
+    // return total;
   }
 
   vaciarTodo() {

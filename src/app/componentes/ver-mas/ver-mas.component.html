@@ -7,7 +7,7 @@
                     <img src={{imagen}}>
                 </div>
             </div>
-            <div class="img-select">
+            <div class="img-select" *ngIf="producto.fotos.length>1">
                 <div class="img-item" (click)="cambiarImagen(foto)" *ngFor="let foto of producto.fotos">
                     <a class="sub-fotos">
                         <img src="../../..{{foto}}" alt="Producto">

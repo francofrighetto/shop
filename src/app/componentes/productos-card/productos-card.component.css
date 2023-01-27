@@ -94,8 +94,9 @@ body.dark {
 }
 
 .card__shop__price {
-    color: var(--price);
+    /* color: var(--price); */
     font-size: large;
+    color: #4136f1;
 }
 
 .card__shop__action {
