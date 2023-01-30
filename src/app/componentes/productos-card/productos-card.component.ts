@@ -55,7 +55,11 @@ export class ProductosCardComponent implements OnInit {
       'error'
     );
   }
-  a(producto:Producto){
+  verMas(producto:Producto){
     this.route.navigate(['/ver-mas/'+producto.id])
+  }
+
+  descargarPDF(){
+    
   }
 }

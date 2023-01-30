@@ -136,6 +136,7 @@ body.dark {
     font-family: sans-serif;
     color: var(--text);
     box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.2);
+    background-color: antiquewhite;
 }
 
 .card-pdf:hover {
@@ -146,3 +147,4 @@ body.dark {
     width: 200px;
     margin: auto;
 }
+
