@@ -1,3 +1,13 @@
+<app-sub-header></app-sub-header>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-8  card-pdf">
+        <h5 class="py-1">¿Desea ver el catalogo en formato PDF?</h5>
+        <button class="btn btn-success btn-pdf">Descargar catalogo</button>
+    </div>
+</div>
+
+
 <div class="row d-flex justify-content-center container mt-5">
     <div class="card col-5 col-lg-3" *ngFor="let producto of productos" (click)="a(producto)">
         <img src={{producto.fotos[0]}} alt="" />

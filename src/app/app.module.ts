@@ -16,7 +16,8 @@ import { VerMasComponent } from './componentes/ver-mas/ver-mas.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CategoriasComponent } from './componentes/categorias/categorias.component';
 import { OfertasComponent } from './componentes/ofertas/ofertas.component';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
+import { SubHeaderComponent } from './componentes/sub-header/sub-header.component'
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
@@ -38,7 +39,8 @@ const routes: Routes = [
     ProductosCardComponent,
     VerMasComponent,
     CategoriasComponent,
-    OfertasComponent    
+    OfertasComponent,
+    SubHeaderComponent    
   ],
   imports: [
     BrowserModule,

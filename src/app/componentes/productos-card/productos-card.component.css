@@ -124,3 +124,25 @@ body.dark {
 .botones {
     gap: 10px;
 }
+
+
+/* catalogo pdf */
+.card-pdf {
+    text-align: center;
+    padding: 10px;
+    justify-content: center;
+    height: auto;
+    border-radius: 10px;
+    font-family: sans-serif;
+    color: var(--text);
+    box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card-pdf:hover {
+    cursor: auto;
+}
+
+.btn-pdf {
+    width: 200px;
+    margin: auto;
+}
