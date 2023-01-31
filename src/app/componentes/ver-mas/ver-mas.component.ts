@@ -41,6 +41,7 @@ export class VerMasComponent implements OnInit {
     )
 
     this.carrito = this.carritoService.getProductos();
+
   }
   // imagen="../../../assets/img/producto2.jpg";
 

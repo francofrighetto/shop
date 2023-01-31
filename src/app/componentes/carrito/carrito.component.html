@@ -2,26 +2,28 @@
     <thead>
         <tr>
             <th>Producto</th>
-            <th>Cantidad</th>
+            <th class="col-1">Cantidad</th>
             <th>Precio Unitario</th>
             <th>Subtotal</th>
-            <th></th>
+            <th class="botones "></th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let producto of productosCarrito">
-            <td><a routerLink="../ver-mas/{{producto.id}}">{{producto.nombre}}</a></td>
-            <td>
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]" (click)="menos(producto)">
-                          <span class="">-</span>
+        <tr *ngFor=" let producto of productosCarrito ">
+            <td class="desc-prod ms-1">
+                <img src="{{producto.fotos[0]}} " width="90px ">
+                <a routerLink="../ver-mas/{{producto.id}} " class="ms-md-3 ">{{producto.nombre}}</a></td>
+            <td class=" ">
+                <div class="input-group text-center ">
+                    <span class="input-group-btn ">
+                        <button type="button " class="btn btn-danger btn-number text-center "  data-type="minus " data-field="quant[2] " (click)="menos(producto) ">
+                          <span class=" ">-</span>
                     </button>
                     </span>
-                    <input type="text" name="quant[2]" class="form-control input-number text-center" min="1" max="3" value="{{producto.cantidadCarro}}">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]" (click)="mas(producto)">
-                            <span class="">+</span>
+                    <input type="text " name="quant[2] " class="form-control input-number text-center m-auto " min="1 " max="3 " value="{{producto.cantidadCarro}} ">
+                    <span class="input-group-btn ">
+                        <button type="button " class="btn btn-success btn-number text-center " data-type="plus " data-field="quant[2] " (click)="mas(producto) ">
+                            <span class=" ">+</span>
                     </button>
                     </span>
                 </div>
@@ -34,31 +36,30 @@
                     <div class='ctrl-button ctrl-button-increment'>+</div>
                 </div> -->
             </td>
-            <td>${{producto.precio | number:'1.2'}}</td>
-            <td>${{producto.precio * producto.cantidadCarro | number:'1.2'}}</td>
+            <td class=" ">${{producto.precio | number:'1.2'}}</td>
+            <td class=" ">${{producto.precio * producto.cantidadCarro | number:'1.2'}}</td>
 
-            <td>
-                <button class="btn btn-primary" (click)="eliminarItem(producto)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+            <td class="td-borrar text-center ">
+                <button class="btn btn-primary btn-borrarItem " (click)="eliminarItem(producto) ">
+                    <svg xmlns="http://www.w3.org/2000/svg " width="20 " height="20 " fill="currentColor " class="bi bi-trash3-fill " viewBox="0 0 16 16 ">
+                    <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5
+                5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z "/>
                   </svg>
                 </button>
             </td>
         </tr>
         <tr>
-            <td>
-                <a href="https://api.whatsapp.com/send?phone=3534273353&text={{mensaje}}">
-                    <button class="btn btn-success" (click)="enviarWpp()">Confirmar pedido por WhatsApp</button>
+            <td colspan="2 ">
+                <a href="https://api.whatsapp.com/send?phone=3534273353&text={{mensaje}} ">
+                    <button class="btn btn-success " (click)="enviarWpp() ">Confirmar pedido por WhatsApp</button>
                 </a>
             </td>
-            <td></td>
-            <td></td>
 
-            <td>Total: ${{total}}</td>
-            <td><button class="btn btn-danger" (click)="vaciarTodo()">Vaciar todo</button></td>
+            <td colspan="2 " class="text-center ">Total: ${{total}}</td>
+            <td><button class="btn btn-danger btn-borrarItem p-2 " (click)="vaciarTodo() ">Vaciar todo</button></td>
 
         </tr>
 
     </tbody>
 </table>
-<!-- <a href="https://api.whatsapp.com/send?phone=3534273353&text=Hola,%20¿Qué%20tal%20%estás?" style="font-size:20px;padding:5px 12px;border-radius:5px;background-color:#189D0E;color:white;text-shadow:none;"> ›› Mensaje de WhatsApp </a> -->
+<!-- <a href="https://api.whatsapp.com/send?phone=3534273353&text=Hola,%20¿Qué%20tal%20%estás? " style="font-size:20px;padding:5px 12px;border-radius:5px;background-color:#189D0E;color:white;text-shadow:none; "> ›› Mensaje de WhatsApp </a> -->

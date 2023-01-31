@@ -1,178 +1,110 @@
 {
     "productos": [{
-            "id":1,
+            "id": 1,
             "nombre": "Mascara de Pestañas",
             "descripcion": "",
             "stock": 2,
             "precio": 4100,
             "fotos": [
-                "/assets/img/MASCARA DE PESTAÑAS.jpg" 
+                "/assets/img/MASCARA DE PESTAÑAS.jpg"
             ],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            },
-            "descuento":0
-            },
+            "descuento": 0
+        },
         {
-            "id":2,
+            "id": 2,
             "nombre": "Brocha Mascarilla",
             "descripcion": "",
             "stock": 1,
             "precio": 2500,
             "fotos": ["/assets/img/BROCHA DE SILICONA PARA MASCARILLA.jpg"],
-           
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            },
-            "descuento":0
+            "descuento": 0
         },
         {
-            "id":3,
-            "nombre": "Labial mate efecto polvo grape soda",
+            "id": 3,
+            "nombre": "Labial mate efecto polvo",
             "descripcion": "",
             "stock": 1,
             "precio": 1500,
             "fotos": ["/assets/img/LABIAL MATE EFECTO POLVO.jpg"],
             "detalle": {
                 "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
+                    "Grape Soda"
+                ]
             }
         },
         {
-            "id":4,
+            "id": 4,
             "nombre": "Delineador de cejas brunete",
             "descripcion": "",
             "stock": 1,
             "precio": 1800,
-            "fotos": ["/assets/img/DELINEADOR CEJAS.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/DELINEADOR CEJAS.jpg"]
         },
         {
-            "id":5,
+            "id": 5,
             "nombre": "Minimizador de bolsas ",
             "descripcion": "",
             "stock": 1,
             "precio": 2850,
-            "fotos": ["/assets/img/MINIMIZADOR BOLSAS.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/MINIMIZADOR BOLSAS.jpg"]
         },
-        
+
         {
-            "id":7,
+            "id": 6,
             "nombre": "Crema de limpieza timewise ns y cg",
             "descripcion": "",
             "stock": 2,
             "precio": 3400,
-            "fotos": ["/assets/img/CREMA LIMPIEZA TW.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/CREMA LIMPIEZA TW.jpg"]
         },
         {
-            "id":8,
+            "id": 7,
             "nombre": "Crema día tw ns sin protector solar",
             "descripcion": "",
             "stock": 1,
             "precio": 5000,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/paquete-completo.jpg"]
         },
-        
+
         {
-            "id":10,
+            "id": 8,
             "nombre": "Crema de noche extraemoliente ",
             "descripcion": "",
             "stock": 1,
             "precio": 2600,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/paquete-completo.jpg"]
         },
         {
-            "id":11,
-            "nombre": "Labial unlimited Beach bronze",
+            "id": 9,
+            "nombre": "Labial unlimited",
             "descripcion": "",
             "stock": 1,
             "precio": 2500,
             "fotos": ["/assets/img/LABIAL UNLIMITED.jpg"],
             "detalle": {
                 "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
+                    "Beach bronze", "Fancy Nancy"
+                ]
             }
         },
         {
-            "id":12,
+            "id": 10,
             "nombre": "Delineador de ojos retractil negro",
             "descripcion": "",
             "stock": 1,
             "precio": 1800,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/paquete-completo.jpg"]
         },
         {
-            "id":13,
+            "id": 11,
             "nombre": "Corrector perfecting concealer light beige",
             "descripcion": "",
             "stock": 1,
             "precio": 2300,
-            "fotos": ["/assets/img/CORRECTOR DE OJERAS.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/CORRECTOR DE OJERAS.jpg"]
         },
         {
-            "id":14,
+            "id": 12,
             "nombre": "Labial en gel semi shine romantic pink",
             "descripcion": "",
             "stock": 1,
@@ -180,119 +112,61 @@
             "fotos": ["/assets/img/paquete-completo.jpg"],
             "detalle": {
                 "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
+                    "Violeta"
+                ]
             }
         },
         {
-            "id":15,
+            "id": 13,
             "nombre": "Crema para el contorno de ojos",
             "descripcion": "",
             "stock": 2,
             "precio": 3600,
-            "fotos": ["/assets/img/CRAYON CONTORNO DE ROSTRO.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/CRAYON CONTORNO DE ROSTRO.jpg"]
         },
         {
-            "id":19,
+            "id": 14,
             "nombre": "Crema contorno de ojos repair",
             "descripcion": "",
             "stock": 1,
             "precio": 5000,
-            "fotos": ["/assets/img/CREMA CONTORNO DE OJOS TW.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/CREMA CONTORNO DE OJOS TW.jpg"]
         },
+
         {
-            "id":20,
-            "nombre": "Labial unlimited fancy nancy",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2500,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
-        },
-        { 
-            "id":21,
+            "id": 15,
             "nombre": "Crema diurna tw c/g",
             "descripcion": "",
             "stock": 1,
             "precio": 5000,
-            "fotos": ["/assets/img/CREMA DIA TW.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/CREMA DIA TW.jpg"]
         },
         {
-            "id":22,
+            "id": 16,
             "nombre": "Crema nocturna tw c/g",
             "descripcion": "",
             "stock": 1,
             "precio": 5000,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/paquete-completo.jpg"]
         },
         {
-            "id":23,
+            "id": 17,
             "nombre": "Mascarilla de limpieza",
             "descripcion": "",
             "stock": 1,
             "precio": 3650,
-            "fotos": ["/assets/img/MASCARILLA DE LIMPIEZA.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/MASCARILLA DE LIMPIEZA.jpg"]
         },
         {
-            "id":26,
+            "id": 18,
             "nombre": "Agua Micelar",
             "descripcion": "",
             "stock": 1,
             "precio": 3100,
-            "fotos": ["/assets/img/AGUA MICELAR.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/AGUA MICELAR.jpg"]
         },
         {
-            "id":27,
+            "id": 19,
             "nombre": "Labial hidratante casual rose",
             "descripcion": "",
             "stock": 1,
@@ -300,61 +174,38 @@
             "fotos": ["/assets/img/LABIAL HIDRATANTE.jpg"],
             "detalle": {
                 "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
+                    "Bordo"
+                ]
             }
         },
         {
-            "id":28,
+            "id": 20,
             "nombre": "Crema extraemoliente de noche ",
             "descripcion": "",
             "stock": 1,
             "precio": 2600,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/paquete-completo.jpg"]
+
         },
         {
-            "id":29,
+            "id": 21,
             "nombre": "Crema de noche tw ns",
             "descripcion": "",
             "stock": 1,
             "precio": 5000,
-            "fotos": ["/assets/img/CREMA NOCHE TW.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/CREMA NOCHE TW.jpg"]
         },
         {
-            "id":30,
+            "id": 22,
             "nombre": "Belara",
             "descripcion": "",
             "stock": 2,
             "precio": 7250,
-            "fotos": ["/assets/img/BELARA.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "fotos": ["/assets/img/BELARA.jpg"]
         }
     ],
-    "sin_stock":[
-        {
-            "id":24,
+    "sin_stock": [{
+            "id": 24,
             "nombre": "Portacosmeticos",
             "descripcion": "",
             "stock": 0,
@@ -369,7 +220,7 @@
             }
         },
         {
-            "id":6,
+            "id": 6,
             "nombre": "Base de maquillaje tw beige 160 mate",
             "descripcion": "",
             "stock": 0,
@@ -384,7 +235,7 @@
             }
         },
         {
-            "id":9,
+            "id": 9,
             "nombre": "Anillo",
             "descripcion": "",
             "stock": 0,
@@ -399,7 +250,7 @@
             }
         },
         {
-            "id":16,
+            "id": 16,
             "nombre": "Base en polvo",
             "descripcion": "",
             "stock": 0,
@@ -414,7 +265,7 @@
             }
         },
         {
-            "id":17,
+            "id": 17,
             "nombre": "Gel limpiador bbee",
             "descripcion": "",
             "stock": 0,
@@ -429,7 +280,7 @@
             }
         },
         {
-            "id":18,
+            "id": 18,
             "nombre": "bincha",
             "descripcion": "",
             "stock": 0,
@@ -444,7 +295,7 @@
             }
         },
         {
-            "id":24,
+            "id": 24,
             "nombre": "Portacosmeticos",
             "descripcion": "",
             "stock": 0,
@@ -459,7 +310,7 @@
             }
         },
         {
-            "id":25,
+            "id": 25,
             "nombre": "Portalabial",
             "descripcion": "",
             "stock": 0,

@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+
 /* body {
     min-height: 100vh;
     padding: 20px;
@@ -29,6 +30,7 @@ body.dark {
     --card: #0d0d0d;
 }
 
+
 /* .theme-toggle {
     position: absolute;
     top: 13px;
@@ -51,8 +53,6 @@ body.dark {
     color: var(--text);
     box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.2);
 }
-
-
 
 .cuerpo {
     width: 90%;
@@ -127,6 +127,7 @@ body.dark {
 
 
 /* catalogo pdf */
+
 .card-pdf {
     text-align: center;
     padding: 10px;
@@ -148,3 +149,8 @@ body.dark {
     margin: auto;
 }
 
+@media (max-width:700px) {
+    .container {
+        width: 100%;
+    }
+}

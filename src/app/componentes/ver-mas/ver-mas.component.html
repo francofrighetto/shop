@@ -43,7 +43,7 @@
             <div class="product-detail">
                 <h2>Descripción del producto </h2>
                 <p>{{producto.descripcion}}</p>
-                <ul>
+                <ul *ngIf="producto.detalle!=undefined">
                     <li>Color:
                         <span *ngFor="let color of producto.detalle.colores" class="px-2">{{color}}</span>
                     </li>
@@ -54,7 +54,7 @@
 
             <div class="purchase-info">
                 <!-- <input type="number" min="1" value="{{cantidadCarrito}}" max="{{producto.stock}}"> -->
-                
+
                 <div class="input-group">
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]" (click)="menos(producto)">
