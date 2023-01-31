@@ -27,6 +27,7 @@ export class VerMasComponent implements OnInit {
   id: number = 0;
   carrito!:Producto[];
   ngOnInit(): void {
+    this.scrollTop();
     this.route.params.subscribe((params: Params) => {
       this.id= parseInt(params['id']);
     })
@@ -35,7 +36,7 @@ export class VerMasComponent implements OnInit {
       data => {
         this.producto = data.productos[this.id-1];
         this.imagen = "../../.." + this.producto.fotos[0];
-        // this.cantidadCarro = this.producto.cantidadCarro;
+        // this.producto.cantidadCarro = this.producto.cantidadCarro;
         this.checkAgregados();
       }
     )
@@ -72,6 +73,11 @@ export class VerMasComponent implements OnInit {
       }
     }
     this.producto.cantidadCarro=1;
+  }
+
+  scrollTop() {
+    document.body.scrollTop = 0; // Safari
+    document.documentElement.scrollTop = 0; // Other
   }
 
 }

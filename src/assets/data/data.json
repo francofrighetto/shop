@@ -25,7 +25,8 @@
             "descripcion": "",
             "stock": 1,
             "precio": 1500,
-            "fotos": ["/assets/img/LABIAL MATE EFECTO POLVO.jpg"],
+            "fotos": ["/assets/img/LABIAL MATE EFECTO POLVO.jpg",
+            "/assets/img/LABIAL MATE EFECTO POLVO 2.jpg"],
             "detalle": {
                 "colores": [
                     "Grape Soda"
@@ -80,7 +81,8 @@
             "descripcion": "",
             "stock": 1,
             "precio": 2500,
-            "fotos": ["/assets/img/LABIAL UNLIMITED.jpg"],
+            "fotos": ["/assets/img/LABIAL UNLIMITED.jpg","/assets/img/LABIAL UNLIMITED FANCY NANCY.jpg",
+            "/assets/img/LABIAL UNLIMITED BEACH BONCE.jpg"],
             "detalle": {
                 "colores": [
                     "Beach bronze", "Fancy Nancy"
@@ -93,7 +95,7 @@
             "descripcion": "",
             "stock": 1,
             "precio": 1800,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
+            "fotos": ["/assets/img/DELINEDOR RETRACTIL OJOS.jpg"]
         },
         {
             "id": 11,
@@ -105,14 +107,14 @@
         },
         {
             "id": 12,
-            "nombre": "Labial en gel semi shine romantic pink",
+            "nombre": "Labial en gel semi shine",
             "descripcion": "",
             "stock": 1,
             "precio": 2800,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
+            "fotos": ["/assets/img/LABIAL GEL.jpg"],
             "detalle": {
                 "colores": [
-                    "Violeta"
+                    "Romantic Pink"
                 ]
             }
         },

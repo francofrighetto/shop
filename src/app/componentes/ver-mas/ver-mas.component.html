@@ -10,7 +10,7 @@
             <div class="img-select" *ngIf="producto.fotos.length>1">
                 <div class="img-item" (click)="cambiarImagen(foto)" *ngFor="let foto of producto.fotos">
                     <a class="sub-fotos">
-                        <img src="../../..{{foto}}" alt="Producto">
+                        <img src="../../..{{foto}}" alt="Producto" height="150px">
                     </a>
                 </div>
 
@@ -43,12 +43,18 @@
             <div class="product-detail">
                 <h2>Descripción del producto </h2>
                 <p>{{producto.descripcion}}</p>
-                <ul *ngIf="producto.detalle!=undefined">
-                    <li>Color:
-                        <span *ngFor="let color of producto.detalle.colores" class="px-2">{{color}}</span>
-                    </li>
+                <ul>
                     <li>Cantidad: <span>{{producto.stock}}</span></li>
-                    <li>Categoría: <span>{{producto.detalle.categoria}}</span></li>
+                    <li *ngIf="producto.detalle!=undefined">Color:
+                        <div *ngFor="let color of producto.detalle.colores">
+                        <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label ms-2" for="flexCheckDefault">
+                            {{color}}
+                        </label>
+                        </div>
+                    </li>
+                    <!-- <li *ngIf="producto.detalle!=undefined && producto.detalle.categoria!=undefined">Categoría:
+                        <span>{{producto.detalle.categoria}}</span></li> -->
                 </ul>
             </div>
 
@@ -57,15 +63,18 @@
 
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]" (click)="menos(producto)">
-                          <span class="">-</span>
-                    </button>
+                        <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant[2]"
+                            (click)="menos(producto)">
+                            <span class="">-</span>
+                        </button>
                     </span>
-                    <input type="text" name="quant[2]" class="form-control input-number" min="1" max="3" value="{{producto.cantidadCarro}}">
+                    <input type="text" name="quant[2]" class="form-control input-number" min="1" max="3"
+                        value="{{producto.cantidadCarro}}">
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]" (click)="mas(producto)">
+                        <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]"
+                            (click)="mas(producto)">
                             <span class="">+</span>
-                    </button>
+                        </button>
                     </span>
                 </div>
                 <button type="button" class="btn ms-4" (click)="agregarProducto(producto)">
