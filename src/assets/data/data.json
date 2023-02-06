@@ -26,7 +26,8 @@
             "stock": 1,
             "precio": 1500,
             "fotos": ["/assets/img/LABIAL MATE EFECTO POLVO.jpg",
-            "/assets/img/LABIAL MATE EFECTO POLVO 2.jpg"],
+                "/assets/img/LABIAL MATE EFECTO POLVO 2.jpg"
+            ],
             "detalle": {
                 "colores": [
                     "Grape Soda"
@@ -52,7 +53,7 @@
 
         {
             "id": 6,
-            "nombre": "Crema de limpieza timewise ns y cg",
+            "nombre": "Crema de limpieza TimeWise 3D",
             "descripcion": "",
             "stock": 2,
             "precio": 3400,
@@ -60,11 +61,11 @@
         },
         {
             "id": 7,
-            "nombre": "Crema día tw ns sin protector solar",
-            "descripcion": "",
+            "nombre": "Crema facial diurna TimeWise 3D",
+            "descripcion": "Normal a seca",
             "stock": 1,
             "precio": 5000,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
+            "fotos": ["/assets/img/CREMA DIA TW.jpg"]
         },
 
         {
@@ -73,7 +74,7 @@
             "descripcion": "",
             "stock": 1,
             "precio": 2600,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
+            "fotos": ["/assets/img/CREMA NOCHE EXTRAEMOLIENTE.jpg"]
         },
         {
             "id": 9,
@@ -81,7 +82,7 @@
             "descripcion": "",
             "stock": 1,
             "precio": 2500,
-            "fotos": ["/assets/img/LABIAL UNLIMITED.jpg","/assets/img/LABIAL UNLIMITED FANCY NANCY.jpg"],
+            "fotos": ["/assets/img/LABIAL UNLIMITED.jpg", "/assets/img/LABIAL UNLIMITED FANCY NANCY.jpg"],
             "detalle": {
                 "colores": [
                     "Fancy Nancy"
@@ -94,7 +95,7 @@
             "descripcion": "",
             "stock": 1,
             "precio": 1800,
-            "fotos": ["/assets/img/DELINEDOR RETRACTIL OJOS.jpg"]
+            "fotos": ["/assets/img/DELINEADOR RETRACTIL OJOS.jpg"]
         },
         {
             "id": 11,
@@ -133,22 +134,21 @@
             "precio": 5000,
             "fotos": ["/assets/img/CREMA CONTORNO DE OJOS TW.jpg"]
         },
-
         {
             "id": 15,
-            "nombre": "Crema diurna tw c/g",
+            "nombre": "Crema para manos",
             "descripcion": "",
             "stock": 1,
-            "precio": 5000,
-            "fotos": ["/assets/img/CREMA DIA TW.jpg"]
+            "precio": 1750,
+            "fotos": ["/assets/img/CREMA PARA MANOS.jpg"]
         },
         {
             "id": 16,
-            "nombre": "Crema nocturna tw c/g",
+            "nombre": "Crema facial nocturna TimeWise 3D",
             "descripcion": "",
             "stock": 1,
             "precio": 5000,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
+            "fotos": ["/assets/img/CREMA NOCHE TW.jpg"]
         },
         {
             "id": 17,
@@ -181,28 +181,27 @@
         },
         {
             "id": 20,
-            "nombre": "Crema extraemoliente de noche",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2600,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
-
-        },
-        {
-            "id": 21,
-            "nombre": "Crema de noche tw ns",
+            "nombre": "Crema facial nocturna timewise 3D",
             "descripcion": "",
             "stock": 1,
             "precio": 5000,
             "fotos": ["/assets/img/CREMA NOCHE TW.jpg"]
         },
         {
-            "id": 22,
-            "nombre": "Belara",
+            "id": 21,
+            "nombre": "Lapiz delineador para ojos at play",
             "descripcion": "",
-            "stock": 2,
-            "precio": 7250,
-            "fotos": ["/assets/img/BELARA.jpg"]
+            "stock": 1,
+            "precio": 1600,
+            "fotos": ["/assets/img/LAPIZ DELINEADOR PARA OJOS.jpg"]
+        },
+        {
+            "id": 22,
+            "nombre": "Locion corporal pink chill",
+            "descripcion": "",
+            "stock": 1,
+            "precio": 2700,
+            "fotos": ["/assets/img/LOCION CORPORAL PINK CHILL.jpg"]
         },
         {
             "id": 23,
@@ -211,7 +210,8 @@
             "stock": 1,
             "precio": 2500,
             "fotos": ["/assets/img/LABIAL UNLIMITED.jpg",
-            "/assets/img/LABIAL UNLIMITED BEACH BONCE.jpg"],
+                "/assets/img/LABIAL UNLIMITED BEACH BONCE.jpg"
+            ],
             "detalle": {
                 "colores": [
                     "Beach bronze"
@@ -224,7 +224,7 @@
             "descripcion": "",
             "stock": 1,
             "precio": 3200,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
+            "fotos": ["/assets/img/DESMAQUILLADOR DE OJOS LIBRE DE ACEITE.jpg"]
         },
         {
             "id": 25,
@@ -232,40 +232,10 @@
             "descripcion": "",
             "stock": 1,
             "precio": 4100,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
-        },
-        {
-            "id": 26,
-            "nombre": "Lapiz delineador para ojos at play",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 1600,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
-        },
-        {
-            "id": 27,
-            "nombre": "Crema facial nocturna timewise 3D ns",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 5000,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
-        },
-        {
-            "id": 28,
-            "nombre": "Locion corporal pink chill",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2700,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
-        },
-        {
-            "id": 29,
-            "nombre": "Crema para manos",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 1750,
-            "fotos": ["/assets/img/paquete-completo.jpg"]
+            "fotos": ["/assets/img/LOCION REAFIRMANTE CORPORAL.jpg"]
         }
+
+
     ],
     "sin_stock": [{
             "id": 24,
@@ -386,6 +356,14 @@
                 "capacidad": "10ml",
                 "categoria": "Labial"
             }
+        },
+        {
+            "id": 22,
+            "nombre": "Belara",
+            "descripcion": "",
+            "stock": 2,
+            "precio": 7250,
+            "fotos": ["/assets/img/BELARA.jpg"]
         }
     ]
 }
