@@ -5,14 +5,17 @@ import { Producto } from 'src/app/clases/Producto';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Carrito } from 'src/app/clases/Carrito';
-import { parse } from 'path';
-import { runInThisContext } from 'vm';
+
+declare let alertify: any;
 
 @Component({
   selector: 'app-ver-mas',
   templateUrl: './ver-mas.component.html',
   styleUrls: ['./ver-mas.component.css']
 })
+
+
+
 export class VerMasComponent implements OnInit {
 
   constructor(private manejoJson: ManejoJsonService,
@@ -26,6 +29,10 @@ export class VerMasComponent implements OnInit {
   producto!: Producto;
   id: number = 0;
   carrito!:Producto[];
+
+
+
+
   ngOnInit(): void {
     this.scrollTop();
     this.route.params.subscribe((params: Params) => {
@@ -58,11 +65,15 @@ export class VerMasComponent implements OnInit {
     if (producto.cantidadCarro!=1){
       producto.cantidadCarro--;
     }
+    this.carritoService.actualizarCarrito(producto);
+
   }
   mas(producto:Producto){
     if (producto.cantidadCarro!=producto.stock){
       producto.cantidadCarro++;
     }
+    this.carritoService.actualizarCarrito(producto);
+
   }
 
   checkAgregados(){
@@ -78,6 +89,30 @@ export class VerMasComponent implements OnInit {
   scrollTop() {
     document.body.scrollTop = 0; // Safari
     document.documentElement.scrollTop = 0; // Other
+  }
+
+  cambiarCantidad(cantidad: number, producto:Producto) {
+    console.log(cantidad);
+    console.log(producto.cantidadCarro);
+
+    if (cantidad > producto.stock) {
+      console.log("si");
+      producto.cantidadCarro=1;
+    }
+    producto.cantidadCarro = cantidad;
+  }
+  
+  // se usa mientras cambia, mientras tiene el foco y cuando lo pierde
+  // se asegura que la cantidad no sea mayor a 99999 por mas que onInput lo limite a que no ingresa mas caracteres
+  // es para que no agregue valores nulos, 0 o myores al limite
+  // si esta agregado actualiza el valor del carrito
+  lostFocus(cantidad:number, producto:Producto){
+
+    if (cantidad == null || cantidad < 1 || cantidad > producto.stock) {
+      this.producto.cantidadCarro = 1;
+    } else {
+      this.producto.cantidadCarro = cantidad;
+    }
   }
 
 }

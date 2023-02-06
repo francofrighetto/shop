@@ -41,7 +41,7 @@
             </div>
 
             <div class="product-detail">
-                <h2>Descripción del producto </h2>
+                <h2 *ngIf="producto.descripcion!=''">Descripción del producto </h2>
                 <p>{{producto.descripcion}}</p>
                 <ul>
                     <li>Cantidad: <span>{{producto.stock}}</span></li>
@@ -68,8 +68,10 @@
                             <span class="">-</span>
                         </button>
                     </span>
-                    <input type="text" name="quant[2]" class="form-control input-number" min="1" max="3"
-                        value="{{producto.cantidadCarro}}">
+                    <input type="number" name="quant[2]" class="form-control input-number" min="1" max="{{producto.stock}}" [(ngModel)]="producto.cantidadCarro"
+                         (focusout)="lostFocus(producto.cantidadCarro, producto)"
+                         (ngModelChange)="cambiarCantidad(producto.cantidadCarro, producto)"
+                         (focus)="cambiarCantidad(producto.cantidadCarro, producto)">
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]"
                             (click)="mas(producto)">
@@ -104,3 +106,4 @@
         </div>
     </div>
 </div>
+
