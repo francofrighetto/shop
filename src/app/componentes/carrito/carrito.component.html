@@ -1,10 +1,10 @@
-<table class="table table-striped container">
+<table class="table table-striped container" *ngIf="productosCarrito.length!=0 ">
     <thead>
         <tr>
             <th>Producto</th>
-            <th class="col-1">Cantidad</th>
-            <th>Precio Unitario</th>
-            <th>Subtotal</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <!-- <th>Subtotal</th> -->
             <th class="botones "></th>
         </tr>
     </thead>
@@ -12,42 +12,44 @@
         <tr *ngFor=" let producto of productosCarrito ">
             <td class="desc-prod ms-1">
                 <img src="{{producto.fotos[0]}} " width="90px ">
-                <a routerLink="../ver-mas/{{producto.id}} " class="ms-md-3 ">{{producto.nombre}}</a>
+                <br>
+                <a routerLink="../ver-mas/{{producto.id}} " class="ms-md-0 ms-3 text-center">{{producto.nombre}}</a>
             </td>
-            <td class=" ">
+            <td class="td-cant">
                 <div class="input-group text-center ">
                     <span class="input-group-btn ">
                         <button type="button " class="btn btn-danger btn-number text-center " data-type="minus "
                             data-field="quant[2] " (click)="menos(producto) ">
                             <span class=" ">-</span>
-                        </button>
+                    </button>
                     </span>
-                    <input type="text " name="quant[2] " class="form-control input-number text-center m-auto " min="1"
-                        max="3" [(ngModel)]="producto.cantidadCarro"
-                        (focusout)="lostFocus(producto.cantidadCarro, producto)"
-                         (ngModelChange)="cambiarCantidad(producto.cantidadCarro, producto)"
-                         (focus)="cambiarCantidad(producto.cantidadCarro, producto)">
+                    <input type="text " name="quant[2] " class="form-control input-number text-center m-auto " min="1" max="3" [(ngModel)]="producto.cantidadCarro" (focusout)="lostFocus(producto.cantidadCarro, producto)" (ngModelChange)="cambiarCantidad(producto.cantidadCarro, producto)"
+                        (focus)="cambiarCantidad(producto.cantidadCarro, producto)">
                     <span class="input-group-btn ">
                         <button type="button " class="btn btn-success btn-number text-center " data-type="plus "
                             data-field="quant[2] " (click)="mas(producto) ">
                             <span class=" ">+</span>
-                        </button>
+                    </button>
                     </span>
                 </div>
-                <!-- <div class='ctrl'>
-                    <div class='ctrl-button ctrl-button-decrement'>-</div>
-                    <div class='ctrl-counter'>
-                        <input class='ctrl-counter-input' maxlength='10' type='text' value='0'>
-                        <div class='ctrl-counter-num'>0</div>
-                    </div>
-                    <div class='ctrl-button ctrl-button-increment'>+</div>
-                </div> -->
-            </td>
-            <td class=" ">${{producto.precio | number:'1.2'}}</td>
-            <td class=" ">${{producto.precio * producto.cantidadCarro | number:'1.2'}}</td>
 
-            <td class="td-borrar text-center ">
-                <button class="btn btn-primary btn-borrarItem " (click)="eliminarItem(producto) ">
+                <td class="precio">
+                    <span class="d-block" *ngIf="producto.descuento==undefined || producto.descuento==0">
+                ${{producto.precio* producto.cantidadCarro | number:'1.2'}}
+              </span>
+                    <div *ngIf="producto.descuento!=undefined && producto.descuento!=0">
+                        <span class="tachado d-block">
+                        ${{producto.precio * producto.cantidadCarro | number:'1.2'}}
+                      </span>
+                        <span class="">
+                    ${{(producto.precio - producto.precio*producto.descuento/100 )* producto.cantidadCarro | number:'1.2'}}
+                    </span>
+                    </div>
+
+                </td>
+
+                <td class="td-borrar text-center ">
+                    <button class="btn btn-primary btn-borrarItem " (click)="eliminarItem(producto) ">
                     <svg xmlns="http://www.w3.org/2000/svg " width="20 " height="20 " fill="currentColor "
                         class="bi bi-trash3-fill " viewBox="0 0 16 16 ">
                         <path
@@ -55,16 +57,24 @@
                 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z " />
                     </svg>
                 </button>
-            </td>
+                </td>
         </tr>
         <tr>
-            <td colspan="2 ">
-                <button class="btn btn-success " (click)="enviarWpp() ">Confirmar pedido por WhatsApp</button>
-            </td>
-            <td colspan="2 " class="text-center ">Total: ${{total}}</td>
-            <td><button class="btn btn-danger btn-borrarItem p-2 " (click)="vaciarTodo() ">Vaciar todo</button></td>
+            <td colspan="2" class=""></td>
+
+            <td colspan="1" class="text-start"><span class="my-auto ">Total: ${{total}}</span></td>
+            <td colspan="1" class="text-center"><button class="btn btn-danger btn-borrarItem p-2 " (click)="vaciarTodo() ">Vaciar todo</button></td>
         </tr>
+
 
     </tbody>
 </table>
+<div class="row justify-content-end container" *ngIf="productosCarrito.length!=0 ">
+    <button class="btn btn-success col-4 col-md-2 me-4" (click)="enviarWpp() ">Confirmar pedido por WhatsApp</button>
+</div>
+
+<div *ngIf="productosCarrito.length==0 ">
+    <h1>No hay productos en el carrito</h1>
+</div>
+
 <!-- <a href="https://api.whatsapp.com/send?phone=3534273353&text=Hola,%20¿Qué%20tal%20%estás? " style="font-size:20px;padding:5px 12px;border-radius:5px;background-color:#189D0E;color:white;text-shadow:none; "> ›› Mensaje de WhatsApp </a> -->

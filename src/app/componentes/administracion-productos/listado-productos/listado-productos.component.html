@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Subcodigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let art of articulos">
+            <th scope="row">{{art.art_codigo}}</th>
+            <td>{{art.art_subcod}}</td>
+            <td>{{art.art_nombre}}</td>
+            <td>
+                <mat-icon routerLink="producto/{{art.art_id}}">edit</mat-icon>
+                <mat-icon (click)="eliminar(art.art_id)">delete</mat-icon>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<button mat-raised-button color="primary" routerLink="producto/nuevo">Agregar</button>

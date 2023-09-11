@@ -15,7 +15,7 @@
     color: green;
 }
 
-.cantCarrito{
+.cantCarrito {
     position: absolute;
     background-color: rgb(255, 121, 255);
     width: 22px;
@@ -25,9 +25,13 @@
     color: black;
     margin-left: -8px;
     margin-top: -5px;
-
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
+}
+
+li {
+    list-style: none;
 }

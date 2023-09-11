@@ -35,20 +35,26 @@
                 <span>4.7(21)</span>
             </div> -->
 
-            <div class="product-price">
+            <div class="product-price" *ngIf="producto.descuento==undefined">
                 <!-- <p class="last-price">Old Price: <span>$257.00</span></p> -->
                 <p class="new-price">Precio: <span>${{producto.precio}}</span></p>
+                <span>{{producto.descuento}}</span>
+            </div>
+            <div class="product-price" *ngIf="producto.descuento!=undefined">
+                <!-- <p class="last-price">Old Price: <span>$257.00</span></p> -->
+                <p class="new-price">Precio anterior: <span class="tachado">${{producto.precio}} </span> <span class="ms-2 text-dark"> {{producto.descuento}} %</span></p>
+                <p class="new-price">Precio promoción: <span>${{producto.precio - producto.precio *producto.descuento/100}}</span></p>
             </div>
 
             <div class="product-detail">
                 <h2 *ngIf="producto.descripcion!=''">Descripción del producto </h2>
                 <p>{{producto.descripcion}}</p>
                 <ul>
-                    <li>Cantidad: <span>{{producto.stock}}</span></li>
+                    <li>Stock: <span>{{producto.stock}}</span></li>
                     <li *ngIf="producto.detalle!=undefined">Color:
                         <div *ngFor="let color of producto.detalle.colores">
-                        <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label ms-2" for="flexCheckDefault">
+                            <!-- <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault"> -->
+                            <label class="form-check-label ms-2" for="flexCheckDefault">
                             {{color}}
                         </label>
                         </div>
@@ -66,17 +72,15 @@
                         <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant[2]"
                             (click)="menos(producto)">
                             <span class="">-</span>
-                        </button>
+                    </button>
                     </span>
-                    <input type="number" name="quant[2]" class="form-control input-number" min="1" max="{{producto.stock}}" [(ngModel)]="producto.cantidadCarro"
-                         (focusout)="lostFocus(producto.cantidadCarro, producto)"
-                         (ngModelChange)="cambiarCantidad(producto.cantidadCarro, producto)"
-                         (focus)="cambiarCantidad(producto.cantidadCarro, producto)">
+                    <input type="number" name="quant[2]" class="form-control input-number" min="1" max="{{producto.stock}}" [(ngModel)]="producto.cantidadCarro" (focusout)="lostFocus(producto.cantidadCarro, producto)" (ngModelChange)="cambiarCantidad(producto.cantidadCarro, producto)"
+                        (focus)="cambiarCantidad(producto.cantidadCarro, producto)">
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]"
                             (click)="mas(producto)">
                             <span class="">+</span>
-                        </button>
+                    </button>
                     </span>
                 </div>
                 <button type="button" class="btn ms-4" (click)="agregarProducto(producto)">
@@ -106,4 +110,3 @@
         </div>
     </div>
 </div>
-

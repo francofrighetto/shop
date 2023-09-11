@@ -1,369 +1,253 @@
 {
     "productos": [{
             "id": 1,
-            "nombre": "Mascara de Pestañas",
-            "descripcion": "",
-            "stock": 2,
-            "precio": 4100,
-            "fotos": [
-                "/assets/img/MASCARA DE PESTAÑAS.jpg"
-            ],
-            "descuento": 0
+            "nombre": "Mascarilla rosa",
+            "descripcion": "Mejora notablemente el aspecto de tu piel, dejandola luminosa ",
+            "stock": 1,
+            "precio": 2750,
+            "fotos": ["/assets/img/mascarilladearcilla.jpeg"]
         },
         {
             "id": 2,
-            "nombre": "Brocha Mascarilla",
-            "descripcion": "",
+            "nombre": "Brocha para Mascarilla",
+            "descripcion": "Su silicona anti adherente no absorve producto, por lo tanto es fácil de lavar y aprovecha al máximo tu producto Mary Kay",
             "stock": 1,
-            "precio": 2500,
-            "fotos": ["/assets/img/BROCHA DE SILICONA PARA MASCARILLA.jpg"],
-            "descuento": 0
+            "precio": 4250,
+            "fotos": ["/assets/img/BROCHA DE SILICONA PARA MASCARILLA.jpg"]
         },
         {
             "id": 3,
-            "nombre": "Labial mate efecto polvo",
-            "descripcion": "",
+            "nombre": "Fragancia Velvet Scent",
+            "descripcion": "Notas: pera, jazmin y vainilla",
             "stock": 1,
-            "precio": 1500,
-            "fotos": ["/assets/img/LABIAL MATE EFECTO POLVO.jpg",
-                "/assets/img/LABIAL MATE EFECTO POLVO 2.jpg"
-            ],
-            "detalle": {
-                "colores": [
-                    "Grape Soda"
-                ]
-            }
+            "precio": 9600,
+            "fotos": ["/assets/img/VELVET.jpeg"]
         },
         {
             "id": 4,
-            "nombre": "Delineador de cejas brunete",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 1800,
-            "fotos": ["/assets/img/DELINEADOR CEJAS.jpg"]
-        },
-        {
-            "id": 5,
-            "nombre": "Minimizador de bolsas ",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2850,
-            "fotos": ["/assets/img/MINIMIZADOR BOLSAS.jpg"]
-        },
-
-        {
-            "id": 6,
             "nombre": "Crema de limpieza TimeWise 3D",
-            "descripcion": "",
-            "stock": 2,
-            "precio": 3400,
+            "descripcion": "Crema de limpieza diaria. Contiene gránulos que exfolian levemente la piel. Encontrala en sus 2 versiones",
+            "stock": 4,
+            "precio": 5850,
             "fotos": ["/assets/img/CREMA LIMPIEZA TW.jpg"]
         },
         {
-            "id": 7,
-            "nombre": "Crema facial diurna TimeWise 3D",
-            "descripcion": "Normal a seca",
+            "id": 5,
+            "nombre": "Máscara de pestañas lash love",
+            "descripcion": "Su pequeño cepillo es ideal para pestañas cortas",
             "stock": 1,
-            "precio": 5000,
-            "fotos": ["/assets/img/CREMA DIA TW.jpg"]
-        },
-
-        {
-            "id": 8,
-            "nombre": "Crema de noche extraemoliente ",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2600,
-            "fotos": ["/assets/img/CREMA NOCHE EXTRAEMOLIENTE.jpg"]
-        },
-        {
-            "id": 9,
-            "nombre": "Labial unlimited Fancy Nancy",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2500,
-            "fotos": ["/assets/img/LABIAL UNLIMITED.jpg", "/assets/img/LABIAL UNLIMITED FANCY NANCY.jpg"],
-            "detalle": {
-                "colores": [
-                    "Fancy Nancy"
-                ]
-            }
-        },
-        {
-            "id": 10,
-            "nombre": "Delineador de ojos retractil negro",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 1800,
-            "fotos": ["/assets/img/DELINEADOR RETRACTIL OJOS.jpg"]
-        },
-        {
-            "id": 11,
-            "nombre": "Corrector perfecting concealer light beige",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2300,
-            "fotos": ["/assets/img/CORRECTOR DE OJERAS.jpg"]
-        },
-        {
-            "id": 12,
-            "nombre": "Labial en gel semi shine",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2800,
-            "fotos": ["/assets/img/LABIAL GEL.jpg"],
-            "detalle": {
-                "colores": [
-                    "Romantic Pink"
-                ]
-            }
-        },
-        {
-            "id": 13,
-            "nombre": "Crema para el contorno de ojos",
-            "descripcion": "",
-            "stock": 2,
-            "precio": 3600,
-            "fotos": ["/assets/img/CRAYON CONTORNO DE ROSTRO.jpg"]
-        },
-        {
-            "id": 14,
-            "nombre": "Crema contorno de ojos repair",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 5000,
-            "fotos": ["/assets/img/CREMA CONTORNO DE OJOS TW.jpg"]
-        },
-        {
-            "id": 15,
-            "nombre": "Crema para manos",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 1750,
-            "fotos": ["/assets/img/CREMA PARA MANOS.jpg"]
-        },
-        {
-            "id": 16,
-            "nombre": "Crema facial nocturna TimeWise 3D",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 5000,
-            "fotos": ["/assets/img/CREMA NOCHE TW.jpg"]
-        },
-        {
-            "id": 17,
-            "nombre": "Mascarilla de limpieza",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 3650,
-            "fotos": ["/assets/img/MASCARILLA DE LIMPIEZA.jpg"]
-        },
-        {
-            "id": 18,
-            "nombre": "Agua Micelar",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 3100,
-            "fotos": ["/assets/img/AGUA MICELAR.jpg"]
-        },
-        {
-            "id": 19,
-            "nombre": "Labial hidratante casual",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2900,
-            "fotos": ["/assets/img/LABIAL HIDRATANTE.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rose"
-                ]
-            }
-        },
-        {
-            "id": 20,
-            "nombre": "Crema facial nocturna timewise 3D",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 5000,
-            "fotos": ["/assets/img/CREMA NOCHE TW.jpg"]
-        },
-        {
-            "id": 21,
-            "nombre": "Lapiz delineador para ojos at play",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 1600,
-            "fotos": ["/assets/img/LAPIZ DELINEADOR PARA OJOS.jpg"]
-        },
-        {
-            "id": 22,
-            "nombre": "Locion corporal pink chill",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2700,
-            "fotos": ["/assets/img/LOCION CORPORAL PINK CHILL.jpg"]
-        },
-        {
-            "id": 23,
-            "nombre": "Labial unlimited Beach Bronze",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 2500,
-            "fotos": ["/assets/img/LABIAL UNLIMITED.jpg",
-                "/assets/img/LABIAL UNLIMITED BEACH BONCE.jpg"
-            ],
-            "detalle": {
-                "colores": [
-                    "Beach bronze"
-                ]
-            }
-        },
-        {
-            "id": 24,
-            "nombre": "Desmaquillador de ojos libre de aceite",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 3200,
-            "fotos": ["/assets/img/DESMAQUILLADOR DE OJOS LIBRE DE ACEITE.jpg"]
-        },
-        {
-            "id": 25,
-            "nombre": "Locion reafirmante corporal Timewise Body",
-            "descripcion": "",
-            "stock": 1,
-            "precio": 4100,
-            "fotos": ["/assets/img/LOCION REAFIRMANTE CORPORAL.jpg"]
-        }
-
-
-    ],
-    "sin_stock": [{
-            "id": 24,
-            "nombre": "Portacosmeticos",
-            "descripcion": "",
-            "stock": 0,
-            "precio": 0,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "precio": 6500,
+            "fotos": ["/assets/img/LASH LOVE.jpeg"]
         },
         {
             "id": 6,
-            "nombre": "Base de maquillaje tw beige 160 mate",
-            "descripcion": "",
-            "stock": 0,
-            "precio": 0,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "nombre": "Maquillaje en crema",
+            "descripcion": "Tono beige 4",
+            "stock": 1,
+            "precio": 4200,
+            "fotos": ["/assets/img/MAQUILLAJE EN CREMA.jpeg"]
+        },
+        {
+            "id": 7,
+            "nombre": "Mascarilla de limpieza",
+            "descripcion": "Contiene carbón activado que atrae las impurezas de la capa inferior de la piel. También contiene extractos naturales, que alivian la piel enrojecida típica del acné. Apto para personas con piel sensible",
+            "stock": 2,
+            "precio": 6500,
+            "fotos": ["/assets/img/MASCARILLA DE LIMPIEZA.jpg"]
+        },
+        {
+            "id": 8,
+            "nombre": "Agua Micelar",
+            "descripcion": "Sus micelas actúan atrayendo las impurezas de la capa más superficial de la piel. Usala todas las veces que quieras en una día",
+            "stock": 2,
+            "precio": 5400,
+            "fotos": ["/assets/img/AGUA MICELAR.jpg"]
         },
         {
             "id": 9,
-            "nombre": "Anillo",
-            "descripcion": "",
-            "stock": 0,
-            "precio": 0,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "nombre": "Gel voluminizador para cejas",
+            "descripcion": "Resalta tus cejas cubriendo la ausencia de vellosidad con apariencia natural. Tono dark brunette.",
+            "stock": 1,
+            "precio": 3500,
+            "fotos": ["/assets/img/GEL VOLUMINIZADOR.jpeg"]
         },
         {
+            "id": 10,
+            "nombre": "Crema corporal pink chill",
+            "descripcion": "Hidrata tu piel con una fragancia exquisita",
+            "stock": 2,
+            "precio": 5100,
+            "fotos": ["/assets/img/LOCION CORPORAL PINK CHILL.jpg"]
+        },
+        {
+            "id": 11,
+            "nombre": "Crema de limpieza TimeWise 3D",
+            "descripcion": "Usala hasta 2 veces por día. Sus pequeños granulos realizan una leve exfoliación. Elegi para piel normal a seca o piel combinada a grasa",
+            "stock": 5,
+            "precio": 5850,
+            "fotos": ["/assets/img/CREMA LIMPIEZA TW.jpg"]
+        },
+        {
+            "id": 12,
+            "nombre": "Upscale black",
+            "descripcion": "Fragancia masculina. Familia olfativa: oriental amaderada. Notas: pomelo blanco, limón, flor de manzana y lavanda",
+            "stock": 1,
+            "precio": 11600,
+            "fotos": ["/assets/img/upscale black.jpg"]
+
+        }, {
+            "id": 13,
+            "nombre": "Estuche para sombras",
+            "descripcion": "Estuche para guardar sombras y rubores. Su base magnetizada no deja caer lo que guardes dentro, evitando daños en los productos de maquillaje   ",
+            "stock": 3,
+            "precio": 3900,
+            "fotos": ["/assets/img/ESTUCHE PARA SOMBRAS.jpeg"]
+        },
+        {
+            "id": 14,
+            "nombre": "Iluminador",
+            "descripcion": "Polvo compacto con un acabado brilloso sutil. Ideal para personas con párpados oscuros o para aquellas que les gusta un look natural en su maquillaje   ",
+            "stock": 1,
+            "precio": 2900,
+            "fotos": ["/assets/img/ILUMINADOR.jpeg"]
+        },
+        {
+            "id": 15,
+            "nombre": "Crema humectante nocturna Timewise repair",
+            "descripcion": "Crema humectante facial con propiedades antiedad que luchan contra las arrugas profundas y líneas de expresión   ",
+            "stock": 1,
+            "precio": 12800,
+            "fotos": ["/assets/img/CREMA HUMECTANTE NOCTURNA TIMEWISE REPAIR.jpeg"]
+        },
+
+        {
             "id": 16,
-            "nombre": "Base en polvo",
-            "descripcion": "",
-            "stock": 0,
-            "precio": 0,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "nombre": "Crema energizante para pies y piernas",
+            "descripcion": "Ayuda a mejorar la sensasión de piernas cansadas gracias a su fórmula con menta y otros extractos naturales  ",
+            "stock": 1,
+            "precio": 3100,
+            "fotos": ["/assets/img/CREMA ENERGIZANTE PARA PIES Y PIERNAS.jpeg"]
         },
         {
             "id": 17,
-            "nombre": "Gel limpiador bbee",
-            "descripcion": "",
-            "stock": 0,
-            "precio": 0,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "nombre": "Balsamo para labios",
+            "descripcion": "Brillo humectante con aroma a menta ",
+            "stock": 1,
+            "precio": 4250,
+            "fotos": ["/assets/img/balsamo.jpeg"]
         },
         {
             "id": 18,
-            "nombre": "bincha",
-            "descripcion": "",
-            "stock": 0,
-            "precio": 0,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "nombre": "Mascarilla humectante",
+            "descripcion": "Brinda un shock de humectación para tu piel. Podes usarla como gel post solar, después de depilar, piel seca o con alergias/picaduras, etc. La podes dejar puesta hasta por 12 horas ",
+            "stock": 1,
+            "precio": 6100,
+            "fotos": ["/assets/img/mascarilla humectante.jpeg"]
         },
         {
-            "id": 24,
-            "nombre": "Portacosmeticos",
-            "descripcion": "",
-            "stock": 0,
-            "precio": 0,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+
+            "id": 19,
+            "nombre": "Suero regenerador C + E",
+            "descripcion": "Eleva tu rutina de cuidado de la piel con el Suero C+E de uso diario. La vitamina C estimula la producción de colágeno y contribuye a que la piel tenga elasticidad. Mientras que la vitamina E previene los signos de envejecimiento. ",
+            "stock": 1,
+            "precio": 12200,
+            "fotos": ["/assets/img/SUEROC+E.jpg"]
         },
         {
-            "id": 25,
-            "nombre": "Portalabial",
-            "descripcion": "",
-            "stock": 0,
-            "precio": 0,
-            "fotos": ["/assets/img/paquete-completo.jpg"],
-            "detalle": {
-                "colores": [
-                    "Rojo", "Negro"
-                ],
-                "capacidad": "10ml",
-                "categoria": "Labial"
-            }
+            "id": 20,
+            "nombre": "Set de labios",
+            "descripcion": "Crema exfoliante + crema humectante con aroma a menta. Tambien se venden individualmente",
+            "stock": 1,
+            "precio": 6660,
+            "fotos": ["/assets/img/setlabios.jpeg"]
+        },
+        {
+            "id": 21,
+            "nombre": "Rubor",
+            "descripcion": "Dúo rubor: 1 tono mate y 1 tono brilloso",
+            "stock": 1,
+            "precio": 5300,
+            "fotos": ["/assets/img/rubor.jpg"]
         },
         {
             "id": 22,
-            "nombre": "Belara",
-            "descripcion": "",
+            "nombre": "Sombra onix",
+            "descripcion": "Sombra para ojos altamente pigmentada. Tono mate",
+            "stock": 1,
+            "precio": 2200,
+            "fotos": ["/assets/img/onix.jpeg"]
+        },
+        {
+            "id": 23,
+            "nombre": "Lapiz delineador de ojos",
+            "descripcion": "Color azul ",
+            "stock": 1,
+            "precio": 3200,
+            "fotos": ["/assets/img/LAPIZ DELINEADOR.jpeg"]
+        },
+        {
+            "id": 24,
+            "nombre": "Set de mascarillas",
+            "descripcion": "Trae una mascarilla de arcilla rosa + una mascarilla humectante. También se venden por separado ",
             "stock": 2,
-            "precio": 7250,
+            "precio": 4800,
+            "fotos": ["/assets/img/setminimascarilla.jpeg"]
+        },
+        {
+            "id": 25,
+            "nombre": "Crema corporal mora y vainilla",
+            "descripcion": " ",
+            "stock": 2,
+            "precio": 5200,
+            "fotos": ["/assets/img/CREMA CORPORAL.jpeg"]
+        },
+        {
+            "id": 26,
+            "nombre": "Exfoliante",
+            "descripcion": "Elimina impurezas y minimiza los poros abiertos ",
+            "stock": 1,
+            "precio": 7100,
+            "fotos": ["/assets/img/EXFOLIANTE.jpeg"]
+        },
+        {
+            "id": 27,
+            "nombre": "Base de maquillaje At play",
+            "descripcion": "Base liquida de textura liviada. Tonos: 1)medium; 2)medium to deep ",
+            "stock": 2,
+            "precio": 4900,
+            "fotos": ["/assets/img/BASE AT PLAY.jpeg"]
+        },
+        {
+            "id": 28,
+            "nombre": "Brocha para rubor",
+            "descripcion": "pincel de alta calidad con cerdas suaves ",
+            "stock": 1,
+            "precio": 4600,
+            "fotos": ["/assets/img/BROCHA RUBOR.jpeg"]
+        },
+        {
+            "id": 29,
+            "nombre": "Crema para el contorno de ojos Timewise 3D",
+            "descripcion": "Destinada a personas entre 25 y 45 años, con propiedades antiedad para aplicar en la zona del contorno de ojos y código de barras ",
+            "stock": 1,
+            "precio": 6300,
+            "fotos": ["/assets/img/CREMA CONTORNO DE OJOS TW.jpg"]
+        },
+        {
+            "id": 30,
+            "nombre": "Belara",
+            "descripcion": "Fragancia femenina. Notas: Higo, arándano y flor de naranjo ",
+            "stock": 1,
+            "precio": 12600,
             "fotos": ["/assets/img/BELARA.jpg"]
+        },
+        {
+            "id": 31,
+            "nombre": "Delineador retractil para ojos",
+            "descripcion": "Color negro ",
+            "stock": 1,
+            "precio": 3200,
+            "fotos": ["/assets/img/DELINEADOR RETRACTIL OJOS.jpg"]
         }
     ]
 }

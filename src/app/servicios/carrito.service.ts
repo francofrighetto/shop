@@ -3,6 +3,7 @@ import { Producto } from '../clases/Producto';
 import { Carrito } from '../clases/Carrito';
 
 import Swal from 'sweetalert2';
+import { Articulo } from '../clases/Articulo';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class CarritoService {
     this.actualizarCantidadCarrito();
 
    }
-   
+
   actualizarCantidadCarrito() {
 
     this.cantidadProductos=JSON.parse(localStorage.getItem("carrito")!).length;
@@ -27,7 +28,7 @@ export class CarritoService {
     return JSON.parse(localStorage.getItem("carrito")!);
   }
 
-  agregarProducto(producto:Producto){
+  agregarProducto(producto:Articulo){
     let carrito = JSON.parse(localStorage.getItem("carrito")!);
     for (let i in  carrito) {
       console.log(carrito[i].nombre);
@@ -44,7 +45,7 @@ export class CarritoService {
     this.alertAgregadoExito();
   }
 
-  eliminarProducto(producto:Producto){
+  eliminarProducto(producto:Articulo){
     let carrito = JSON.parse(localStorage.getItem("carrito")!);
     for (let i in  carrito) {
       if ( carrito[i].nombre == producto.nombre) {
@@ -57,7 +58,7 @@ export class CarritoService {
 
   }
 
-  actualizarCarrito(producto:Producto){
+  actualizarCarrito(producto:Articulo){
     let carrito = JSON.parse(localStorage.getItem("carrito")!);
     for (let i in  carrito) {
       if ( carrito[i].nombre == producto.nombre) {

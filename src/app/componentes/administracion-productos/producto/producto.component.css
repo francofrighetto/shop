@@ -1,0 +1,46 @@
+.p-fileupload .p-fileupload-buttonbar {
+    background: #efefef;
+    padding: 1rem 1.25rem;
+    border: 1px solid #dee2e6;
+    color: #212529;
+    border-bottom: 0 none;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.p-fileUpload {
+    background-color: black;
+}
+
+.form-group1,
+.form-group2,
+.form-group3,
+.form-group4 {
+    position: relative;
+    display: flex;
+    margin: auto;
+}
+
+.form-group2 mat-form-field {
+    position: inherit;
+    width: 25%;
+    gap: 5px;
+}
+
+.form-group1 mat-form-field {
+    position: inherit;
+    width: 20%;
+}
+
+.form-group1 mat-form-field:first-child {
+    width: 40%;
+}
+
+.desc {
+    width: 80%;
+}
+
+.form-group3 mat-form-field {
+    position: inherit;
+    width: 100%;
+}

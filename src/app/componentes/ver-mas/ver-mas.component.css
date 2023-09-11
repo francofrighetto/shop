@@ -74,7 +74,7 @@ img {
     bottom: 0;
     height: 4px;
     width: 80px;
-    background: #12263a;
+    background: #f64749;
 }
 
 .product-link {
@@ -120,18 +120,28 @@ img {
 
 .new-price span {
     color: #256eff;
+    font-size: 18px;
+}
+
+.new-price {
+    font-size: 18px;
+}
+
+.tachado {
+    text-decoration: line-through;
 }
 
 .product-detail h2 {
     text-transform: capitalize;
     color: #12263a;
     padding-bottom: 0.6rem;
+    font-size: 22px;
 }
 
 .product-detail p {
     font-size: 0.9rem;
     padding: 0.3rem;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .product-detail ul {
@@ -145,9 +155,11 @@ img {
     background: url(https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/checked.png) left center no-repeat;
     background-size: 18px;
     padding-left: 1.7rem;
-    margin: 0.4rem 0;
+    /* margin: 0.4rem 0; */
     font-weight: 600;
     opacity: 0.9;
+    margin-top: 0px;
+    padding-top: 0px;
 }
 
 .product-detail ul li span {
@@ -225,7 +237,7 @@ img {
         grid-gap: 1.5rem;
     }
     .card-wrapper {
-        height: 100vh;
+        margin-top: 40px;
         display: flex;
         justify-content: center;
         align-items: center;

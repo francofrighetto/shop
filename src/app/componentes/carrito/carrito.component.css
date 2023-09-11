@@ -203,7 +203,7 @@ img {
 
 @media (max-width:700px) {
     .input-group {
-        width: 75px;
+        width: 80px;
         display: block;
     }
     table {
@@ -216,15 +216,18 @@ img {
     img {
         width: 80px;
     }
+    .td-cant {
+        width: 80px;
+    }
     .input-number {
-        width: 50px;
+        width: 80px;
     }
     .btn-number {
-        width: 30px;
+        width: 40px;
     }
     .desc-prod {
-        width: 100px;
-        margin: auto;
+        width: 90px;
+        padding: 0%;
     }
     .botones {
         width: 10px;
@@ -232,4 +235,11 @@ img {
     .td-borrar {
         width: 10px;
     }
+    .precio {
+        width: 40px;
+    }
+}
+
+.tachado {
+    text-decoration: line-through;
 }

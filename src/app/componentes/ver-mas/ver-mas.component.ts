@@ -5,6 +5,7 @@ import { Producto } from 'src/app/clases/Producto';
 import { ProductoService } from 'src/app/servicios/producto.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Carrito } from 'src/app/clases/Carrito';
+import { Articulo } from 'src/app/clases/Articulo';
 
 declare let alertify: any;
 
@@ -26,9 +27,9 @@ export class VerMasComponent implements OnInit {
   imagen = "";
   // cantidadCarro:number=1;
   // @Input() producto:any;
-  producto!: Producto;
+  producto!: Articulo;
   id: number = 0;
-  carrito!:Producto[];
+  carrito!:Articulo[];
 
 
 
@@ -41,10 +42,16 @@ export class VerMasComponent implements OnInit {
 
     this.manejoJson.getProductos().subscribe(
       data => {
-        this.producto = data.productos[this.id-1];
+        if (this.route.snapshot.url[0].path=="oferta"){
+          this.producto = data.ofertas[this.id-1];
+        }else {
+          this.producto = data.productos[this.id-1];
+      }
+        // this.producto = data.productos[this.id-1];
         this.imagen = "../../.." + this.producto.fotos[0];
         // this.producto.cantidadCarro = this.producto.cantidadCarro;
         this.checkAgregados();
+        console.log(this.producto);
       }
     )
 
@@ -56,19 +63,19 @@ export class VerMasComponent implements OnInit {
   cambiarImagen(ruta: any) {
     this.imagen = '../../..'+ruta;
   }
-  agregarProducto(producto: Producto) {
+  agregarProducto(producto: Articulo) {
     // producto.cantidadCarro=this.cantidadCarro;
     // producto.cantidad=this.cantidadCarro;
     this.carritoService.agregarProducto(producto);
   }
-  menos(producto:Producto){
+  menos(producto:Articulo){
     if (producto.cantidadCarro!=1){
       producto.cantidadCarro--;
     }
     this.carritoService.actualizarCarrito(producto);
 
   }
-  mas(producto:Producto){
+  mas(producto:Articulo){
     if (producto.cantidadCarro!=producto.stock){
       producto.cantidadCarro++;
     }
@@ -101,12 +108,12 @@ export class VerMasComponent implements OnInit {
     }
     producto.cantidadCarro = cantidad;
   }
-  
+
   // se usa mientras cambia, mientras tiene el foco y cuando lo pierde
   // se asegura que la cantidad no sea mayor a 99999 por mas que onInput lo limite a que no ingresa mas caracteres
   // es para que no agregue valores nulos, 0 o myores al limite
   // si esta agregado actualiza el valor del carrito
-  lostFocus(cantidad:number, producto:Producto){
+  lostFocus(cantidad:number, producto:Articulo){
 
     if (cantidad == null || cantidad < 1 || cantidad > producto.stock) {
       this.producto.cantidadCarro = 1;

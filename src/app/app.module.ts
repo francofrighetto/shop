@@ -17,7 +17,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { CategoriasComponent } from './componentes/categorias/categorias.component';
 import { OfertasComponent } from './componentes/ofertas/ofertas.component';
 import {MatIconModule} from '@angular/material/icon';
-import { SubHeaderComponent } from './componentes/sub-header/sub-header.component'
+import { SubHeaderComponent } from './componentes/sub-header/sub-header.component';
+import { ListadoProductosComponent } from './componentes/administracion-productos/listado-productos/listado-productos.component';
+import { ProductoComponent } from './componentes/administracion-productos/producto/producto.component'
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PresentacionComponent } from './componentes/presentacion/presentacion.component';
+import { HomeComponent } from './componentes/home/home.component';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import {FileUploadModule} from 'primeng/fileupload';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
@@ -25,8 +43,10 @@ const routes: Routes = [
   {path: 'ver-mas/:id', component: VerMasComponent },
   {path: 'carrito', component: CarritoComponent },
   {path: 'ofertas', component: OfertasComponent },
-  { path: '**', component: ProductosCardComponent }
-
+  {path: 'abmProductos', component: ListadoProductosComponent },
+  {path: 'abmProductos/producto/:id', component: ProductoComponent },
+  {path: 'abmProductos/producto/nuevo', component: ProductoComponent },
+  { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
@@ -40,7 +60,11 @@ const routes: Routes = [
     VerMasComponent,
     CategoriasComponent,
     OfertasComponent,
-    SubHeaderComponent    
+    SubHeaderComponent,
+    ListadoProductosComponent,
+    ProductoComponent,
+    PresentacionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +74,20 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     MatIconModule,
-    RouterModule.forRoot(routes)
+    MatTableModule,
+    MatPaginatorModule,
+    RouterModule.forRoot(routes),
+    MatIconModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatOptionModule,
+    FileUploadModule,
+    MatSnackBarModule
   ],
   providers: [],
   exports:[RouterModule],

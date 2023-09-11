@@ -8,4 +8,5 @@ export class Producto {
     fotos! : string[];
     detalle! : Detalle;
     cantidadCarro!:number;
+    descuento!:number;
 }

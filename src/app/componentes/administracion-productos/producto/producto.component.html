@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="form-group1 justify-content-between">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="producto.art_nombre">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Codigo</mat-label>
+            <input matInput placeholder="" [(ngModel)]="producto.art_codigo">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Sub Codigo</mat-label>
+            <input matInput placeholder="" [(ngModel)]="producto.art_subcod">
+        </mat-form-field>
+    </div>
+    <br>
+
+    <div class="form-group2 justify-content-between">
+        <mat-form-field class="example-full-width ">
+            <mat-label>Stock</mat-label>
+            <input matInput [(ngModel)]="producto.art_stock">
+        </mat-form-field>
+        <mat-form-field class="example-full-width ">
+            <mat-label>Precio Compra</mat-label>
+            <input matInput placeholder="" [(ngModel)]="producto.art_precio_compra">
+        </mat-form-field>
+        <mat-form-field class="example-full-width ">
+            <mat-label>Precio venta</mat-label>
+            <input matInput placeholder="" [(ngModel)]="producto.art_precio_venta">
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="form-group3 justify-content-between">
+        <mat-form-field class="example-full-width ">
+            <mat-label>Descripción</mat-label>
+            <textarea matInput placeholder="Escriba aquí" [(ngModel)]="producto.art_descr"></textarea>
+        </mat-form-field>
+    </div>
+    <br>
+    <div class="form-group4">
+
+        <mat-form-field appearance="fill" class="me-5">
+            <mat-label>Categoría</mat-label>
+            <mat-select [(value)]="producto.art_cat">
+                <mat-option [value]="cat.cat_id" *ngFor="let cat of categorias">{{cat.cat_nombre}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-radio-group aria-label="Select an option" class="ms-5" *ngIf="!nuevo">
+            <mat-checkbox [(ngModel)]="producto.art_habilitado" [color]="'primary'">Habilitado</mat-checkbox>
+        </mat-radio-group>
+    </div>
+    <div mat-dialog-actions>
+    </div>
+
+    <div *ngIf="producto.fotos">
+        <h5>Fotos subidas:</h5>
+        <table>
+            <thead></thead>
+            <tbody>
+                <tr *ngFor="let foto of producto.fotos" class="mb-1">
+
+                    <td><img src="{{foto.foto_nombre}}" height="60px"></td>
+                    <td>
+                        <p class="mx-2">{{foto.foto_nombre}}</p>
+                    </td>
+                    <td><button><mat-icon>delete</mat-icon></button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <form class="mt-4">
+        <h5>Subir nuevas fotos: </h5>
+        <div class="form-group">
+            <label for="file">Seleccionar archivo:</label>
+            <input type="file" id="file" (change)="onFileSelected($event)">
+        </div>
+        <!-- <button type="button" class="btn btn-primary" (click)="guardarCola()" [disabled]="!selectedFile">Subir archivo</button> -->
+    </form>
+
+    <div *ngIf="filesPrev.length>0">
+        <h5>Fotos por subir:</h5>
+        <!-- <img [src]="foto" *ngFor="let foto of filesPrev" width="100px" class="d-block"> -->
+        <table>
+            <thead></thead>
+            <tbody>
+                <tr *ngFor="let foto of filesPrev" class="mb-1">
+                    <td><img src="{{foto}}" height="60px"></td>
+                    <td>
+                        <p class="mx-2"></p>
+                    </td>
+                    <td><button><mat-icon>delete</mat-icon></button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <button (click)="onUpload()" mat-raised-button color="primary">Guardar</button>
+</div>

@@ -4,9 +4,11 @@ import { Producto } from 'src/app/clases/Producto';
 import { CarritoService } from 'src/app/servicios/carrito.service';
 import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
 import { ProductoService } from 'src/app/servicios/producto.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
+import { ArticuloService } from 'src/app/servicios/articulo/articulo.service';
+import { Articulo } from 'src/app/clases/Articulo';
 
 @Component({
   selector: 'app-productos-card',
@@ -18,24 +20,29 @@ export class ProductosCardComponent implements OnInit {
   constructor(private manejoJson: ManejoJsonService,
      private carritoService:CarritoService,
      private productoService:ProductoService,
-     private route:Router) { }
-  productos!: Producto[];
+     private route:Router,
+     private rutaActiva: ActivatedRoute,
+     private articuloService:ArticuloService) { }
+  productos!: Articulo[];
   carrito!: Carrito;
   // @Output() public producto = new EventEmitter<any>();
   ngOnInit(): void {
     this.manejoJson.getProductos().subscribe(
       data => {
-        this.productos = data.productos;
-      }
-    )
+    this.productos = data.productos;
+    })
+
+    // this.articuloService.getArticulos().subscribe(data=>{
+    //   this.productos=data;
+    //   console.log(this.productos);
+    // })
 
     // this.productos[] = this.productoService.getProductos();
     if (localStorage.getItem("carrito") == undefined) {
       localStorage.setItem("carrito", "[]");
     }
-    this.productoService.getProductoId(1);
   }
-  agregar(producto: Producto) {
+  agregar(producto: Articulo) {
     producto.cantidadCarro=1;
     this.carritoService.agregarProducto(producto)
   }
@@ -55,11 +62,12 @@ export class ProductosCardComponent implements OnInit {
       'error'
     );
   }
-  verMas(producto:Producto){
+  verMas(producto:Articulo){
+    console.log(producto);
     this.route.navigate(['/ver-mas/'+producto.id])
   }
 
   descargarPDF(){
-    
+
   }
 }

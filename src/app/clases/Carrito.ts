@@ -1,11 +1,12 @@
+import { Articulo } from "./Articulo";
 import { Producto  } from "./Producto";
 export class Carrito {
-    productos : Producto[];
+    productos : Articulo[];
     constructor(){
         this.productos=[];
     }
 
-    agregarProducto(producto:Producto){
+    agregarProducto(producto:Articulo){
         this.productos.push(producto);
     }
 }

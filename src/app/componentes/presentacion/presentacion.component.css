@@ -1,0 +1,214 @@
+li {
+    list-style: none;
+    color: black;
+}
+
+.redes {
+    font-size: 16px;
+}
+
+
+/* seccion principal presentacion */
+
+.presentation {
+    /* padding: 30px 5%;
+    padding-right: 0%; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* background: linear-gradient(#7f017b, #f4a4f1, #cc88ff); */
+    background: linear-gradient(180deg, rgba(237, 166, 241, 1) 0%, rgba(215, 125, 227, 1) 50%, rgba(255, 78, 251, 1) 100%);
+}
+
+.presentation .product-presentation {
+    padding: 20px 5%;
+    padding-right: 0%;
+    width: 100%;
+    flex-shrink: 3;
+}
+
+.presentation .product-presentation h1 {
+    margin: 0;
+    font-size: 40px;
+    width: 80%;
+}
+
+.presentation .product-presentation p {
+    font-weight: 300;
+    color: #e9e9e9;
+}
+
+.presentation .product-presentation button {
+    margin-top: 20px;
+    padding: 15px 20px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.presentation .image-presentation img {
+    /* width: 100%; */
+    height: 100%;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.first .product-presentation button {
+    background-color: #d33bfd;
+    color: white;
+    border: 1px solid #d33bfd;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.first .product-presentation button:hover {
+    background-color: #b700ff;
+    color: white;
+}
+
+.first .product-presentation .small-images {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.first .product-presentation .small-images .small {
+    padding: 20px;
+    background-color: #33314d;
+    margin: 0 15px 15px 0;
+    border-radius: 20px;
+    transition: filter 0.5s;
+}
+
+.first .product-presentation .small-images .small:hover {
+    filter: brightness(50%);
+}
+
+.first .product-presentation .small-images .small img {
+    width: 120px;
+}
+
+
+/* REDES */
+
+.redes li a {
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    background-color: #e9e9e9;
+}
+
+.icon-button {
+    background-color: white;
+    border-radius: 3.6rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 2.0rem;
+    height: 3.6rem;
+    line-height: 3.6rem;
+    margin: 0 5px;
+    position: relative;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 3.6rem;
+}
+
+
+/* Circle */
+
+.icon-button span {
+    border-radius: 0;
+    display: block;
+    height: 0;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 0;
+}
+
+.icon-button:hover span {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 3.6rem;
+    margin: -1.8rem;
+}
+
+.instagram span {
+    background-color: #d72877;
+}
+
+.facebook span {
+    background-color: #3B5998;
+}
+
+.whatsapp span {
+    background-color: #01b52d;
+}
+
+
+/* Icons */
+
+.icon-button i {
+    background: none;
+    color: white;
+    height: 3.6rem;
+    left: 0;
+    line-height: 3.6rem;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 3.6rem;
+    z-index: 10;
+}
+
+.icon-button .bi-instagram {
+    color: #d72877;
+}
+
+.icon-button .bi-facebook {
+    color: #3B5998;
+}
+
+.icon-button .bi-whatsapp {
+    color: #01b52d;
+}
+
+.icon-button:hover .bi-instagram,
+.icon-button:hover .bi-facebook,
+.icon-button:hover .bi-whatsapp {
+    color: white;
+}
+
+.ubicacion-presentacion {
+    font-size: 18px;
+}
+
+@media (max-width:600px) {
+    .presentation {
+        display: block;
+    }
+    .presentation .image-presentation img {
+        display: none;
+    }
+    h1 {
+        font-size: 20px;
+    }
+}
