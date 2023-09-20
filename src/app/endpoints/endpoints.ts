@@ -1,7 +1,15 @@
 export enum endpoints {
-  articulos = 'articulos',
-  nuevoArticulo = 'nuevo-articulo',
-  borrarArticulo = 'borrar/articulo',
-  editarArticulo = 'editar-articulo',
-  subirFoto='subir-foto'
+  articulo = 'articulo/',
+  categoria='categoria/',
+  foto="imagen/",
+  promocion="promocion/",
+
+
+  nuevo="nuevo",
+  mostrar="mostrar",
+  editar="editar",
+  eliminar="eliminar",
+  mostrarHabilitados="mostrarHabilitados",
+  mostrarNoHabilitados="mostrarNoHabilitados",
+  cambioHabilitado="cambioHabilitado/"
 }

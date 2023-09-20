@@ -1,72 +1,57 @@
+<p-breadcrumb class="max-w-full" [model]="items" [home]="home">
+</p-breadcrumb>
 <div class="card-wrapper">
     <div class="card">
         <!-- card left -->
         <div class="product-imgs">
             <div class="img-display">
                 <div class="img-showcase">
-                    <img src={{imagen}}>
+                    <img class="seleccionada" src={{imagen}} *ngIf="producto.fotos.length!=0" />
+                    <img src='https://static.vecteezy.com/system/resources/previews/005/723/771/non_2x/photo-album-icon-image-symbol-or-no-image-flat-design-on-a-white-background-vector.jpg' alt="" *ngIf="producto.fotos.length==0" />
+
                 </div>
             </div>
             <div class="img-select" *ngIf="producto.fotos.length>1">
                 <div class="img-item" (click)="cambiarImagen(foto)" *ngFor="let foto of producto.fotos">
                     <a class="sub-fotos">
-                        <img src="../../..{{foto}}" alt="Producto" height="150px">
+                        <img src="{{urlImagen+foto.foto_nombre}}" alt="Producto" (load)="getImageSize($event, foto)" [style]="foto.style">
                     </a>
                 </div>
-
-                <!-- <div class="img-item" (click)="cambiarImagen('../../../assets/img/producto2.jpg')">
-                    <a href="#" data-id="2">
-                        <img src="../../../assets/img/producto2.jpg" alt="shoe image">
-                    </a>
-                </div> -->
-
             </div>
         </div>
         <!-- card right -->
         <div class="product-content">
             <h2 class="product-title">{{producto.nombre}}</h2>
-            <!-- <a href="#" class="product-link">visit nike store</a> -->
-            <!-- <div class="product-rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span>4.7(21)</span>
-            </div> -->
+            <span *ngIf="producto.promocion!=undefined && producto.promocion!=0" class="span-oferta">Oferta</span>
 
-            <div class="product-price" *ngIf="producto.descuento==undefined">
-                <!-- <p class="last-price">Old Price: <span>$257.00</span></p> -->
-                <p class="new-price">Precio: <span>${{producto.precio}}</span></p>
-                <span>{{producto.descuento}}</span>
+            <div class="product-price" *ngIf="producto.promocion==undefined || producto.promocion==0">
+                <p class="new-price">Precio: <span>${{producto.precio_venta |  number:'1.2-2' : 'es-AR'}}</span></p>
             </div>
-            <div class="product-price" *ngIf="producto.descuento!=undefined">
-                <!-- <p class="last-price">Old Price: <span>$257.00</span></p> -->
-                <p class="new-price">Precio anterior: <span class="tachado">${{producto.precio}} </span> <span class="ms-2 text-dark"> {{producto.descuento}} %</span></p>
-                <p class="new-price">Precio promoción: <span>${{producto.precio - producto.precio *producto.descuento/100}}</span></p>
+            <div class="product-price" *ngIf="producto.promocion!=undefined && producto.promocion!=0">
+                <p class="new-price">Precio anterior: <span class="tachado">${{producto.precio_venta |  number:'1.2-2' : 'es-AR'}} </span>
+                    <span class="ms-2 text-dark"> {{producto.promocion |  number:'1.2-2' : 'es-AR'}} %</span></p>
+                <p class="new-price">Precio promoción: <span>${{producto.precio_venta - producto.precio_venta *producto.promocion/100 |  number:'1.2-2' : 'es-AR'}}</span></p>
             </div>
 
             <div class="product-detail">
-                <h2 *ngIf="producto.descripcion!=''">Descripción del producto </h2>
+                <h2 *ngIf="producto.descripcion!=undefined">Descripción del producto </h2>
                 <p>{{producto.descripcion}}</p>
                 <ul>
                     <li>Stock: <span>{{producto.stock}}</span></li>
-                    <li *ngIf="producto.detalle!=undefined">Color:
-                        <div *ngFor="let color of producto.detalle.colores">
-                            <!-- <input class="form-check-input mt-1" type="checkbox" value="" id="flexCheckDefault"> -->
-                            <label class="form-check-label ms-2" for="flexCheckDefault">
-                            {{color}}
+                    <li *ngIf="producto.color!=undefined">Color:
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {{producto.color}}
                         </label>
-                        </div>
                     </li>
-                    <!-- <li *ngIf="producto.detalle!=undefined && producto.detalle.categoria!=undefined">Categoría:
-                        <span>{{producto.detalle.categoria}}</span></li> -->
+                    <li *ngIf="producto.unidadMedida!=undefined">Capacidad:
+                        <label class="form-check-label" for="flexCheckDefault">
+                          {{producto.unidadMedida}}
+                      </label>
+                    </li>
                 </ul>
             </div>
 
             <div class="purchase-info">
-                <!-- <input type="number" min="1" value="{{cantidadCarrito}}" max="{{producto.stock}}"> -->
-
                 <div class="input-group">
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant[2]"
@@ -84,29 +69,14 @@
                     </span>
                 </div>
                 <button type="button" class="btn ms-4" (click)="agregarProducto(producto)">
-                    Agregar al carrito <i class="fas fa-shopping-cart"></i>
+                    {{producto.agregado ? 'Actualizar cantidad':'Agregar al carrito'}}
+                    <i class="fas fa-shopping-cart"></i>
                 </button>
-                <!-- <button type="button" class="btn">Compare</button> -->
             </div>
-
-            <!-- <div class="social-links">
-                <p>Share At: </p>
-                <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-pinterest"></i>
-                </a>
-            </div> -->
+            <span *ngIf="producto.agregado" class="span-carrito">
+              Agregado al carrito
+            </span>
         </div>
     </div>
 </div>
+<p-toast position="bottom-right"></p-toast>

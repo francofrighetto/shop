@@ -11,7 +11,7 @@ export class FtpService {
   constructor(private http:HttpClient) { }
 
   subirFoto(archivo:any){
-    const url_api = environment.url_api + endpoints.subirFoto;
-    return this.http.post(url_api,{archivo});
+    const url_api = "http://localhost:3000/subir-foto";
+    return this.http.post(url_api,archivo);
   }
 }

@@ -1,0 +1,42 @@
+<div class="row d-flex">
+    <form class="col-4" [formGroup]="formRegister">
+        <input type="text" id="inputNombre" class="form-control" name="inputNombre" placeholder="Nombre" [(ngModel)]="promocion.nombre" formControlName="inputNombre" [class.is-invalid]="formRegister.get('inputNombre')?.touched &&
+      formRegister.get('inputNombre')?.invalid" [class.is-valid]="formRegister.get('inputNombre')?.valid" />
+        <br />
+        <input type="number" id="inputDescuento" class="form-control" name="inputDescuento" placeholder="Descuento" [(ngModel)]="promocion.descuento" formControlName="inputDescuento" [class.is-invalid]="formRegister.get('inputDescuento')?.touched &&
+      formRegister.get('inputDescuento')?.invalid" [class.is-valid]="formRegister.get('inputDescuento')?.valid" />
+        <br />
+        <button type="button" class="btn btn-success ms-2" (click)="nuevaPromocion()" *ngIf="nuevo">
+    Crear
+  </button>
+        <button type="button" class="btn btn-success" *ngIf="!nuevo">
+    Modificar
+  </button>
+        <button type="button" class="btn btn-danger ms-4">
+    Cancelar
+  </button>
+
+    </form>
+    <div class="col-8">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descuento</th>
+                    <th scope="col">Habilitado</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let promo of promociones">
+                    <th>{{promo.nombre}}</th>
+                    <td>{{promo.descuento}}</td>
+                    <td>{{promo.promo_habilitado}}</td>
+                    <td>
+                        <!-- <mat-icon (click)="eliminar(art.art_id)">delete</mat-icon> -->
+                        <!-- <mat-icon routerLink="productoFoto/{{art.art_id}}">add_photo_alternate</mat-icon> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

@@ -21,7 +21,8 @@
     margin: auto;
 }
 
-.form-group2 mat-form-field {
+.form-group2 mat-form-field,
+.form-group3 mat-form-field {
     position: inherit;
     width: 25%;
     gap: 5px;
@@ -38,9 +39,4 @@
 
 .desc {
     width: 80%;
-}
-
-.form-group3 mat-form-field {
-    position: inherit;
-    width: 100%;
 }

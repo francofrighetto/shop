@@ -2,25 +2,29 @@ import { Component, OnInit } from '@angular/core';
 import { Articulo } from 'src/app/clases/Articulo';
 import { Producto } from 'src/app/clases/Producto';
 import { CarritoService } from 'src/app/servicios/carrito.service';
-import { GeneralService } from 'src/app/servicios/general.service';
+import { GeneralService } from 'src/app/servicios/general/general.service';
 import Swal from 'sweetalert2';
+import { MessageService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
-  styleUrls: ['./carrito.component.css']
+  styleUrls: ['./carrito.component.css'],
+  providers:[MessageService]
 })
 export class CarritoComponent implements OnInit {
 
-  constructor(private carritoService: CarritoService, private funcionesGen: GeneralService) { }
+  constructor(private carritoService: CarritoService, private funcionesGen: GeneralService,
+    private messageService:MessageService) { }
   cantidad = 1;
   productosCarrito = this.carritoService.getProductos();
   mensaje = "";
   total = this.calcularTotal();
   ngOnInit(): void {
-    console.log(this.productosCarrito);
 
   }
+
   mas(producto: Articulo) {
 
     if (producto.cantidadCarro != producto.stock) {
@@ -40,24 +44,18 @@ export class CarritoComponent implements OnInit {
   }
 
   eliminarItem(item: Articulo) {
-    // for (let i in this.productosCarrito){
-    //   if (this.productosCarrito[i]==item){
-    //     this.productosCarrito.splice(i,1);
-    //     localStorage.setItem("carrito", JSON.stringify(this.productosCarrito));
-    //   }
-    // }
-    // this.total=this.calcularTotal();
     this.carritoService.eliminarProducto(item);
     this.productosCarrito = this.carritoService.getProductos();
     this.total = this.calcularTotal();
+    this.messageService.add({ severity: 'success', detail: 'Artículo eliminado'});
   }
 
   formatoMensaje() {
     this.mensaje = `Hola Julieta! Te queria encargar: %0A`;
     for (let i in this.productosCarrito) {
       this.mensaje += this.productosCarrito[i].nombre + ": " + this.productosCarrito[i].cantidadCarro + " unidad/es ($" + this.productosCarrito[i].cantidadCarro *
-        (this.productosCarrito[i].precio - this.productosCarrito[i].precio * this.productosCarrito[i].descuento / 100) + ") ";
-      if (this.productosCarrito[i].descuento != undefined && this.productosCarrito[i].descuento != 0) {
+        (this.productosCarrito[i].precio_venta - this.productosCarrito[i].precio_venta * this.productosCarrito[i].promocion / 100) + ") ";
+      if (this.productosCarrito[i].promocion != undefined && this.productosCarrito[i].promocion != 0) {
         this.mensaje += "(promocion)";
       }
       this.mensaje += "%0A";
@@ -76,10 +74,10 @@ export class CarritoComponent implements OnInit {
   calcularTotal() {
     let total = 0;
     for (let producto of this.productosCarrito) {
-      if (producto.descuento == null || producto.descuento == undefined) {
-        producto.descuento = 0;
+      if (producto.promocion == null || producto.promocion == undefined) {
+        producto.promocion = 0;
       }
-      total += (parseFloat(producto.precio) - parseFloat(producto.precio) * parseFloat(producto.descuento) / 100) * parseFloat(producto.cantidadCarro);
+      total += (parseFloat(producto.precio_venta) - parseFloat(producto.precio_venta) * parseFloat(producto.promocion) / 100) * parseFloat(producto.cantidadCarro);
     }
     return this.funcionesGen.formatearTotal(total);
 

@@ -6,13 +6,17 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Carrito } from 'src/app/clases/Carrito';
 import { Articulo } from 'src/app/clases/Articulo';
+import { ArticuloService } from 'src/app/servicios/articulo/articulo.service';
+import { MenuItem, MessageService } from 'primeng/api';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 declare let alertify: any;
 
 @Component({
   selector: 'app-ver-mas',
   templateUrl: './ver-mas.component.html',
-  styleUrls: ['./ver-mas.component.css']
+  styleUrls: ['./ver-mas.component.css'],
+  providers: [MessageService]
 })
 
 
@@ -22,75 +26,106 @@ export class VerMasComponent implements OnInit {
   constructor(private manejoJson: ManejoJsonService,
     private carritoService: CarritoService,
     private productoService: ProductoService,
-    private route: ActivatedRoute) { }
-  // producto:any;
+    private route: ActivatedRoute,
+    private articuloService: ArticuloService,
+    private messageService: MessageService) { }
+
+
+
+  items: MenuItem[] = [];
+  home: MenuItem = { label: 'Articulos', routerLink: '/' };
+
   imagen = "";
-  // cantidadCarro:number=1;
-  // @Input() producto:any;
   producto!: Articulo;
   id: number = 0;
-  carrito!:Articulo[];
+  carrito!: Articulo[];
+  imagenes: any[] = [];
 
-
-
+  responsiveOptions: any[] = [
+    {
+      breakpoint: '1024px',
+      numVisible: 5
+    },
+    {
+      breakpoint: '768px',
+      numVisible: 3
+    },
+    {
+      breakpoint: '560px',
+      numVisible: 1
+    }
+  ];
+  productosCarrito: any;
+  urlImagen: string = "http://66.97.37.6/fotos/";
+  style: string = "";
 
   ngOnInit(): void {
     this.scrollTop();
     this.route.params.subscribe((params: Params) => {
-      this.id= parseInt(params['id']);
+      this.id = parseInt(params['id']);
+      this.getArticuloId();
     })
 
-    this.manejoJson.getProductos().subscribe(
-      data => {
-        if (this.route.snapshot.url[0].path=="oferta"){
-          this.producto = data.ofertas[this.id-1];
-        }else {
-          this.producto = data.productos[this.id-1];
-      }
-        // this.producto = data.productos[this.id-1];
-        this.imagen = "../../.." + this.producto.fotos[0];
-        // this.producto.cantidadCarro = this.producto.cantidadCarro;
-        this.checkAgregados();
-        console.log(this.producto);
-      }
-    )
+  }
 
-    this.carrito = this.carritoService.getProductos();
+  buscarArticuloCarrito() {
+    this.productosCarrito = this.carritoService.getProductos();
+    this.producto.cantidadCarro = 1;
+    let articuloCarrito: any = undefined;
+    if (this.productosCarrito.length != 0) {
+      this.productosCarrito.forEach((e: any) => {
+        if (e.art_id == this.id) {
+          articuloCarrito = e;
+        }
+      });
+      if (articuloCarrito != undefined) {
+        this.producto.cantidadCarro = articuloCarrito.cantidadCarro;
+        this.producto.agregado = true;
+      }
+    }
 
   }
-  // imagen="../../../assets/img/producto2.jpg";
+  getArticuloId() {
+    this.articuloService.getArticuloId(this.id).subscribe(data => {
+      this.producto = data;
+      if (this.producto.fotos.length != 0) {
+        this.imagen = this.urlImagen + this.producto.fotos[0].foto_nombre;
+      }
+      this.items.push({ label: this.producto.art_cat.nombre, routerLink: '/productos/' + this.producto.art_cat.cat_id })
+      this.items.push({ label: this.producto.nombre, routerLink: '/ver-mas/' + this.producto.art_id })
+      this.buscarArticuloCarrito();
+    })
+  }
 
   cambiarImagen(ruta: any) {
-    this.imagen = '../../..'+ruta;
+    this.imagen = this.urlImagen + ruta.foto_nombre;
   }
   agregarProducto(producto: Articulo) {
-    // producto.cantidadCarro=this.cantidadCarro;
-    // producto.cantidad=this.cantidadCarro;
-    this.carritoService.agregarProducto(producto);
-  }
-  menos(producto:Articulo){
-    if (producto.cantidadCarro!=1){
-      producto.cantidadCarro--;
-    }
-    this.carritoService.actualizarCarrito(producto);
-
-  }
-  mas(producto:Articulo){
-    if (producto.cantidadCarro!=producto.stock){
-      producto.cantidadCarro++;
-    }
-    this.carritoService.actualizarCarrito(producto);
-
-  }
-
-  checkAgregados(){
-    for (let i  in this.carrito){
-      if (this.carrito[i].id==this.producto.id){
-        this.producto.cantidadCarro=this.carrito[i].cantidadCarro;
-        return
+    if (!producto.agregado) {
+      if (this.carritoService.agregarProducto(producto)) {
+        this.messageService.add({ severity: 'success', detail: 'Artículo agregado al carrito' });
+      } else {
+        this.messageService.add({ severity: 'error', detail: 'El artículo ya se encuentra en el carrito' });
+      }
+    } else {
+      if (this.carritoService.actualizarCarrito(producto)) {
+        this.messageService.add({ severity: 'success', detail: 'Cantidad actualizada' });
+      }else{
+        this.messageService.add({ severity: 'error', detail: 'Misma cantidad que el carrito' });
       }
     }
-    this.producto.cantidadCarro=1;
+
+  }
+  menos(producto: Articulo) {
+    if (producto.cantidadCarro != 1) {
+      producto.cantidadCarro--;
+    }
+
+  }
+  mas(producto: Articulo) {
+    if (producto.cantidadCarro != producto.stock) {
+      producto.cantidadCarro++;
+    }
   }
 
   scrollTop() {
@@ -98,13 +133,13 @@ export class VerMasComponent implements OnInit {
     document.documentElement.scrollTop = 0; // Other
   }
 
-  cambiarCantidad(cantidad: number, producto:Producto) {
+  cambiarCantidad(cantidad: number, producto: Producto) {
     console.log(cantidad);
     console.log(producto.cantidadCarro);
 
     if (cantidad > producto.stock) {
       console.log("si");
-      producto.cantidadCarro=1;
+      producto.cantidadCarro = 1;
     }
     producto.cantidadCarro = cantidad;
   }
@@ -113,12 +148,23 @@ export class VerMasComponent implements OnInit {
   // se asegura que la cantidad no sea mayor a 99999 por mas que onInput lo limite a que no ingresa mas caracteres
   // es para que no agregue valores nulos, 0 o myores al limite
   // si esta agregado actualiza el valor del carrito
-  lostFocus(cantidad:number, producto:Articulo){
+  lostFocus(cantidad: number, producto: Articulo) {
 
     if (cantidad == null || cantidad < 1 || cantidad > producto.stock) {
       this.producto.cantidadCarro = 1;
     } else {
       this.producto.cantidadCarro = cantidad;
+    }
+  }
+
+  getImageSize(event: Event, foto: any): void {
+    const imgElement = event.target as HTMLImageElement;
+    const width = imgElement.width;
+    const height = imgElement.height;
+    if (width > height) {
+      foto.style = "width:100px";
+    } else {
+      foto.style = "height:100px";
     }
   }
 

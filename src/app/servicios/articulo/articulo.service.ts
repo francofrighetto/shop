@@ -13,23 +13,39 @@ export class ArticuloService {
   constructor(private http:HttpClient) { }
 
   getArticulos() : Observable<Articulo[]>{
-    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulos);
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar);
+  }
+
+  getArticulosHabilitados() : Observable<Articulo[]>{
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrarHabilitados);
+  }
+
+  getArticulosNoHabilitados() : Observable<Articulo[]>{
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrarNoHabilitados);
+  }
+
+  getArticulosXCategoria(idCategoria:number) : Observable<Articulo[]>{
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+"/"+endpoints.categoria+idCategoria);
   }
 
   guardarArticulo(articulo:any) :Observable<any>{
-    return this.http.post(environment.url_api+endpoints.nuevoArticulo,articulo);
+    return this.http.post(environment.url_api+endpoints.articulo+endpoints.nuevo,articulo);
   }
 
   editarArticulo(articulo:Articulo){
-    return this.http.put(environment.url_api+endpoints.editarArticulo,articulo);
+    return this.http.put(environment.url_api+endpoints.articulo+endpoints.editar,articulo);
   }
 
   borrarArticulo(id:number):Observable<any>{
-    return this.http.get(environment.url_api+endpoints.borrarArticulo+ "/"+id);
+    return this.http.delete(environment.url_api+endpoints.articulo+endpoints.eliminar+ "/"+id);
+  }
+
+  cambioHabilitado(id:number) :Observable<any>{
+    return this.http.post(environment.url_api+endpoints.articulo+endpoints.cambioHabilitado+id,{});
   }
 
   getArticuloId(id:number){
-    return this.http.get<Articulo>(environment.url_api+endpoints.articulos+"/"+id);
+    return this.http.get<Articulo>(environment.url_api+endpoints.articulo+endpoints.mostrar+"/"+id);
   }
 
   subirFoto(foto:any){

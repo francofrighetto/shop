@@ -1,1 +1,25 @@
-<app-productos-card></app-productos-card>
+<app-presentacion></app-presentacion>
+
+<p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+
+
+<!-- <h2 class="text-center mt-4">Ofertas</h2> -->
+<div class="row d-flex justify-content-center container mt-5">
+    <div class="card col-5 col-lg-3" *ngFor="let producto of productos" (click)="verMas(producto)">
+        <img src='http://66.97.37.6/fotos/{{producto.fotos[0].foto_nombre}}' alt="" />
+        <div class="cuerpo mx-auto">
+            <h5 class="card__title text-center">{{producto.nombre}}</h5>
+            <br>
+
+            <div class="card__shop">
+                <span *ngIf="producto.promocion!=undefined && producto.promocion!=0"><span class="tachado" >${{producto.precio | number: '1.2'}}</span> {{producto.promocion}}%</span>
+                <span class="card__shop__price" *ngIf="producto.promocion==undefined">${{producto.precio_venta | number: '1.2'}}</span>
+                <span class="card__shop__price" *ngIf="producto.promocion!=undefined">${{producto.precio_venta - producto.precio_venta*producto.promocion/100  | number: '1.2'}}</span>
+            </div>
+            <div class="d-flex justify-content-around my-2 botones">
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>

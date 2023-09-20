@@ -1,34 +1,28 @@
 import { Categoria } from "./Categoria";
 import { Detalle } from "./Detalle";
+import { Promocion } from "./Promocion";
 
 export class Articulo{
 
   art_id!:number;
-  art_codigo!: number;
-  art_subcod?:number;
-  art_habilitado!:number;
-  art_nombre!:string;
-  art_stock!:number;
-  art_precio_compra!:number;
-  art_precio_venta!:number;
-  art_descr!:string;
-  art_cat!:number;
-  categoria?:Categoria;
-;
-  // fotos?:any;
+  codigo?: number;
+  subcodigo?:number;
+  art_habilitado?:number;
+  nombre!:string;
+  stock!:number;
+  precio_compra!:number;
+  precio_venta!:number;
+  descripcion!:string;
+  art_cat:Categoria=new Categoria;
   fotos! : any[];
-
-
-
-
-  id! : number;
-  nombre : string | undefined;
-  stock! : number;
   precio!:number;
-  descripcion! : string;
-  cantidadCarro!:number;
+  cantidadCarro:number=1;
   descuento!:number;
   detalle! : Detalle;
-
+  id!:number;
+  color?:string;
+  unidadMedida?:string;
+  promocion?:number;
+  agregado:boolean=false;
 }
 

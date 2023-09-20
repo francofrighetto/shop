@@ -29,6 +29,8 @@ export class ListadoProductosComponent {
   paginator!: MatPaginator;
 
   articulos!:Articulo[];
+  articulosNoHabilitados!:Articulo[];
+
   articuloSelec!:Articulo;
   open:boolean=false;
 
@@ -41,47 +43,18 @@ export class ListadoProductosComponent {
   }
 
   getArticulos(){
-    this.articuloService.getArticulos().subscribe(data=>{
+    this.articuloService.getArticulosHabilitados().subscribe(data=>{
       this.articulos=data;
     })
-    // this.dataSource = new MatTableDataSource<Articulo>(this.articulos);
+    this.articuloService.getArticulosNoHabilitados().subscribe(data=>{
+      this.articulosNoHabilitados=data;
+    })
   }
 
-  // editar(articulo:Articulo){
-  //   const dialogRef = this.dialog.open(ProductoComponent, {
-  //     data:articulo
-  //   });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-
-  //     if (result!=undefined){
-  //       result.art_cat.cat_nombre = "";
-
-  //       if (result.art_habilitado){
-  //         result.art_habilitado=1;
-  //       }
-  //       if (!result.art_habilitado){
-  //         result.art_habilitado=0;
-  //       }
-
-  //       this.articuloService.guardarArticulo(result).subscribe(
-  //         response => console.log(response),
-  //       error => console.error(error)
-  //     );
-  //     }
-  //   });
-  // }
-
-  // agregar(){
-  //   let art = new Articulo;
-  //   art.art_descr='';
-  //   art.art_cat={cat_id:0, cat_nombre:""};
-  //   art.art_nombre='';
-  //   this.editar(art);
-  // }
 
   eliminar(id:number){
-    this.articuloService.borrarArticulo(id).subscribe(data=>{
+    this.articuloService.cambioHabilitado(id).subscribe(data=>{
       if (data){
         this.getArticulos();
         this.openSnackBar();

@@ -31,18 +31,15 @@ export class CarritoService {
   agregarProducto(producto:Articulo){
     let carrito = JSON.parse(localStorage.getItem("carrito")!);
     for (let i in  carrito) {
-      console.log(carrito[i].nombre);
-      console.log(producto.nombre);
 
       if ( carrito[i].nombre == producto.nombre) {
-        this.alertExiste();
-        return
+        return false;
       }
     }
     carrito.push(producto);
     localStorage.setItem("carrito", JSON.stringify(carrito));
     this.actualizarCantidadCarrito();
-    this.alertAgregadoExito();
+    return true;
   }
 
   eliminarProducto(producto:Articulo){
@@ -62,12 +59,16 @@ export class CarritoService {
     let carrito = JSON.parse(localStorage.getItem("carrito")!);
     for (let i in  carrito) {
       if ( carrito[i].nombre == producto.nombre) {
+        if (carrito[i].cantidadCarro == producto.cantidadCarro){
+          return false;
+        }
         carrito[i].cantidadCarro=producto.cantidadCarro;
-        break
       }
     }
     localStorage.setItem("carrito", JSON.stringify(carrito));
     this.actualizarCantidadCarrito();
+    return true
+
   }
 
   eliminarTodo(){

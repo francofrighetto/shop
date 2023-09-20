@@ -1,0 +1,38 @@
+<div class="row d-flex">
+    <form class="col-4" [formGroup]="formRegister">
+        <input type="text" id="inputNombre" class="form-control" name="inputNombre" placeholder="Nombre" [(ngModel)]="categoria.nombre" formControlName="inputNombre" [class.is-invalid]="formRegister.get('inputNombre')?.touched &&
+    formRegister.get('inputNombre')?.invalid" [class.is-valid]="formRegister.get('inputNombre')?.valid" />
+        <br />
+
+        <button type="button" class="btn btn-success ms-2" (click)="nuevaCategoria()" *ngIf="nuevo">
+  Crear
+</button>
+        <button type="button" class="btn btn-success" *ngIf="!nuevo">
+  Modificar
+</button>
+        <button type="button" class="btn btn-danger ms-4">
+  Cancelar
+</button>
+
+    </form>
+    <div class="col-8">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Habilitado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let categoria of categorias">
+                    <td>{{categoria.nombre}}</td>
+                    <td>{{categoria.cat_habilitado}}</td>
+                    <td>
+                        <p-button icon="pi pi-trash" (click)="eliminar(categoria.cat_id)"></p-button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p-toast position="bottom-right"></p-toast>

@@ -1,4 +1,5 @@
 export class Categoria{
   cat_id!:number;
-  cat_nombre!:string;
+  nombre!:string;
+  cat_habilitado?:boolean;
 }

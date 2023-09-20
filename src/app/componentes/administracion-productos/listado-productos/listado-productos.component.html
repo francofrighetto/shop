@@ -1,4 +1,5 @@
-<table class="table">
+<h2>Articulos habilitados</h2>
+<table class="table" *ngIf="articulos.length!=0">
     <thead>
         <tr>
             <th scope="col">Codigo</th>
@@ -9,15 +10,40 @@
     </thead>
     <tbody>
         <tr *ngFor="let art of articulos">
-            <th scope="row">{{art.art_codigo}}</th>
-            <td>{{art.art_subcod}}</td>
-            <td>{{art.art_nombre}}</td>
+            <th scope="row">{{art.codigo}}</th>
+            <td>{{art.subcodigo}}</td>
+            <td>{{art.nombre}}</td>
             <td>
-                <mat-icon routerLink="producto/{{art.art_id}}">edit</mat-icon>
-                <mat-icon (click)="eliminar(art.art_id)">delete</mat-icon>
+                <p-button icon="pi pi-pencil" routerLink="producto/{{art.art_id}}"></p-button>
+                <p-button icon="pi pi-trash" (click)="eliminar(art.art_id)"></p-button>
+                <p-button icon="pi pi-camera" routerLink="productoFoto/{{art.art_id}}"></p-button>
             </td>
         </tr>
     </tbody>
 </table>
 
 <button mat-raised-button color="primary" routerLink="producto/nuevo">Agregar</button>
+
+<h2>Articulos no habilitados</h2>
+<table class="table" *ngIf="articulosNoHabilitados.length!=0">
+    <thead>
+        <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Subcodigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let art of articulosNoHabilitados">
+            <th scope="row">{{art.codigo}}</th>
+            <td>{{art.subcodigo}}</td>
+            <td>{{art.nombre}}</td>
+            <td>
+                <p-button icon="pi pi-pencil" routerLink="producto/{{art.art_id}}"></p-button>
+                <p-button icon="pi pi-trash" (click)="eliminar(art.art_id)"></p-button>
+                <p-button icon="pi pi-camera" routerLink="productoFoto/{{art.art_id}}"></p-button>
+            </td>
+        </tr>
+    </tbody>
+</table>
