@@ -1,14 +1,27 @@
-<nav class="navbar navbar-expand-lg justify-content-around">
+<nav class="navbar navbar-expand-md justify-content-around">
     <div class="container-fluid">
         <a routerLink="/" class="d-flex">
             <img src="../../../assets/img/logo.png" width="70px">
         </a>
-        <div class="central">
-            <div class="d-flex justify-content-center">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width mat-complete">
-                        <!-- (keyup.enter)="redirigir()" -->
-                        <input type="text" placeholder="Buscar" class="form-control inputBuscar mx-auto" [(ngModel)]="busqueda" (input)="buscar()" [formControl]="myControl" [matAutocomplete]="auto" matInput>
+        <div class="d-flex">
+
+            <a routerLink="/carrito" class="position-relative me-4 mt-1 d-md-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </svg>
+                <span class="cantCarrito">{{carritoService.cantidadProductos}}</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+      </button>
+
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <div class="central mt-2">
+                <div class="d-flex justify-content-center">
+                    <form class="example-form" role="search">
+                        <input matInput type="search" placeholder="Buscar" class="form-control inputBuscar mx-auto" [(ngModel)]="busqueda" (input)="buscar()" [formControl]="myControl" [matAutocomplete]="auto" matInput>
                         <mat-autocomplete #auto="matAutocomplete">
                             <mat-option [routerLink]="'/busqueda/'+busqueda" [value]="busqueda" (click)="busqueda=''">
                                 <mat-icon>search</mat-icon> VER TODAS LAS OPCIONES
@@ -17,91 +30,36 @@
                                 {{option.nombre}}
                             </mat-option>
                         </mat-autocomplete>
-                    </mat-form-field>
-                </form>
-            </div>
+                    </form>
+                </div>
 
-            <div class="d-flex justify-content-center">
-                <li class="nav-item dropdown me-3">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="d-flex justify-content-center">
+                    <li class="nav-item dropdown me-3">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Categorías
                     </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" *ngFor="let cat of categorias" routerLink="/productos/{{cat.nombre}}">{{cat.nombre | uppercase }}</a></li>
-                        <li><a class="dropdown-item" routerLink="/productos">TODOS LOS PRODUCTOS</a></li>
-                    </ul>
-                </li>
-                <a routerLink="/ofertas">Ofertas</a>
-            </div>
-        </div>
-
-        <div class="d-flex">
-            <a routerLink="/carrito" class="position-relative me-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                  </svg>
-                <span class="cantCarrito">{{carritoService.cantidadProductos}}</span>
-            </a>
-
-        </div>
-    </div>
-
-
-</nav>
-
-<!-- <body>
-    <div class="navigation-wrap bg-light start-header start-style">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="navbar navbar-expand-md navbar-light">
-
-                        <a class="navbar-brand" href="https://front.codes/" target="_blank"><img src="https://assets.codepen.io/1462889/fcy.png" alt=""></a>
-
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto py-4 py-md-0">
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" href="#">Portfolio</a>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" href="#">Agency</a>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" href="#">Journal</a>
-                                </li>
-                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                                    <a class="nav-link" href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </nav>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" *ngFor="let cat of categorias" routerLink="/productos/{{cat.nombre}}">{{cat.nombre | uppercase }}</a></li>
+                            <li><a class="dropdown-item" routerLink="/productos">TODOS LOS PRODUCTOS</a></li>
+                        </ul>
+                    </li>
+                    <a class="sub-nav" routerLink="/ofertas">Ofertas</a>
                 </div>
             </div>
         </div>
+
+        <div class="d-flex d-none d-md-inline">
+
+            <a routerLink="/carrito" class="position-relative me-4 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+      </svg>
+                <span class="cantCarrito">{{carritoService.cantidadProductos}}</span>
+            </a>
+        </div>
+
+
+
     </div>
-    <div class="my-5 py-5">
-    </div>
-</body> -->
+
+</nav>

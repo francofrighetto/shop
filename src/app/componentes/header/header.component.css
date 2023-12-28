@@ -55,3 +55,7 @@ li {
     width: 500px;
     max-width: 90vw;
 }
+
+.sub-nav {
+    width: 90px;
+}
