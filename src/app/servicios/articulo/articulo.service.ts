@@ -24,8 +24,18 @@ export class ArticuloService {
     return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.habilitados);
   }
 
+  getArticulosHabilitadosPag(page:number,size:number): Observable<Articulo[]>{
+    const params = { page, size };
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.habilitados+endpoints.paginado,{ params })
+  }
+
   getArticulosNoHabilitados() : Observable<Articulo[]>{
     return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.noHabilitados);
+  }
+
+  getArticulosNoHabilitadosPag(page:number,size:number): Observable<Articulo[]>{
+    const params = { page, size };
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.habilitados+endpoints.paginado,{ params })
   }
 
   getArticulosXCategoria(nombre:string) : Observable<Articulo[]>{

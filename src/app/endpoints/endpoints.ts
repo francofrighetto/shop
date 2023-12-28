@@ -17,5 +17,7 @@ export enum endpoints {
   habilitados="/habilitados",
   noHabilitados="/noHabilitados",
   cambioHabilitado="cambioHabilitado/",
-  verificados="/verificados"
+  verificados="/verificados",
+  paginado="/paginado"
+
 }
