@@ -1,7 +1,8 @@
 export const environment = {
   production: true,
-  // url_api:"http://localhost:3000/"
-  url_api:"http://localhost:8080/"
+  url_api:"https://marykayjulietafrighetto.com.ar/api/",
+  // url_api:"http://localhost:8080/",
 
-  // url_api:"https://spring-comercio.fly.dev/"
+  url_imagen: "https://marykayjulietafrighetto.com.ar/api/files/mostrar/"
+
 };

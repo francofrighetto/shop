@@ -6,7 +6,6 @@ import { Categoria } from 'src/app/clases/Categoria';
 import { Promocion } from 'src/app/clases/Promocion';
 import { ArticuloService } from 'src/app/servicios/articulo/articulo.service';
 import { CategoriaService } from 'src/app/servicios/categoria/categoria.service';
-import { PromocionService } from 'src/app/servicios/promocion/promocion.service';
 import Swal from 'sweetalert2';
 
 
@@ -42,7 +41,7 @@ export class ProductoComponent implements OnInit {
     const id = this.rutaActiva.snapshot.params["id"];
     if (id == "nuevo") {
       this.producto = new Articulo;
-      this.producto.art_habilitado = 1;
+      this.producto.artHabilitado = 1;
       this.nuevo = true;
     }
     if (id != undefined && id != "nuevo") {

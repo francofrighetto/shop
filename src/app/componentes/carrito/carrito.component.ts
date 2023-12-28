@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Articulo } from 'src/app/clases/Articulo';
-import { Producto } from 'src/app/clases/Producto';
-import { CarritoService } from 'src/app/servicios/carrito.service';
+import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
 import { GeneralService } from 'src/app/servicios/general/general.service';
 import Swal from 'sweetalert2';
 import { MessageService } from 'primeng/api';
@@ -54,7 +53,7 @@ export class CarritoComponent implements OnInit {
     this.mensaje = `Hola Julieta! Te queria encargar: %0A`;
     for (let i in this.productosCarrito) {
       this.mensaje += this.productosCarrito[i].nombre + ": " + this.productosCarrito[i].cantidadCarro + " unidad/es ($" + this.productosCarrito[i].cantidadCarro *
-        (this.productosCarrito[i].precio_venta - this.productosCarrito[i].precio_venta * this.productosCarrito[i].promocion / 100) + ") ";
+        (this.productosCarrito[i].precioVenta - this.productosCarrito[i].precioVenta * this.productosCarrito[i].promocion / 100) + ") ";
       if (this.productosCarrito[i].promocion != undefined && this.productosCarrito[i].promocion != 0) {
         this.mensaje += "(promocion)";
       }
@@ -77,7 +76,7 @@ export class CarritoComponent implements OnInit {
       if (producto.promocion == null || producto.promocion == undefined) {
         producto.promocion = 0;
       }
-      total += (parseFloat(producto.precio_venta) - parseFloat(producto.precio_venta) * parseFloat(producto.promocion) / 100) * parseFloat(producto.cantidadCarro);
+      total += (parseFloat(producto.precioVenta) - parseFloat(producto.precioVenta) * parseFloat(producto.promocion) / 100) * parseFloat(producto.cantidadCarro);
     }
     return this.funcionesGen.formatearTotal(total);
 

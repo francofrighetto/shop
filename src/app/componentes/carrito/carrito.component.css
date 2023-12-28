@@ -11,7 +11,7 @@ a {
     background-color: #f5d5f8;
 }
 
-img {
+.img-table {
     max-height: 100px;
     object-fit: cover;
 }
@@ -54,4 +54,19 @@ img {
     .acciones {
         display: flex;
     }
+}
+
+.titulo {
+    color: #3b3a39;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    margin: 50px 0px 0px 0px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.img-empty {
+    width: 700px;
+    height: auto;
 }

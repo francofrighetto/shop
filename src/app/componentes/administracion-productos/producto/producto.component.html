@@ -22,11 +22,11 @@
         </mat-form-field>
         <mat-form-field class="example-full-width ">
             <mat-label>Precio Compra</mat-label>
-            <input matInput placeholder="" [(ngModel)]="producto.precio_compra">
+            <input matInput placeholder="" [(ngModel)]="producto.precioCompra">
         </mat-form-field>
         <mat-form-field class="example-full-width ">
             <mat-label>Precio venta</mat-label>
-            <input matInput placeholder="" [(ngModel)]="producto.precio_venta">
+            <input matInput placeholder="" [(ngModel)]="producto.precioVenta">
         </mat-form-field>
     </div>
     <br>
@@ -47,7 +47,7 @@
         </mat-form-field>
 
         <mat-radio-group aria-label="Select an option" class="ms-5" *ngIf="!nuevo">
-            <mat-checkbox [(ngModel)]="producto.art_habilitado" [color]="'primary'">Habilitado</mat-checkbox>
+            <mat-checkbox [(ngModel)]="producto.artHabilitado" [color]="'primary'">Habilitado</mat-checkbox>
         </mat-radio-group>
     </div>
     <div class="form-group5 justify-content-between">

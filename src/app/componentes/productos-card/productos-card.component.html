@@ -4,8 +4,8 @@
 
 <div class="row d-flex justify-content-center container mt-5">
     <div class="card col-5 col-lg-3" *ngFor="let producto of productos" (click)="verMas(producto)">
-        <img src='http://66.97.37.6/fotos/{{producto.fotos[0].foto_nombre}}' alt="" *ngIf="producto.fotos.length!=0" />
-        <img src='https://static.vecteezy.com/system/resources/previews/005/723/771/non_2x/photo-album-icon-image-symbol-or-no-image-flat-design-on-a-white-background-vector.jpg' alt="" *ngIf="producto.fotos.length==0" />
+        <img src='{{url_imagen}}{{producto.fotos[0].foto_nombre}}' (error)="errorImagen(producto)" alt="Imagen producto" *ngIf="producto.fotos.length!=0 && !producto.errorImagen " />
+        <img src='./../../../assets/img/sin foto.jpg' alt="Imagen producto" *ngIf="producto.fotos.length==0 || producto.errorImagen" />
 
         <div class="cuerpo mx-auto">
             <h5 class="card__title text-center">{{producto.nombre}}</h5>
@@ -15,8 +15,8 @@
 
             <div class="card__shop">
                 <span *ngIf="producto.promocion!=undefined && producto.promocion!=0"><span class="tachado" >${{producto.precio | number: '1.2'}}</span> {{producto.promocion}}%</span>
-                <span class="card__shop__price" *ngIf="producto.promocion==undefined">${{producto.precio_venta | number: '1.2'}}</span>
-                <span class="card__shop__price" *ngIf="producto.promocion!=undefined">${{producto.precio_venta - producto.precio_venta*producto.promocion/100  | number: '1.2'}}</span>
+                <span class="card__shop__price" *ngIf="producto.promocion==undefined">${{producto.precioVenta | number: '1.2'}}</span>
+                <span class="card__shop__price" *ngIf="producto.promocion!=undefined">${{producto.precioVenta - producto.precioVenta*producto.promocion/100  | number: '1.2'}}</span>
             </div>
             <div class="d-flex justify-content-around my-2 botones">
                 <!-- <button class="btn btn-danger p-1" (click)="agregar(producto)">
@@ -54,4 +54,8 @@
         </div> -->
 
 
+</div>
+<div class="row text-center " *ngIf="!hayProductos">
+    <span class="titulo">No hay artículos de esta categoría</span>
+    <img class="foto mx-auto" src="../../../assets/img/no-products.png">
 </div>

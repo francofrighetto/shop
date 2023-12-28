@@ -41,15 +41,18 @@ import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-AR';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
-  { path: 'productos/:idCategoria', component: ProductosCardComponent },
+  { path: 'productos/:nombreCategoria', component: ProductosCardComponent },
   {path: 'ver-mas/:id', component: VerMasComponent },
   {path: 'carrito', component: CarritoComponent },
   {path: 'ofertas', component: OfertasComponent },
   {path: 'abmProductos', component: ListadoProductosComponent },
   {path: 'abmProductos/producto/:id', component: ProductoComponent },
+  {path: 'busqueda/:nombre', component: BusquedaComponent },
   {path: 'abmProductos/producto/nuevo', component: ProductoComponent },
   {path: 'abmProductos/productoFoto/:id', component: FotoComponent },
   {path: 'administracion/promocion', component: PromocionComponent },
@@ -77,6 +80,7 @@ registerLocaleData(localeEs, 'es-AR');
     FotoComponent,
     PromocionComponent,
     CategoriaComponent,
+    BusquedaComponent,
     ],
   imports: [
     BrowserModule,
@@ -105,7 +109,9 @@ registerLocaleData(localeEs, 'es-AR');
     BreadcrumbModule,
     GalleriaModule,
     TableModule,
-    ToastModule
+    ToastModule,
+    MatAutocompleteModule
+
   ],
   providers: [],
   exports:[RouterModule],

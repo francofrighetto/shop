@@ -186,3 +186,7 @@ body.dark {
 .tachado {
     text-decoration: line-through;
 }
+
+.foto {
+    width: 500px;
+}

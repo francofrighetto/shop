@@ -1,9 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Carrito } from 'src/app/clases/Carrito';
-import { Producto } from 'src/app/clases/Producto';
-import { CarritoService } from 'src/app/servicios/carrito.service';
-import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
-import { ProductoService } from 'src/app/servicios/producto.service';
+import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
@@ -12,6 +9,8 @@ import { Articulo } from 'src/app/clases/Articulo';
 import { MenuItem } from 'primeng/api';
 import { CategoriaService } from 'src/app/servicios/categoria/categoria.service';
 import { Categoria } from 'src/app/clases/Categoria';
+import { FilesService } from 'src/app/servicios/files/files.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-productos-card',
@@ -20,13 +19,15 @@ import { Categoria } from 'src/app/clases/Categoria';
 })
 export class ProductosCardComponent implements OnInit {
 
-  constructor(private manejoJson: ManejoJsonService,
+  constructor(
     private carritoService: CarritoService,
-    private productoService: ProductoService,
     private route: Router,
     private rutaActiva: ActivatedRoute,
     private articuloService: ArticuloService,
-    private categoriaService: CategoriaService) { }
+    private categoriaService: CategoriaService,
+    private fileService: FilesService) { }
+
+
   productos!: Articulo[];
   carrito!: Carrito;
   categoria?: Categoria;
@@ -37,21 +38,24 @@ export class ProductosCardComponent implements OnInit {
 
   titulo: string = "";
 
-  id?: number;
-  ngOnInit(): void {
-    // this.manejoJson.getProductos().subscribe(
-    //   data => {
-    // this.productos = data.productos;
-    // })
-    this.id = this.rutaActiva.snapshot.params["idCategoria"];
-    if (this.id != undefined) {
-      this.getArticulosXCategoria(this.id);
-      this.getCategoria(this.id);
-    } else {
-      this.getArticulos();
-      this.titulo = "Todos los artículos";
-    }
+  url_imagen: string = environment.url_imagen;
+  hayProductos: boolean = false;
 
+
+  id?: number;
+  nombreCategoria: string = "";
+  ngOnInit(): void {
+    this.rutaActiva.paramMap.subscribe((params) => {
+      this.nombreCategoria = params.get('nombreCategoria') || "";
+      if (this.nombreCategoria != "") {
+        this.getArticulosXCategoria(this.nombreCategoria);
+        this.items = [{ label: this.nombreCategoria, routerLink: '/productos/' + this.nombreCategoria }];
+      } else {
+        this.getArticulos();
+      }
+    });
+    // this.nombreCategoria = this.rutaActiva.snapshot.params["nombreCategoria"] || "";
+    // this.getCategoria(this.nombreCategoria);
 
 
     if (localStorage.getItem("carrito") == undefined) {
@@ -60,24 +64,33 @@ export class ProductosCardComponent implements OnInit {
   }
 
   getArticulos() {
-    this.articuloService.getArticulos().subscribe(data => {
+    this.articuloService.getArticulosVerificados().subscribe(data => {
       this.productos = data;
+      this.hayProductos = this.productos.length != 0;
     })
   }
 
-  getArticulosXCategoria(id: number) {
-    this.articuloService.getArticulosXCategoria(id).subscribe(data => {
+  errorImagen(producto: Articulo) {
+    producto.errorImagen = true;
+  }
+
+  getArticulosXCategoria(nombre: string) {
+    this.articuloService.getArticulosXCategoria(nombre).subscribe(data => {
       this.productos = data;
+      this.hayProductos = this.productos.length != 0;
     })
   }
 
-  getCategoria(id: number) {
-    this.categoriaService.getCategoriaId(id).subscribe(data => {
-      this.categoria = data;
-      if (this.categoria != null) {
-        this.items = [{ label: this.categoria.nombre, routerLink: '/productos/' + this.categoria.cat_id }];
-      }
-    })
+  getCategoria(nombre: string) {
+    // this.categoriaService.getCategoriaId(id).subscribe(data => {
+    //   this.categoria = data;
+    //   if (this.categoria != null) {
+    //     this.items = [{ label: this.categoria.nombre, routerLink: '/productos/' + this.categoria.cat_id }];
+    //   }
+    // })
+
+
+
   }
 
 

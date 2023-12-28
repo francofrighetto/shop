@@ -1,0 +1,192 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* body {
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #171717;
+} */
+
+:root {
+    --secondary: linear-gradient(221deg, #8743ff, #4136f1 60%);
+    --body: #eaf2ff;
+    --card: #fff;
+    --text: #000;
+    --price: #4136f1;
+}
+
+body.dark {
+    --body: #171717;
+    --text: #fff;
+    --card: #0d0d0d;
+}
+
+
+/* .theme-toggle {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: var(--secondary);
+    transition: background 0.3s;
+    border-radius: 10%;
+    cursor: pointer;
+    color: #fff;
+} */
+
+.card {
+    height: auto;
+    border-radius: 10px;
+    font-family: sans-serif;
+    color: var(--text);
+    box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+/* .cuerpo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.card__title-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__title {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.card__description {
+    margin: 0;
+}
+
+.card__shop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+} */
+
+.card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 14px;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.cuerpo {
+    width: 90%;
+    padding-bottom: 0%;
+    position: relative;
+    min-height: 100px;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.card__title {
+    margin-top: 16px;
+    transition: color 0.3s;
+}
+
+.card__description {
+    margin-top: 5px;
+    display: block;
+    font-size: 15px;
+    opacity: 0.6;
+    transition: color 0.3s;
+}
+
+.card__shop {
+    width: 100%;
+    margin-top: auto;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 5px;
+    margin: 0;
+    margin-top: 10px;
+    bottom: 0;
+    display: block;
+}
+
+.card__shop__price {
+    font-size: large;
+    color: #4136f1;
+    bottom: 0;
+    display: block;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    gap: 20px;
+}
+
+.botones {
+    gap: 10px;
+}
+
+
+/* catalogo pdf */
+
+.card-pdf {
+    text-align: center;
+    padding: 10px;
+    justify-content: center;
+    height: auto;
+    border-radius: 10px;
+    font-family: sans-serif;
+    color: var(--text);
+    box-shadow: 5px 10px 10px 0px rgba(0, 0, 0, 0.2);
+    background-color: antiquewhite;
+}
+
+.card-pdf:hover {
+    cursor: auto;
+}
+
+.btn-pdf {
+    width: 200px;
+    margin: auto;
+}
+
+@media (max-width:700px) {
+    .container {
+        width: 100%;
+    }
+    .cuerpo {
+        min-height: 120px;
+    }
+}
+
+.tachado {
+    text-decoration: line-through;
+}
+
+.foto {
+    width: 500px;
+}

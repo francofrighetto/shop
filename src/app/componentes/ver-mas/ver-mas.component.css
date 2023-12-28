@@ -135,7 +135,7 @@ body {
     text-decoration: line-through;
 }
 
-.product-detail h2 {
+.product-detail h1 {
     text-transform: capitalize;
     color: #12263a;
     padding-bottom: 0.6rem;

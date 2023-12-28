@@ -32,4 +32,5 @@ export class CategoriaService {
   getCategoriaId(id:number){
     return this.http.get<Categoria>(environment.url_api+endpoints.categoria+endpoints.mostrar+"/"+id);
   }
+
 }

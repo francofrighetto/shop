@@ -1,14 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CarritoService } from 'src/app/servicios/carrito.service';
-import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
+import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
 import { Producto } from 'src/app/clases/Producto';
-import { ProductoService } from 'src/app/servicios/producto.service';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Carrito } from 'src/app/clases/Carrito';
 import { Articulo } from 'src/app/clases/Articulo';
 import { ArticuloService } from 'src/app/servicios/articulo/articulo.service';
 import { MenuItem, MessageService } from 'primeng/api';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 declare let alertify: any;
 
@@ -23,9 +20,8 @@ declare let alertify: any;
 
 export class VerMasComponent implements OnInit {
 
-  constructor(private manejoJson: ManejoJsonService,
+  constructor(
     private carritoService: CarritoService,
-    private productoService: ProductoService,
     private route: ActivatedRoute,
     private articuloService: ArticuloService,
     private messageService: MessageService) { }
@@ -56,7 +52,7 @@ export class VerMasComponent implements OnInit {
     }
   ];
   productosCarrito: any;
-  urlImagen: string = "http://66.97.37.6/fotos/";
+  url_imagen:string = environment.url_imagen;
   style: string = "";
 
   ngOnInit(): void {
@@ -89,17 +85,22 @@ export class VerMasComponent implements OnInit {
     this.articuloService.getArticuloId(this.id).subscribe(data => {
       this.producto = data;
       if (this.producto.fotos.length != 0) {
-        this.imagen = this.urlImagen + this.producto.fotos[0].foto_nombre;
+        this.imagen = this.url_imagen + this.producto.fotos[0].foto_nombre;
       }
-      this.items.push({ label: this.producto.art_cat.nombre, routerLink: '/productos/' + this.producto.art_cat.cat_id })
+      this.items.push({ label: this.producto.art_cat.nombre, routerLink: '/productos/' + this.producto.art_cat.nombre })
       this.items.push({ label: this.producto.nombre, routerLink: '/ver-mas/' + this.producto.art_id })
       this.buscarArticuloCarrito();
     })
   }
 
   cambiarImagen(ruta: any) {
-    this.imagen = this.urlImagen + ruta.foto_nombre;
+    this.imagen = this.url_imagen + ruta.foto_nombre;
   }
+
+  errorImagen(producto:Articulo){
+    producto.errorImagen=true;
+  }
+
   agregarProducto(producto: Articulo) {
     if (!producto.agregado) {
       if (this.carritoService.agregarProducto(producto)) {

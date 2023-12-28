@@ -7,11 +7,11 @@ export class Articulo{
   art_id!:number;
   codigo?: number;
   subcodigo?:number;
-  art_habilitado?:number;
+  artHabilitado?:number;
   nombre!:string;
   stock!:number;
-  precio_compra!:number;
-  precio_venta!:number;
+  precioCompra!:number;
+  precioVenta!:number;
   descripcion!:string;
   art_cat:Categoria=new Categoria;
   fotos! : any[];
@@ -24,5 +24,6 @@ export class Articulo{
   unidadMedida?:string;
   promocion?:number;
   agregado:boolean=false;
+  errorImagen:boolean=false;
 }
 

@@ -1,8 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable, map, startWith } from 'rxjs';
 import { Categoria } from 'src/app/clases/Categoria';
-import { CarritoService } from 'src/app/servicios/carrito.service';
+import { ArticuloService } from 'src/app/servicios/articulo/articulo.service';
+import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
 import { CategoriaService } from 'src/app/servicios/categoria/categoria.service';
-// import { MatIcon } from '@angular/material';
 
 
 @Component({
@@ -13,18 +16,39 @@ import { CategoriaService } from 'src/app/servicios/categoria/categoria.service'
 export class HeaderComponent implements OnInit {
 
   constructor(public carritoService:CarritoService,
-    private categoriaService:CategoriaService ) {}
+    private categoriaService:CategoriaService,
+    private articuloService:ArticuloService,
+    private router: Router ) {}
+    myControl = new FormControl('');
 
-    categorias?:Categoria[];
+    busqueda:string="";
+    options: any[] = [];
+    filteredOptions!: Observable<string[]>;
+       categorias?:Categoria[];
 
   ngOnInit(): void {
     this.getCategorias();
+
   }
+
 
   getCategorias(){
     this.categoriaService.getCategorias().subscribe(data=>{
       this.categorias=data;
     })
   }
+
+  buscar(){
+    this.articuloService.buscarPorNombre(this.busqueda).subscribe(data=>{
+      this.options = data;
+    })
+  }
+
+
+  redirigir(){
+    this.router.navigate(["/busqueda/"+this.busqueda]);
+    this.busqueda="";
+  }
+
 
 }

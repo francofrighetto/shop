@@ -1,6 +1,6 @@
 <div class="general h-100 mt-5">
-    <div class="card table-pc container px-0">
-        <p-table [value]="productosCarrito" [tableStyle]="{'width': '100%'}" [breakpoint]="'600px'" *ngIf="productosCarrito.length!=0">
+    <div class="card table-pc container px-0" *ngIf="productosCarrito.length!=0">
+        <p-table [value]="productosCarrito" [tableStyle]="{'width': '100%'}" [breakpoint]="'600px'">
 
             <ng-template pTemplate="header">
                 <tr>
@@ -14,7 +14,8 @@
                 <tr>
                     <td>
                         <a [routerLink]="'ver-mas/'+product.art_id">
-                            <img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/bamboo-watch.jpg'" [alt]="product.nombre" width="100" class="shadow-4" />
+                            <img src='https://marykayjulietafrighetto.com.ar/api/files/mostrar/{{product.fotos[0].foto_nombre}}' alt="Foto producto" class="img-table" *ngIf="product.fotos.length!=0 && !product.errorImagen" [alt]="product.nombre" width="100" class="shadow-4" />
+                            <img src='./../../../assets/img/sin foto.jpg' alt="Sin foto producto" class="img-table" *ngIf="product.fotos.length==0 || product.errorImagen" [alt]="product.nombre" width="100" class="shadow-4" />
                         </a>
 
                         <a [routerLink]="'/ver-mas/'+product.art_id" class="ms-2">{{product.nombre}}</a>
@@ -38,14 +39,14 @@
                     </td>
                     <td class="precio">
                         <span class="" *ngIf="product.promocion==undefined || product.promocion==0">
-                ${{product.precio_venta* product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
+                ${{product.precioVenta* product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
               </span>
                         <div *ngIf="product.promocion!=undefined && product.promocion!=0">
                             <span class="tachado d-block">
-                        ${{product.precio_venta * product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
+                        ${{product.precioVenta * product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
                       </span>
                             <span class="">
-                    ${{(product.precio_venta - product.precio_venta*product.promocion/100 )* product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
+                    ${{(product.precioVenta - product.precioVenta*product.promocion/100 )* product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
                     </span>
                         </div>
                     </td>
@@ -69,24 +70,26 @@
             </ng-template>
         </p-table>
     </div>
-    <div class="card table-mobile container">
-        <p-table [value]="productosCarrito" [tableStyle]="{'width': '100%'}" [breakpoint]="'600px'" *ngIf="productosCarrito.length!=0">
+    <div class="card table-mobile container" *ngIf="productosCarrito.length!=0">
+        <p-table [value]="productosCarrito" [tableStyle]="{'width': '100%'}" [breakpoint]="'600px'">
             <ng-template pTemplate="body" let-product>
                 <tr>
                     <td>
                         <div>
-                            <img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/bamboo-watch.jpg'" [alt]="product.nombre" width="100" class="shadow-4" />
+                            <img src='https://marykayjulietafrighetto.com.ar/api/files/mostrar/{{product.fotos[0].foto_nombre}}' alt="Foto producto" class="img-table" *ngIf="product.fotos.length!=0 && !product.errorImagen " [alt]="product.nombre" width="100" class="shadow-4" />
+                            <img src='./../../../assets/img/sin foto.jpg' alt="Sin foto producto" class="img-table" *ngIf="product.fotos.length==0 || product.errorImagen" [alt]="product.nombre" width="100" class="shadow-4" />
+
                             <span class="ms-2">{{product.nombre}}</span>
                         </div>
                         <span class="" *ngIf="product.promocion==undefined || product.promocion==0">
-                      ${{product.precio_venta* product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
+                      ${{product.precioVenta* product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
                     </span>
                         <div *ngIf="product.promocion!=undefined && product.promocion!=0">
                             <span class="tachado d-block">
-                              ${{product.precio_venta * product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
+                              ${{product.precioVenta * product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
                             </span>
                             <span class="">
-                          ${{(product.precio_venta - product.precio_venta*product.promocion/100 )* product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
+                          ${{(product.precioVenta - product.precioVenta*product.promocion/100 )* product.cantidadCarro |  number:'1.2-2' : 'es-AR'}}
                           </span>
                         </div>
 
@@ -120,18 +123,22 @@
 
 
 
+    <div class="row text-center" *ngIf="productosCarrito.length==0 ">
+        <span class="titulo">No hay artículos en el carrito</span>
+        <br>
+        <img class="img-empty mx-auto" src="../../../assets/img/pasos.png">
+        <p-button label="Seguir comprando" icon="pi pi-shopping-cart" styleClass="p-button-primary" [routerLink]="'/productos'"></p-button>
+
+    </div>
+
 
     <div class="acciones justify-content-end" *ngIf="productosCarrito.length!=0 ">
-        <p-button label="Seguir comprando" icon="pi pi-shopping-cart" styleClass="p-button-primary" [routerLink]="'/productos'"></p-button>
-        <p-button label="Vaciar carrito" icon="pi pi-trash" styleClass="p-button-danger" (click)="vaciarTodo()"></p-button>
-        <p-button label="Confirmar pedido" icon="pi pi-whatsapp" styleClass="p-button-success" (click)="enviarWpp() "></p-button>
-
+        <p-button label="Seguir comprando" icon="pi pi-shopping-cart" styleClass="p-button-primary my-1" [routerLink]="'/productos'"></p-button>
+        <p-button label="Vaciar carrito" icon="pi pi-trash" styleClass="p-button-danger my-1" (click)="vaciarTodo()"></p-button>
+        <p-button label="Confirmar pedido" icon="pi pi-whatsapp" styleClass="p-button-success my-1" (click)="enviarWpp() "></p-button>
     </div>
 
 
-    <div *ngIf="productosCarrito.length==0 ">
-        <h1>No hay artículos en el carrito</h1>
-    </div>
     <div class="w-100">
         <p-toast position="bottom-right"></p-toast>
     </div>

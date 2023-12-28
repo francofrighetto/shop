@@ -5,7 +5,7 @@
         <tbody>
             <tr *ngFor="let foto of articulo.fotos" class="mb-1">
 
-                <td><img src="{{foto.foto_nombre}}" height="60px"></td>
+                <img src='{{url_imagen}}{{foto.foto_nombre}}' alt="" height="100px" />
                 <td>
                     <p class="mx-2">{{foto.foto_nombre}}</p>
                 </td>

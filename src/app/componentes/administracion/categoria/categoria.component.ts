@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { error } from 'console';
 import { MessageService } from 'primeng/api';
 import { Categoria } from 'src/app/clases/Categoria';
 import { CategoriaService } from 'src/app/servicios/categoria/categoria.service';

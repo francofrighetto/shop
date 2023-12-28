@@ -1,0 +1,62 @@
+<app-presentacion></app-presentacion>
+<p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+<h2 class="text-center mt-4 titulo">Resltuados para: {{busqueda}}</h2>
+
+
+<div class="row d-flex justify-content-center container mt-5">
+    <div class="card col-5 col-lg-3" *ngFor="let producto of productos" (click)="verMas(producto)">
+        <img src='{{url_imagen}}{{producto.fotos[0].foto_nombre}}' (error)="errorImagen(producto)" alt="Imagen producto" *ngIf="producto.fotos.length!=0 && !producto.errorImagen " />
+        <img src='./../../../assets/img/sin foto.jpg' alt="Imagen producto" *ngIf="producto.fotos.length==0 || producto.errorImagen" />
+
+        <div class="cuerpo mx-auto">
+            <h5 class="card__title text-center">{{producto.nombre}}</h5>
+            <!-- <span class="card__description">{{producto.descripcion}}</span> -->
+            <!-- <span>cantidad: {{producto.stock}} unidades</span> -->
+            <br>
+
+            <div class="card__shop">
+                <span *ngIf="producto.promocion!=undefined && producto.promocion!=0"><span class="tachado" >${{producto.precio | number: '1.2'}}</span> {{producto.promocion}}%</span>
+                <span class="card__shop__price" *ngIf="producto.promocion==undefined">${{producto.precioVenta | number: '1.2'}}</span>
+                <span class="card__shop__price" *ngIf="producto.promocion!=undefined">${{producto.precioVenta - producto.precioVenta*producto.promocion/100  | number: '1.2'}}</span>
+            </div>
+            <div class="d-flex justify-content-around my-2 botones">
+                <!-- <button class="btn btn-danger p-1" (click)="agregar(producto)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                            <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                          </svg>
+                          Agregar
+                    </button> -->
+                <!-- <a routerLink="/ver-mas/{{producto.id}}" routerLinkActive="active" ariaCurrentWhenActive="page">
+                    <button class="btn btn-primary p-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-plus-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                        </svg>
+                        Ver mas
+                    </button>
+                </a> -->
+            </div>
+        </div>
+    </div>
+    <div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8648637467372824" crossorigin="anonymous"></script>
+    </div>
+
+    <!-- <div class="card col-3">
+            <img src="https://images.unsplash.com/photo-1554600740-951beab4712b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="" />
+            <h2 class="card__title">Coffee mug</h2>
+            <span class="card__description">Summer outfits</span>
+            <div class="card__shop">
+                <span class="card__shop__price">7.99$</span>
+
+            </div>
+        </div> -->
+
+
+</div>
+<div class="row text-center " *ngIf="!hayProductos">
+    <span class="titulo">No hay artículos de esta categoría</span>
+    <img class="foto mx-auto" src="../../../assets/img/no-products.png">
+</div>

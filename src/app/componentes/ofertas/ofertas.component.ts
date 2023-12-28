@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Articulo } from 'src/app/clases/Articulo';
 import { Carrito } from 'src/app/clases/Carrito';
-import { ArticuloService } from 'src/app/servicios/articulo/articulo.service';
-import { CarritoService } from 'src/app/servicios/carrito.service';
-import { ManejoJsonService } from 'src/app/servicios/manejo-json.service';
+import { CarritoService } from 'src/app/servicios/carrito/carrito.service';
 import { OfertaService } from 'src/app/servicios/oferta/oferta.service';
-import { ProductoService } from 'src/app/servicios/producto.service';
 import Swal from 'sweetalert2';
 
 import { MenuItem } from 'primeng/api';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -20,14 +18,20 @@ import { MenuItem } from 'primeng/api';
 export class OfertasComponent implements OnInit {
 
   carrito:Carrito=new Carrito();
-  constructor(private manejoJson: ManejoJsonService,
+  url_imagen:string = environment.url_imagen;
+
+
+
+  constructor(
     private carritoService: CarritoService,
     private route: Router,
     private ofertaService: OfertaService) { }
   productos!: Articulo[];
-  items: MenuItem[] =[];
+  hayOfertas:boolean=false;
 
-  home: MenuItem={ label:'Ofertas', routerLink: '/ofertas' };
+  home: MenuItem = { label: 'Articulos', routerLink: '/' };
+  items: MenuItem[] =[{ label: 'Ofertas', routerLink: '/ofertas' }];
+
 
 
   ngOnInit(): void {
@@ -40,7 +44,14 @@ export class OfertasComponent implements OnInit {
   getOfertas() {
     this.ofertaService.getOfertas().subscribe(data => {
       this.productos = data;
+      if(this.productos.length!=0){
+        this.hayOfertas=true;
+      }
     })
+  }
+
+  errorImagen(producto: Articulo) {
+    producto.errorImagen = true;
   }
 
 

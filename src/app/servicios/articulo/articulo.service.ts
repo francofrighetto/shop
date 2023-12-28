@@ -16,16 +16,24 @@ export class ArticuloService {
     return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar);
   }
 
+  getArticulosVerificados() : Observable<Articulo[]>{
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.verificados);
+  }
+
   getArticulosHabilitados() : Observable<Articulo[]>{
-    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrarHabilitados);
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.habilitados);
   }
 
   getArticulosNoHabilitados() : Observable<Articulo[]>{
-    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrarNoHabilitados);
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.noHabilitados);
   }
 
-  getArticulosXCategoria(idCategoria:number) : Observable<Articulo[]>{
-    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+"/"+endpoints.categoria+idCategoria);
+  getArticulosXCategoria(nombre:string) : Observable<Articulo[]>{
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+"/"+endpoints.categoria+nombre);
+  }
+
+  buscarPorNombre(nombre:string) : Observable<Articulo[]>{
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.busqueda+"/"+nombre);
   }
 
   guardarArticulo(articulo:any) :Observable<any>{

@@ -34,8 +34,24 @@ nav {
 a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 li {
     list-style: none;
+}
+
+.central {
+    flex-grow: 2;
+}
+
+.inputBuscar,
+.mat-complete {
+    width: 500px;
+    max-width: 100%;
+}
+
+.example-form {
+    width: 500px;
+    max-width: 90vw;
 }
