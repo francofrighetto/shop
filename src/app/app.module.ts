@@ -43,6 +43,8 @@ import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es-AR';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
+// import { AdSenseModule } from 'ng2-adsense';
+
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent },
@@ -110,7 +112,11 @@ registerLocaleData(localeEs, 'es-AR');
     GalleriaModule,
     TableModule,
     ToastModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    // AdSenseModule.forRoot({
+    //   adClient: 'tu-id-de-cliente',
+    //   adSlot: 1234567890
+    // }),
 
   ],
   providers: [],

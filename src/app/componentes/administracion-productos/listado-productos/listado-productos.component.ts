@@ -1,16 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AfterViewInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 import { Articulo } from 'src/app/clases/Articulo';
 import { ArticuloService } from 'src/app/servicios/articulo/articulo.service';
-import { ProductoComponent } from '../producto/producto.component';
-import { Categoria } from 'src/app/clases/Categoria';
 import Swal from 'sweetalert2';
-import {
-  MatSnackBar
-} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Page } from 'src/app/clases/Page';
 
 @Component({
   selector: 'app-listado-productos',
@@ -19,12 +13,7 @@ import {
 })
 
 
-
-
-
-
 export class ListadoProductosComponent {
-
 
   articulos!: Articulo[];
   articulosNoHabilitados!: Articulo[];
@@ -33,8 +22,12 @@ export class ListadoProductosComponent {
   open: boolean = false;
 
   // paginado
-  pageNumber: number = 0;
-  pageSize: number = 20;
+  pageNumberHabilitados: number = 0;
+  pageNumberNoHabilitados: number = 0;
+
+  pageSizeHabilitados: number = 20;
+  pageSizeNoHabilitados: number = 20;
+
   totalItemsHabilitados?: number;
   totalItemsNoHabilitados?: number;
 
@@ -44,8 +37,8 @@ export class ListadoProductosComponent {
     public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    // this.getArticulos();
-    this.getArticulosPaginado();
+    this.getArticulosHabilitadosPag();
+    this.getArticulosNoHabilitadosPag();
 
   }
 
@@ -58,17 +51,18 @@ export class ListadoProductosComponent {
     })
   }
 
-  getArticulosPaginado(){
-    this.articuloService.getArticulosHabilitadosPag(this.pageNumber, this.pageSize).subscribe(data=>{
-      this.articulos = data;
-      this.totalItemsHabilitados = data.length;
-    })
-    this.articuloService.getArticulosNoHabilitadosPag(this.pageNumber, this.pageSize).subscribe(data=>{
-      this.articulosNoHabilitados = data;
-      this.totalItemsNoHabilitados = data.length;
+  getArticulosHabilitadosPag() {
+    this.articuloService.getArticulosHabilitadosPag(this.pageNumberHabilitados, this.pageSizeHabilitados).subscribe((data: Page) => {
+      this.articulos = data.contenido;
+      this.totalItemsHabilitados = data.totalRegistros;
     })
   }
-
+  getArticulosNoHabilitadosPag() {
+    this.articuloService.getArticulosNoHabilitadosPag(this.pageNumberNoHabilitados, this.pageSizeNoHabilitados).subscribe((data: Page) => {
+      this.articulosNoHabilitados = data.contenido;
+      this.totalItemsNoHabilitados = data.totalRegistros;
+    })
+  }
 
 
   eliminar(id: number) {
@@ -94,14 +88,16 @@ export class ListadoProductosComponent {
     });
   }
 
-  onPageChange(event: any) {
-    this.pageNumber = event.pageIndex;
-    this.articuloService.getArticulosHabilitadosPag(this.pageNumber, this.pageSize).subscribe(data=>{
-      console.log(data);
-    })
+  onPageChangeHabilitados(event: any) {
+    this.pageNumberHabilitados = event.pageIndex;
+    this.getArticulosHabilitadosPag();
+
   }
+  onPageChangeNoHabilitados(event: any) {
+    this.pageNumberNoHabilitados = event.pageIndex;
+    this.getArticulosNoHabilitadosPag();
 
-
+  }
 
 }
 

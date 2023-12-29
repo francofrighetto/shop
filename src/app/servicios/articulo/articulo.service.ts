@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Articulo } from 'src/app/clases/Articulo';
 import { endpoints } from 'src/app/endpoints/endpoints';
+import { Page } from 'src/app/clases/Page';
 
 @Injectable({
   providedIn: 'root'
@@ -24,18 +25,18 @@ export class ArticuloService {
     return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.habilitados);
   }
 
-  getArticulosHabilitadosPag(page:number,size:number): Observable<Articulo[]>{
+  getArticulosHabilitadosPag(page:number,size:number): Observable<Page>{
     const params = { page, size };
-    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.habilitados+endpoints.paginado,{ params })
+    return this.http.get<Page>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.habilitados+endpoints.paginado,{ params })
   }
 
   getArticulosNoHabilitados() : Observable<Articulo[]>{
     return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.noHabilitados);
   }
 
-  getArticulosNoHabilitadosPag(page:number,size:number): Observable<Articulo[]>{
+  getArticulosNoHabilitadosPag(page:number,size:number): Observable<Page>{
     const params = { page, size };
-    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.habilitados+endpoints.paginado,{ params })
+    return this.http.get<Page>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.noHabilitados+endpoints.paginado,{ params })
   }
 
   getArticulosXCategoria(nombre:string) : Observable<Articulo[]>{
