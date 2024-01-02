@@ -36,7 +36,7 @@ jobs:
     - name: Set up FTP
       uses: appleboy/scp-action@master
       with:
-        server: ${{ secrets.FTP_HOST }}
+        host: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
         port: ${{ secrets.FTP_PORT }}
