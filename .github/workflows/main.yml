@@ -38,7 +38,7 @@ jobs:
       with:
         host: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USER }}
-        password: ${{ secrets.FTP_PASSWORD }}
+        key: ${{ secrets.FTP_PRIVATE_KEY }}
         port: ${{ secrets.FTP_PORT }}
         source: "dist/"
         target: "/var/www/comercio"
