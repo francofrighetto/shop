@@ -40,5 +40,5 @@ jobs:
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
         port: ${{ secrets.FTP_PORT }}
-        local: dist
-        remote: /var/www/comercio
+        source: "dist/"
+        target: "/var/www/comercio"
