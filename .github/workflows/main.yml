@@ -34,7 +34,7 @@ jobs:
 
     steps:
     - name: Set up FTP
-      uses: wvbe/ftp-auto-deploy@v2
+      uses: SamKirkland/FTP-Deploy-Action@4.1.1
       with:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USER }}
