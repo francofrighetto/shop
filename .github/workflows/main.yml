@@ -39,5 +39,5 @@ jobs:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
-        localDir: dist
-        remoteDir: /var/www/comercio
+        local-dir: dist
+        server-dir: /var/www/comercio
