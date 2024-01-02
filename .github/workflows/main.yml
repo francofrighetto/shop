@@ -34,7 +34,7 @@ jobs:
 
     steps:
     - name: Set up FTP
-      uses: SamKirkland/FTP-Deploy-Action@4.1.1
+      uses: SamKirkland/FTP-Deploy-Action@v4
       with:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USER }}
