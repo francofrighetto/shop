@@ -34,10 +34,11 @@ jobs:
 
     steps:
     - name: Set up FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      uses: appleboy/scp-action@master
       with:
         server: ${{ secrets.FTP_HOST }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: dist
-        server-dir: /var/www/comercio
+        port: ${{ secrets.FTP_PORT }}
+        local: dist
+        remote: /var/www/comercio
