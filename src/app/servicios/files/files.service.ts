@@ -18,4 +18,8 @@ export class FilesService {
   viewFile(nombre:string){
     return this.http.get(environment.url_api+endpoints.files+endpoints.mostrar+"/"+nombre);
   }
+
+  deleteFile(nombre:string){
+    return this.http.delete(environment.url_api+endpoints.files+endpoints.deleteFile+"/"+nombre);
+  }
 }

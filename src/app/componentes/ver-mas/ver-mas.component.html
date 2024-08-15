@@ -13,8 +13,7 @@
             <div class="img-select" *ngIf="producto.fotos.length>1">
                 <div class="img-item" (click)="cambiarImagen(foto)" *ngFor="let foto of producto.fotos">
                     <a class="sub-fotos">
-                        <img src="{{url_imagen+foto.foto_nombre}}" alt="Producto" (load)="getImageSize($event, foto)" [style]="foto.style" (error)="errorImagen(producto)" *ngIf="!producto.errorImagen">
-                        <!-- <img src='{{url_imagen}}{{producto.fotos[0].foto_nombre}}' (error)="errorImagen(producto)" alt="Imagen producto" *ngIf="producto.fotos.length!=0 && !producto.errorImagen " /> -->
+                        <img src="{{url_imagen+foto.nombre}}" alt="Producto" (load)="getImageSize($event, foto)" [style]="foto.style" (error)="errorImagen(producto)" *ngIf="!producto.errorImagen">
                         <img src='./../../../assets/img/sin foto.jpg' alt="Imagen producto" *ngIf="producto.fotos.length!=0 && producto.errorImagen" />
 
                         <img src='./../../../assets/img/sin foto.jpg' alt="Imagen no disponible" *ngIf="producto.fotos.length==0" />

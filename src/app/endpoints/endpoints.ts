@@ -12,6 +12,9 @@ export enum endpoints {
   eliminar="eliminar",
   upload="upload",
   busqueda="busqueda",
+  todos="todos",
+  deleteFile="deleteFile",
+  nulo="nulo",
 
 
   habilitados="/habilitados",

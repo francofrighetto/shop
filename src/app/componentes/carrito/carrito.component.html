@@ -14,7 +14,7 @@
                 <tr>
                     <td>
                         <a [routerLink]="'ver-mas/'+product.art_id">
-                            <img src='https://marykayjulietafrighetto.com.ar/api/files/mostrar/{{product.fotos[0].foto_nombre}}' alt="Foto producto" class="img-table" *ngIf="product.fotos.length!=0 && !product.errorImagen" [alt]="product.nombre" width="100" class="shadow-4" />
+                            <img src='https://marykayjulietafrighetto.com.ar/api/files/mostrar/{{product.fotos[0].nombre}}' alt="Foto producto" class="img-table" *ngIf="product.fotos.length!=0 && !product.errorImagen" [alt]="product.nombre" width="100" class="shadow-4" />
                             <img src='./../../../assets/img/sin foto.jpg' alt="Sin foto producto" class="img-table" *ngIf="product.fotos.length==0 || product.errorImagen" [alt]="product.nombre" width="100" class="shadow-4" />
                         </a>
 
@@ -76,7 +76,7 @@
                 <tr>
                     <td>
                         <div>
-                            <img src='https://marykayjulietafrighetto.com.ar/api/files/mostrar/{{product.fotos[0].foto_nombre}}' alt="Foto producto" class="img-table" *ngIf="product.fotos.length!=0 && !product.errorImagen " [alt]="product.nombre" width="100" class="shadow-4" />
+                            <img src='https://marykayjulietafrighetto.com.ar/api/files/mostrar/{{product.fotos[0].nombre}}' alt="Foto producto" class="img-table" *ngIf="product.fotos.length!=0 && !product.errorImagen " [alt]="product.nombre" width="100" class="shadow-4" />
                             <img src='./../../../assets/img/sin foto.jpg' alt="Sin foto producto" class="img-table" *ngIf="product.fotos.length==0 || product.errorImagen" [alt]="product.nombre" width="100" class="shadow-4" />
 
                             <span class="ms-2">{{product.nombre}}</span>
@@ -114,7 +114,6 @@
                         <p-button icon="pi pi-trash" (click)="eliminarItem(product) "></p-button>
 
                     </td>
-                    <!-- <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.fotos[0].foto_nombre" [alt]="product.nombre" width="100" class="shadow-4" /></td> -->
                 </tr>
             </ng-template>
 

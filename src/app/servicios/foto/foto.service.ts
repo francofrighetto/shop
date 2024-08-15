@@ -13,6 +13,13 @@ export class FotoService {
 
   nuevaFoto(idArt:any,url_foto:any):Observable<any>{
     return this.http.post(environment.url_api+endpoints.foto+endpoints.nuevo,
-    {"foto_nombre":url_foto, "articulo":{"art_id":idArt}});
+    {"nombre":url_foto, "articulo":{"art_id":idArt}});
+  }
+  eliminarFotoNombre(nombre:string):Observable<any>{
+    return this.http.delete(environment.url_api+endpoints.foto+endpoints.eliminar+"/"+nombre);
+  }
+
+  eliminarFotoId(id:number):Observable<any>{
+    return this.http.post(environment.url_api+endpoints.foto+endpoints.eliminar+"/" +endpoints.nulo +"/"+id,{});
   }
 }

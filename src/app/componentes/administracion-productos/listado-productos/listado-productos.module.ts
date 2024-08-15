@@ -4,6 +4,7 @@ import { ProductoComponent } from '../producto/producto.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ListadoProductosComponent } from './listado-productos.component';
 import { FotoComponent } from '../foto/foto.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'producto/:id', component: ProductoComponent },
@@ -14,7 +15,9 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[RouterModule],
 })

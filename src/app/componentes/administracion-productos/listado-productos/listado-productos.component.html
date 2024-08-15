@@ -1,63 +1,76 @@
-<button class="my-4 ms-3" mat-raised-button color="primary" routerLink="producto/nuevo">Agregar producto</button>
+<div class="d-flex justify-content-around">
+    <form class="example-form" role="search">
+        <input type="text" class="form-control mt-2" placeholder="Buscar" name="inputBusqueda" [(ngModel)]="busqueda" (input)="buscar()">
+    </form>
+    <button class="my-2" mat-raised-button color="primary" routerLink="producto/nuevo">Agregar producto</button>
 
-<h2>Articulos habilitados</h2>
-<table class="table container" *ngIf="articulos!=undefined && articulos.length!=0">
-    <thead>
-        <tr>
-            <!-- <th scope="col">Codigo</th> -->
-            <!-- <th scope="col">Subcodigo</th> -->
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let art of articulos">
-            <!-- <th scope="row">{{art.codigo}}</th> -->
-            <!-- <td>{{art.subcodigo}}</td> -->
-            <td>{{art.nombre}}</td>
-            <td>{{art.precioVenta}}</td>
-            <td>{{art.stock}}</td>
-
-            <td>
-                <p-button icon="pi pi-pencil" routerLink="producto/{{art.art_id}}"></p-button>
-                <p-button icon="pi pi-trash" (click)="eliminar(art.art_id)"></p-button>
-                <p-button icon="pi pi-camera" routerLink="productoFoto/{{art.art_id}}"></p-button>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-<mat-paginator [length]="totalItemsHabilitados" [pageSize]="15" [pageSizeOptions]="[15,30]" aria-label="Select page" (page)="onPageChangeHabilitados($event)">
-</mat-paginator>
+</div>
 
 
-<h2>Articulos no habilitados</h2>
-<table class="table container" *ngIf="articulosNoHabilitados!=undefined && articulosNoHabilitados.length!=0">
-    <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let art of articulosNoHabilitados">
-            <!-- <th scope="row">{{art.codigo}}</th>
-            <td>{{art.subcodigo}}</td> -->
-            <td>{{art.nombre}}</td>
-            <td>{{art.precioVenta}}</td>
-            <td>{{art.stock}}</td>
-            <td>
-                <p-button icon="pi pi-pencil" routerLink="producto/{{art.art_id}}"></p-button>
-                <p-button icon="pi pi-trash" (click)="eliminar(art.art_id)"></p-button>
-                <p-button icon="pi pi-camera" routerLink="productoFoto/{{art.art_id}}"></p-button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<h2 class="ms-3">Articulos habilitados</h2>
+<div *ngIf="articulos!=undefined && articulos.length!=0">
+    <table class="table container">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let art of articulos">
+                <td>{{art.nombre}}</td>
+                <td>{{art.precioVenta}}</td>
+                <!-- stock por color -->
+                <!-- <td [style.background]="'red'" class="td-stock" *ngIf="art.stock<=0">{{art.stock}}</td>
+                <td [style.background]="'yellow'" *ngIf="art.stock==1">{{art.stock}}</td>
+                <td [style.background]="'green'" class="td-stock" *ngIf="art.stock>1">{{art.stock}}</td> -->
+                <!-- stock -->
+                <td>{{art.stock}}</td>
 
-<mat-paginator [length]="totalItemsNoHabilitados" [pageSize]="15" [pageSizeOptions]="[15,30]" aria-label="Select page" (page)="onPageChangeNoHabilitados($event)">
-</mat-paginator>
+                <td>
+                    <p-button icon="pi pi-pencil" routerLink="producto/{{art.art_id}}"></p-button>
+                    <p-button icon="pi pi-trash" class="mx-2" (click)="eliminar(art.art_id)"></p-button>
+                    <p-button icon="pi pi-camera" routerLink="productoFoto/{{art.art_id}}"></p-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <mat-paginator [length]="totalItemsHabilitados" [pageSize]="15" [pageSizeOptions]="[15,30]" aria-label="Select page" (page)="onPageChangeHabilitados($event)">
+    </mat-paginator>
+</div>
+<span *ngIf="articulos==undefined || articulos.length==0">No hay articulos habilitados</span>
+
+
+<h2 class="ms-3">Articulos no habilitados</h2>
+<div *ngIf="articulosNoHabilitados!=undefined && articulosNoHabilitados.length!=0">
+    <table class="table container">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let art of articulosNoHabilitados">
+                <td>{{art.nombre}}</td>
+                <td>{{art.precioVenta}}</td>
+                <td>{{art.stock}}</td>
+                <td>
+                    <p-button icon="pi pi-pencil" routerLink="producto/{{art.art_id}}"></p-button>
+                    <p-button icon="pi pi-replay" class="mx-2" (click)="eliminar(art.art_id)"></p-button>
+                    <p-button icon="pi pi-camera" routerLink="productoFoto/{{art.art_id}}"></p-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <mat-paginator [length]="totalItemsNoHabilitados" [pageSize]="15" [pageSizeOptions]="[15,30]" aria-label="Select page" (page)="onPageChangeNoHabilitados($event)">
+    </mat-paginator>
+</div>
+<span *ngIf="articulosNoHabilitados==undefined || articulosNoHabilitados.length==0">No hay articulos deshabilitados</span>

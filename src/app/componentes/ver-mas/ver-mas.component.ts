@@ -85,7 +85,7 @@ export class VerMasComponent implements OnInit {
     this.articuloService.getArticuloId(this.id).subscribe(data => {
       this.producto = data;
       if (this.producto.fotos.length != 0) {
-        this.imagen = this.url_imagen + this.producto.fotos[0].foto_nombre;
+        this.imagen = this.url_imagen + this.producto.fotos[0].nombre;
       }
       this.items.push({ label: this.producto.art_cat.nombre, routerLink: '/productos/' + this.producto.art_cat.nombre })
       this.items.push({ label: this.producto.nombre, routerLink: '/ver-mas/' + this.producto.art_id })
@@ -94,7 +94,7 @@ export class VerMasComponent implements OnInit {
   }
 
   cambiarImagen(ruta: any) {
-    this.imagen = this.url_imagen + ruta.foto_nombre;
+    this.imagen = this.url_imagen + ruta.nombre;
   }
 
   errorImagen(producto:Articulo){

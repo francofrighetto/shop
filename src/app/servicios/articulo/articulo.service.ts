@@ -17,6 +17,11 @@ export class ArticuloService {
     return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar);
   }
 
+
+  getTodosArticulosNombre(nombre:string) : Observable<Articulo[]>{
+    return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.busqueda+"/"+ endpoints.todos +"/"+ nombre);
+  }
+
   getArticulosVerificados() : Observable<Articulo[]>{
     return this.http.get<Articulo[]>(environment.url_api+endpoints.articulo+endpoints.mostrar+endpoints.verificados);
   }

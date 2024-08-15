@@ -5,6 +5,7 @@ import { ArticuloService } from 'src/app/servicios/articulo/articulo.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Page } from 'src/app/clases/Page';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-listado-productos',
@@ -31,6 +32,7 @@ export class ListadoProductosComponent {
   totalItemsHabilitados?: number;
   totalItemsNoHabilitados?: number;
 
+  busqueda:string="";
 
 
   constructor(private articuloService: ArticuloService,
@@ -39,6 +41,8 @@ export class ListadoProductosComponent {
   ngOnInit(): void {
     this.getArticulosHabilitadosPag();
     this.getArticulosNoHabilitadosPag();
+
+
 
   }
 
@@ -97,6 +101,19 @@ export class ListadoProductosComponent {
     this.pageNumberNoHabilitados = event.pageIndex;
     this.getArticulosNoHabilitadosPag();
 
+  }
+
+  buscar(){
+    console.log(this.busqueda)
+    if (this.busqueda.length==0){
+      this.getArticulos();
+    }else{
+    this.articuloService.getTodosArticulosNombre(this.busqueda).subscribe((data:any)=>{
+      this.articulos=data.habilitados;
+      this.articulosNoHabilitados=data.deshabilitados;
+
+    })
+  }
   }
 
 }
